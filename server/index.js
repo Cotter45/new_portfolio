@@ -28,10 +28,30 @@ app.all(
       }
 );
 
-let port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`Express server listening on port ${port}`);
-});
+// let port = process.env.PORT || 3000;
+// app.listen(port, () => {
+//   console.log(`Express server listening on port ${port}`);
+// });
+
+const { port } = require('./config');
+
+const db = require('./db/models');
+
+// Check the database connection before starting the app
+db.sequelize
+  .authenticate()
+  .then(() => {
+    console.log('Database connection success! Sequelize is ready to use...');
+
+    // Start listening for connections
+    app.listen(port, () => console.log(`Listening on port ${port}...`));
+  })
+  .catch((err) => {
+    console.log('Database connection failure.');
+    console.error(err);
+  });
+
+// module.exports = app;
 
 ////////////////////////////////////////////////////////////////////////////////
 function purgeRequireCache() {
