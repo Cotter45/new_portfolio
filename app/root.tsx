@@ -124,9 +124,9 @@ function Layout({ children }: { children: React.ReactNode }) {
     <div id="root">
       <header className="header">
         <div className="header-content">
-          <Link to="/" title="Remix" className="header-home-link">
+          {/* <Link to="/" title="Remix" className="header-home-link">
             {` <> Sean Cotter </> `}
-          </Link>
+          </Link> */}
           <nav aria-label="Main navigation" className="header-nav">
             <ul>
               <li>

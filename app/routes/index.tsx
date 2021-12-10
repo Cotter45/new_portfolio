@@ -1,5 +1,6 @@
 import type { MetaFunction, LoaderFunction } from "remix";
 import { useLoaderData, json, Link } from "remix";
+import CanvasFun from "./canvas";
 
 type IndexData = {
   resources: Array<{ name: string; url: string }>;
@@ -61,6 +62,7 @@ export default function Index() {
   return (
     <div className="remix__page">
       <main>
+        <CanvasFun />
         <h2>Welcome to Remix!</h2>
         <p>We're stoked that you're here. 🥳</p>
         <p>

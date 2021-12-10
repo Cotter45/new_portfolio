@@ -27,7 +27,7 @@ export default function About() {
   const springApi = useSpringRef();
   const { size, ...rest } = useSpring({
     ref: springApi,
-    config: config.stiff,
+    config: config.molasses,
     from: {
       size: "20%",
       background: "transparent",
@@ -57,19 +57,19 @@ export default function About() {
     open ? 0.1 : 0.6,
   ]);
 
-  useEffect(() => {
-    if (!open) return;
+//   useEffect(() => {
+//     if (!open) return;
 
-    const close = (e: MouseEvent) => {
-      if (!(e.target as HTMLElement).closest(".test_container")) set(false);
-    };
+//     const close = (e: MouseEvent) => {
+//       if (!(e.target as HTMLElement).closest(".test_container")) set(false);
+//     };
 
-    document.addEventListener("click", close);
+//     document.addEventListener("click", close);
 
-    return () => {
-      document.removeEventListener("click", close);
-    };
-  });
+//     return () => {
+//       document.removeEventListener("click", close);
+//     };
+//   });
 
   return (
     <div style={{ width: "90%", height: "100%", background: "#253237" }}>
@@ -170,13 +170,12 @@ export default function About() {
                 </>
             ))} */}
           </animated.div>
-          <p>This is a placeholder for the right side</p>
-          <button
-            className="button"
+        <button
+            className="button scroll"
             onClick={() => parallax.current.scrollTo(1)}
-          >
+        >
             Scroll or Click Here
-          </button>
+        </button>
         </ParallaxLayer>
 
         <ParallaxLayer offset={1} speed={0.8} style={{ opacity: 0.1 }}>
@@ -342,7 +341,10 @@ export default function About() {
           }}
           // onClick={() => parallax.current.scrollTo(0)}
         >
-          <img src='/images/parallax/five/world_animation.gif' style={{ width: "100%", objectFit: 'contain' }} />
+          <img
+            src="/images/parallax/five/world_animation.gif"
+            style={{ width: "100%", objectFit: "contain" }}
+          />
         </ParallaxLayer>
       </Parallax>
     </div>

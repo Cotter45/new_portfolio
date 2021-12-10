@@ -1240,7 +1240,7 @@ input[type="button"]:disabled,
 
 .header-content {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   width: 90%;
   max-width: 1400px;
@@ -1359,7 +1359,19 @@ body {
   width: 50%;
 }
 
-.parallax {
+#canvas1 {
+  position: absolute;
+  height: 60%;
+  width: 100%;
+  z-index: -1;
+  color: black;
+  bottom: -20%;
+}
 
+.scroll {
+  position: sticky;
+  float: right;
+  z-index: 10;
+  opacity: .1;
 }
 
