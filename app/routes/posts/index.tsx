@@ -77,7 +77,7 @@ export default function Posts() {
   })
 
   return (
-    <div className="full">
+    <div className="container">
       {/* <h1>Posts</h1>
       <ul>
         {posts.map((post) => (
@@ -223,15 +223,20 @@ export default function Posts() {
                 >
                   <p style={{display: open ? 'none' : 'block'}}>Click me</p>
                   {transition((style, item) => (
+                    <>
                     <animated.div
                       className="item"
-                      style={{ ...style, background: item.css }}
-                    />
+                      style={{ ...style, background: item.css, color: 'black' }}
+                    >
+                    </animated.div>
+                    <p style={{ color: 'black'}}>{item.name}</p>
+                    </>
                   ))}
                 </animated.div>
               </div>
               <div className="placeholder">
                 <p>This is a placeholder for the right side</p>
+                <button className='button' onClick={() => parallax.current.scrollTo(1)}>Scroll</button>
               </div>
             </div>
             <img src={url("server")} style={{ width: "20%" }} />
