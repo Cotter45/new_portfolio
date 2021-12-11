@@ -43,7 +43,7 @@ export let meta: MetaFunction = () => {
 export default function Index() {
 
   return (
-    <div className="container column no_scroll">
+    <div className="container column" id="no_scroll">
       <main>
         <CanvasFun />
         {/* <h2>Welcome to Remix!</h2>
@@ -61,7 +61,7 @@ export default function Index() {
         </p> */}
         <Particles />
         <aside className='container column splash_text'>
-          <h3>I'm a Web Developer based out of Philadelphia</h3>
+          <h3>I'm a Web Developer from Philadelphia</h3>
           <p>This is my personal portfolio site. Here you can find 
             my story, my projects, contact me and more. I hope you enjoy it!
           </p>

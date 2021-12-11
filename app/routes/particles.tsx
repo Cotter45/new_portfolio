@@ -86,17 +86,16 @@ export default function Particles() {
                 }
         
                 function initScene(){
-                    const size = canvas.getBoundingClientRect();
                     ww = canvas.width = document.documentElement.clientWidth;
                     wh = canvas.height = document.documentElement.clientHeight;
                     
                     if (ctx) {
                         ctx.clearRect(0, 0, canvas.width, canvas.height);
                 
-                        ctx.font = "" + wh / 6 + "px Source Sans Pro";
+                        ctx.font = "" + wh / 8 + "px Source Sans Pro";
                         ctx.textAlign = "center";
-                        ctx.fillText("Hi,", ww / 3.5, wh / 3.5);
-                        ctx.fillText("I'm Sean", ww/2, wh / 2.2);
+                        ctx.fillText("Hi,", ww / 3.5, wh / 4.5);
+                        ctx.fillText("I'm Sean", ww/2, wh / 2.8);
             
                         let data  = ctx.getImageData(0, 0, ww, wh).data;
                         ctx.clearRect(0, 0, canvas.width, canvas.height);
