@@ -8,8 +8,7 @@ export default function CanvasFun() {
         if (canvas) {
             const ctx = canvas.getContext("2d");
 
-            // let TRAIL_PLAN = ["u","r","d","b","r","c"];
-            let TRAIL_PLAN = ["b", "u", "r", "d", "c", "r", "u", "r", "d", "b", "r"];
+            let TRAIL_PLAN = ["u","r","d","b","r","c"];
             const pointCopy = function(src: any, dst: any){
                 dst.x = src.x;
                 dst.y = src.y;
@@ -126,7 +125,7 @@ export default function CanvasFun() {
                 }
                 camera.x += (trails[0].pos.x-camera.x-50)*0.0002*time_d;
                 camera.y += (trails[0].pos.y-camera.y-300)*0.00002*time_d;
-                camera.z += (trails[0].pos.z-camera.z)*0.0002*time_d;
+                // camera.z += (trails[0].pos.z-camera.z)*0.0002*time_d;
                 time_pre = time_now;
             };
 
