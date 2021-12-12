@@ -2,6 +2,7 @@ import { Outlet, Link, useLoaderData } from "remix";
 import { getPosts } from "~/post";
 import type { Post } from "~/post";
 import adminStyles from "~/styles/admin.css";
+import CanvasFun from "./canvas";
 
 export const loader = () => {
   return getPosts();
@@ -17,7 +18,8 @@ export default function Admin() {
   return (
     <div className="admin">
       <nav>
-        <h1>Admin</h1>
+        <h1>Comment</h1>
+        <CanvasFun />
         <ul>
           {posts.map(post => (
             <li key={post.slug}>

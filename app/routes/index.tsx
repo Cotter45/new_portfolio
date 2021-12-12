@@ -1,6 +1,6 @@
 import type { MetaFunction } from "remix";
-import CanvasFun from "./canvas";
 import Particles from "./particles";
+import ThreeD from "./three";
 
 // type IndexData = {
 //   demos: Array<{ name: string; to: string }>;
@@ -43,30 +43,16 @@ export let meta: MetaFunction = () => {
 export default function Index() {
 
   return (
-    <div className="container column" id="no_scroll">
-      <main>
-        <CanvasFun />
-        {/* <h2>Welcome to Remix!</h2>
-        <p>We're stoked that you're here. 🥳</p>
-        <p>
-          Feel free to take a look around the code to see how Remix does things,
-          it might be a bit different than what you’re used to. When you're
-          ready to dive deeper, we've got plenty of resources to get you
-          up-and-running quickly.
-        </p>
-        <p>
-          Check out all the demos in this starter, and then just delete the{" "}
-          <code>app/routes/demos</code> and <code>app/styles/demos</code>{" "}
-          folders when you're ready to turn this into your next project.
-        </p> */}
-        <Particles />
+    <>
+      <Particles />
+      <div className="container column" id="no_scroll">
         <aside className='container column splash_text'>
           <h3>I'm a Web Developer from Philadelphia</h3>
           <p>This is my personal portfolio site. Here you can find 
             my story, my projects, contact me and more. I hope you enjoy it!
           </p>
         </aside>
-      </main>
-    </div>
+      </div>
+    </>
   );
 }

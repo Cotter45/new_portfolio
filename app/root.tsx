@@ -133,7 +133,7 @@ function Layout({ children }: { children: React.ReactNode }) {
                 <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to="/posts">Posts</Link>
+                <Link to="/contact">Contact</Link>
               </li>
               <li>
                 <Link to="/about">About</Link>
@@ -142,8 +142,8 @@ function Layout({ children }: { children: React.ReactNode }) {
           </nav>
         </div>
       </header>
-      <main className="container column">
-        <div className="container">{children}</div>
+      <main className="main_container column">
+        {children}
       </main>
       <footer className="remix-app__footer">
         <div className="container remix-app__footer-content">
