@@ -147,7 +147,7 @@ function Layout({ children }: { children: React.ReactNode }) {
       </main>
       <footer className="remix-app__footer">
         <div className="container remix-app__footer-content">
-          <p>&copy; Sean Cotter</p>
+          <p>&copy; Sean Cotter, Full Stack Web Developer</p>
         </div>
       </footer>
     </div>

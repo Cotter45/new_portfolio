@@ -94,14 +94,14 @@ export default function Particles() {
                 
                         ctx.font = "" + wh / 8 + "px Source Sans Pro";
                         ctx.textAlign = "center";
-                        ctx.fillText("Hi,", ww / 3.5, wh / 4.5);
+                        ctx.fillText("Hi,", ww / 4, wh / 4.5);
                         ctx.fillText("I'm Sean", ww/2, wh / 2.8);
             
                         let data  = ctx.getImageData(0, 0, ww, wh).data;
                         ctx.clearRect(0, 0, canvas.width, canvas.height);
                         ctx.globalCompositeOperation = "screen";
                         particles = [];
-                        for(let i=0;i<ww;i+=Math.round(ww/400)){
+                        for(let i=0;i<ww;i+=Math.round(ww/1000)){
                             for(let j=0;j<wh;j+=Math.round(wh/150)){
                                 if(data[ ((i + j*ww)*4) + 3] > 150){
                                     particles.push(new (Particle as any)(i,j));
