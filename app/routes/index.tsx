@@ -1,7 +1,7 @@
 import type { MetaFunction } from "remix";
 
-import Particles from "./particles";
-import ThreeD from "./three";
+import Particles from "../canvas/particles";
+import ThreeD from "../canvas/three";
 
 
 // type IndexData = {

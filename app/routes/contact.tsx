@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import { getPosts } from "~/post";
 import type { Post } from "~/post";
-import CanvasFun from "./canvas";
+import CanvasFun from "../canvas/canvas";
 
 export const loader = () => {
   return getPosts();

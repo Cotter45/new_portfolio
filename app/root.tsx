@@ -12,6 +12,7 @@ import type { LinksFunction } from "remix";
 
 import globalStylesUrl from "~/styles/global.css";
 import darkStylesUrl from "~/styles/dark.css";
+import { ModalProvider } from "./modals/modal";
 
 // https://remix.run/api/app#links
 export let links: LinksFunction = () => {
@@ -30,9 +31,11 @@ export let links: LinksFunction = () => {
 export default function App() {
   return (
     <Document>
-      <Layout>
-        <Outlet />
-      </Layout>
+      <ModalProvider>
+        <Layout>
+          <Outlet />
+        </Layout>
+      </ModalProvider>
     </Document>
   );
 }
@@ -137,6 +140,9 @@ function Layout({ children }: { children: React.ReactNode }) {
               </li>
               <li>
                 <Link to="/about">About</Link>
+              </li>
+              <li>
+                <Link to="/projects">My Work</Link>
               </li>
             </ul>
           </nav>
