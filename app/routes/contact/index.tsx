@@ -1,4 +1,12 @@
 import { Link } from "remix";
+import type { MetaFunction } from "remix";
+
+export let meta: MetaFunction = () => {
+  return {
+    title: "Contact",
+    description: "Leave a message after the beep.",
+  };
+};
 
 export default function AdminIndex() {
   return (

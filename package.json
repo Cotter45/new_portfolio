@@ -53,6 +53,7 @@
     "sequelize": "^5.22.4",
     "sequelize-cli": "^5.5.1",
     "three": "0.135.0",
+    "three-stdlib": "2.0.5",
     "tiny-invariant": "^1.2.0",
     "uuid": "^8.3.2"
   },

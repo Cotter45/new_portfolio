@@ -1,4 +1,6 @@
 import { Outlet, Link, useLoaderData } from "remix";
+import { useState } from "react";
+
 import { getPosts } from "~/post";
 import type { Post } from "~/post";
 import CanvasFun from "./canvas";
@@ -9,15 +11,16 @@ export const loader = () => {
 
 export default function Admin() {
   const posts = useLoaderData<Post[]>();
+  const [newPost, setNewPost] = useState<boolean>(false);
+
   return (
-    <div className="admin no_scroll">
-      <CanvasFun />
+    <div className="contact no_scroll">
       <div className='container'>
         <h2>Comments</h2>
         <ul className='list'>
           {posts.map(post => (
             <li key={post.slug}>
-              <Link to={`/contact/posts/${post.slug}`}>{post.title}</Link>
+              <Link to={`/posts/${post.slug}`}>{post.title}</Link>
             </li>
           ))}
         </ul>
@@ -25,6 +28,7 @@ export default function Admin() {
       <main className='container scroller'>
         <Outlet />
       </main>
+      <CanvasFun />
     </div>
   );
 }

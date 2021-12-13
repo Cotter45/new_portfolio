@@ -5,6 +5,9 @@ export default function CanvasFun() {
 
     useEffect(() => {
         const canvas = document.getElementById("canvas1") as HTMLCanvasElement;
+
+        let mouseMove: any;
+
         if (canvas) {
             const ctx = canvas.getContext("2d");
 
@@ -35,6 +38,9 @@ export default function CanvasFun() {
                 switch(TRAIL_PLAN[this.plan_i]){
                     case "r":
                         this.goal.x += Math.random()*50+50;
+                        break;
+                    case "l":
+                        this.goal.x -= Math.random()*50+50;
                         break;
                     case "u":
                         this.goal.y -= Math.random()*250+100;
@@ -74,29 +80,28 @@ export default function CanvasFun() {
             Trail.prototype.draw = function(ctx: any, camera: any){
                 let i;
                 let ps = {x:0, y:0};
-                let red = Math.floor(255*(1-this.pos.z/camera.z));
-                let green = Math.floor(255*(this.pos.z/camera.z));
-                let blue = Math.floor(255*(1-this.pos.z/camera.z));
-                ctx.fillStyle = "rgb("+red+","+green+","+blue+")";
+                // ctx.font = "100px serif";
+                // ctx.strokeText("Contact Me", -200, 200, 400);
                 ctx.beginPath();
                 if(perspective(this.vertexes[0], camera, ps)){
                   ctx.moveTo(ps.x, ps.y);
+                  ctx.lineWidth = 2;
                 }
-                let x0 = ps.x;
                 for(i=1; i<this.vertexes.length; i++){
                     if(perspective(this.vertexes[i], camera, ps)){
-                    ctx.strokeStyle = "rgba(255,255,255,"+2/(this.vertexes[i].z-camera.z)+")";
-                    ctx.lineTo(ps.x, ps.y);
-                    ctx.stroke();
-                    ctx.beginPath();
-                    ctx.moveTo(ps.x, ps.y);
+                        ctx.strokeStyle = "darkgreen";
+                        ctx.lineTo(ps.x, ps.y);
+                        ctx.stroke();
+                        ctx.beginPath();
+                        ctx.moveTo(ps.x, ps.y);
+                        ctx.closePath();
                     }
                 }
                 if(perspective(this.pos, camera, ps)){
-                  ctx.strokeStyle = "rgba("+red+","+green+","+blue+",1)";
-                  ctx.lineTo(ps.x, ps.y);
-                  ctx.fillStyle='rgba('+red+','+green+','+blue+',1)';
-                  ctx.stroke();
+                    ctx.strokeStyle = "gray";
+                    ctx.lineTo(ps.x, ps.y);
+                    ctx.closePath();
+                    ctx.stroke();
                 }
             };
 
@@ -152,6 +157,13 @@ export default function CanvasFun() {
                 updateScene();
                 drawScene(ctx);
             }, 1000/60);
+            mouseMove = canvas.addEventListener("mousemove", (e) => {
+                camera.z = -2 + (e.clientY-canvas.height/2)/canvas.height*4;
+            })
+        }
+
+        return () => {
+            canvas.removeEventListener("mousemove", mouseMove);
         }
     })
 

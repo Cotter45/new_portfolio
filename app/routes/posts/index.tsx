@@ -1,4 +1,13 @@
 import { Link, useLoaderData } from "remix";
+import type { MetaFunction } from "remix";
+
+export let meta: MetaFunction = () => {
+  return {
+    title: "Comments",
+    description: "Mailbox is full.",
+  };
+};
+
 import { getPosts } from "~/post";
 import type { Post } from "~/post";
 

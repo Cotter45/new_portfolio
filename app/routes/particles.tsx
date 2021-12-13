@@ -11,6 +11,7 @@ export default function Particles() {
         let click: any;
         let touchEnd: any;
         let animation: any;
+        let pause: boolean = false;
 
         if (canvas) {
 
@@ -30,15 +31,15 @@ export default function Particles() {
                 let wh = canvas.height = document.documentElement.clientHeight;
         
                 function Particle(this: any, x: any,y: any){
-                    this.x =  Math.random()*ww;
-                    this.y =  Math.random()*wh;
+                    this.x =  ww / 2;
+                    this.y =  wh / 4;
                     this.dest = {
                         x : x,
                         y: y
                     };
                     this.r =  Math.random()*3 + 1;
-                    this.vx = (Math.random()-0.5)*20;
-                    this.vy = (Math.random()-0.5)*20;
+                    this.vx = (Math.random()-0.5)*10;
+                    this.vy = (Math.random()-0.5)*10;
                     this.accX = 0;
                     this.accY = 0;
                     this.friction = Math.random()*0.02 + 0.94;
@@ -137,6 +138,7 @@ export default function Particles() {
                 }
         
                 function render() {
+                    if (pause) return;
                     requestAnimationFrame(render);
                     ctx?.clearRect(0, 0, canvas.width, canvas.height);
                     for (let i = 0; i < amount; i++) {
@@ -150,7 +152,7 @@ export default function Particles() {
                 click = window.addEventListener("click", onMouseClick);
                 touchEnd = window.addEventListener("touchend", onTouchEnd);
                 initScene();
-                animation = requestAnimationFrame(render);
+                animation = render();
             }
         }
 
@@ -161,6 +163,7 @@ export default function Particles() {
             window.removeEventListener("click", click);
             window.removeEventListener("touchend", touchEnd);
             cancelAnimationFrame(animation);
+            pause = true;
         }
     });
 

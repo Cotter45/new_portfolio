@@ -1,5 +1,14 @@
 import { useLoaderData } from "remix";
 import type { LoaderFunction } from "remix";
+import type { MetaFunction } from "remix";
+
+export let meta: MetaFunction = () => {
+  return {
+    title: "Comments",
+    description: "Mailbox is full.",
+  };
+};
+
 import { getPost } from "~/post";
 import invariant from "tiny-invariant";
 

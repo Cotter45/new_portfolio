@@ -1,4 +1,4 @@
-import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Suspense, useMemo, useRef } from "react";
 import * as THREE from "three";
 
@@ -42,20 +42,18 @@ function Particles({ count }: Props) {
     }
     // Run through the randomized data to calculate some movement
     particles.forEach((particle, i) => {
-      let { t, factor, speed, xFactor, yFactor, zFactor } = particle;
+      let { t, speed, xFactor, yFactor, zFactor } = particle;
       // There is no sense or reason to any of this, just messing around with trigonometric functions
       t = particle.t += speed / 10;
-      const a = Math.cos(t) + Math.sin(t * 1) / 10;
-      const b = Math.sin(t) + Math.cos(t * 2) / 10;
       const s = Math.cos(t);
       particle.mx += (state.mouse.x - particle.mx) * 0.01;
       particle.my += (state.mouse.y * -1 - particle.my) * 0.01;
       // Update the dode object
       dode.position.set(
-        particle.mx * xFactor,
-        particle.my * yFactor,
+        particle.mx * xFactor - s,
+        particle.my * yFactor - s,
         s * zFactor
-        );
+      );
       dode.scale.set(s, s, s);
       dode.rotation.set(s * 5, s * 5, s * 5);
       dode.updateMatrix();
@@ -67,26 +65,11 @@ function Particles({ count }: Props) {
     }
   });
   return (
-    <>
-      <pointLight ref={light} distance={100} intensity={1} color="white" />
       <instancedMesh receiveShadow ref={mesh} args={[undefined, undefined, count]}>
-        <dodecahedronGeometry args={[.15, 0]} />
-        <meshPhongMaterial color="aquamarine" />
+        <dodecahedronGeometry args={[.2, 0]} />
+        <meshPhongMaterial color="#3eb08f" />
       </instancedMesh>
-    </>
   );
-}
-
-function Icons( props: any) {
-
-    const [texture1] = useLoader(THREE.TextureLoader, [props.image]);
-    
-    return (
-        <mesh position={props.position}>
-            <planeBufferGeometry attach="geometry" args={[1, 1]} />
-            <meshStandardMaterial attach="material" map={texture1} />
-        </mesh>
-    )
 }
 
 
@@ -109,9 +92,10 @@ export default function ThreeD() {
         }}
       >
         <Suspense fallback={null}>
-            <Particles count={3500} />
+          <Particles count={3500} />
         </Suspense>
-        <ambientLight intensity={.2} />
+        <ambientLight intensity={0.1} />
+        <spotLight castShadow intensity={1} position={[25, 25, 0]} />
       </Canvas>
     );
 }
