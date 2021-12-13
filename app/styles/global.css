@@ -119,7 +119,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  height: fit-content;
+  height: 100% !important;
 }
 
 main {
@@ -334,8 +334,10 @@ pre code {
 /* Container */
 
 .main_container {
-  height: 100%;
+  height: fit-content;
+  min-height: 100vh;
   width: 100%;
+  
 }
 
 .container {
@@ -721,7 +723,6 @@ i {
   -webkit-transition: opacity 0.2s ease-in-out;
   -ms-transition: opacity 0.2s ease-in-out;
   transition: opacity 0.2s ease-in-out;
-  background-image: url("images/overlay.png");
   border-radius: 0.35em;
   content: '';
   display: block;
@@ -766,7 +767,6 @@ i {
 }
 
 .image.thumb:hover:before {
-  background: url("images/overlay.png"), url("images/overlay.png");
   opacity: 1.0;
 }
 
@@ -801,7 +801,8 @@ i {
   display: block;
   margin: 0 0 2em 0;
   width: 100%;
-  object-fit: contain;
+  height: 350px;
+  object-fit: cover;
 }
 
 .image.fit img {
@@ -1240,7 +1241,7 @@ input[type="button"]:disabled,
   padding-top: 1rem;
   padding-bottom: 1rem;
   /* border-bottom: 1px solid white; */
-  position: absolute;
+  position: sticky;
   top: 0;
   width: 100%;
   z-index: 1;
@@ -1298,7 +1299,8 @@ input[type="button"]:disabled,
 html,
 body,
 #root {
-  height: 100%;
+  height: fit-content;
+  min-height: 100%;
   width: 100%;
 }
 
@@ -1431,9 +1433,8 @@ body {
 
 .contact {
   display: flex;
-  height: 100%;
+  height: 100vh;
   width: 80%;
-  margin-top: 15%;
 }
 
 .contact>main {

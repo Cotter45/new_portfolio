@@ -22,5 +22,33 @@ export const full_stack_projects = [
         name: 'Anarchy',
         description: "As a team of three, Walker Williams, Gerryl Esparacion and I created a Discord clone, complete with multiple full CRUD features, web sockets for live chat and updates as well as direct video chat with friends. This project uses React / Redux and vanilla CSS on the front end, and Python / Flask with SQLAlchemy / PostgreSQL on the back end.",
         image: '/images/fulls/anarchy.png',
-    }
+        tech: [
+            '/images/thumbs/react.png',
+            './images/thumbs/redux.png',
+            './images/thumbs/python.png',
+            './images/thumbs/flask.png',
+            './images/thumbs/postgres.png',
+            './images/thumbs/sqlalchemy.png',
+            './images/thumbs/css.png'
+        ],
+        github: "https://github.com/Cotter45/Anarchy",
+        live: "https://anarchy-app.herokuapp.com/about"
+    },
+    {
+        id: 3,
+        name: 'Vicariously',
+        description: "This was a 1 week solo project for App Academy utilizing core technologies React, Redux, Express and PostGres. In this sprint I managed to complete 4 full CRUD features and implement every bonus feature listed as an option. It was a ton of fun to add in new features I had never worked with before like google maps and react-calendar. The app is designed off of the AirBnB team's beautiful CSS skills. What makes it stand out is that there is no cost and absolutely unlimited possibilities for what a user can share with their community!",
+        image: '/images/fulls/vicariously.png',
+        tech: [
+            '/images/thumbs/react.png',
+            './images/thumbs/redux.png',
+            './images/thumbs/express.png',
+            './images/thumbs/node.png',
+            './images/thumbs/postgres.png',
+            './images/thumbs/sequelize.png',
+            './images/thumbs/css.png'
+        ],
+        github: "https://github.com/Cotter45/Anarchy",
+        live: "https://anarchy-app.herokuapp.com/about"
+    },
 ]

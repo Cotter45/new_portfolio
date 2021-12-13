@@ -90,6 +90,7 @@ export default function ThreeD() {
           gl.toneMapping = THREE.ACESFilmicToneMapping;
           gl.outputEncoding = THREE.sRGBEncoding;
         }}
+        style={{ position: 'absolute'}}
       >
         <Suspense fallback={null}>
           <Particles count={3500} />

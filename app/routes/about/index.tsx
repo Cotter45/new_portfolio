@@ -72,7 +72,7 @@ export default function About() {
 //   });
 
   return (
-    <div style={{ width: "90%", height: "100%", background: "#253237" }}>
+    <div style={{ width: "90vw", height: "100vh", background: "#253237", position: 'absolute' }}>
       <Parallax ref={parallax} pages={5}>
         <ParallaxLayer
           offset={4}

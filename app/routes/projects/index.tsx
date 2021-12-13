@@ -11,15 +11,20 @@ export let links: LinksFunction = () => {
 export default function Projects() {
 
     return (
-        <div>
+        <div className='container column' style={{ paddingBottom: '5vh'}}>
             <h1>Projects</h1>
             {/* <CreateJobModal /> */}
+            <h2 style={{ alignSelf: 'flex-start', fontSize: '2.5rem', paddingLeft: '2em'}}>Full Stack</h2>
             {full_stack_projects.map((project, index) => (
-                <div className='container column' key={index} style={{ gap: '1vh', alignItems: index % 2 === 0 ? 'flex-end' : 'flex-start' }}>
-                    <h2>{project.name}</h2>
-                    <div className={'container medium row'} style={{flexDirection: index % 2 === 0 ? 'row-reverse' : 'row'}}>
-                        <div className='container column'>
+                <div className='container column' key={index} style={{ padding: '2rem', gap: '1vh', alignItems: index % 2 === 0 ? 'flex-end' : 'flex-start' }}>
+                    <div className={'container row'} style={{flexDirection: index % 2 === 0 ? 'row-reverse' : 'row', gap: '2rem'}}>
+                        <div className='container column' style={{ gap: '1vh'}}>
+                            <h2 style={{ fontSize: '2.5rem'}}>{project.name}</h2>
                             <p>{project.description}</p>
+                            <div className='container row' style={{ gap: '1vh'}}>
+                                <a href={project.github} rel='noopener noreferrer' target="_blank">Github</a>
+                                <a href={project.live} rel='noopener noreferrer' target="_blank">Live</a>
+                            </div>
                         </div>
                         <div className='container'>
                             <img className='image fit' src={project.image} alt={project.name} />
