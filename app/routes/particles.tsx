@@ -5,9 +5,17 @@ export default function Particles() {
     useEffect(() => {
         const canvas = document.getElementById("particles") as HTMLCanvasElement;
         
+        let reSize: any;
+        let mouseMove: any;
+        let touchMove: any;
+        let click: any;
+        let touchEnd: any;
+        let animation: any;
+
         if (canvas) {
 
             const ctx = canvas.getContext("2d")
+
             if (ctx) {
 
                 let particles: any = []
@@ -28,7 +36,7 @@ export default function Particles() {
                         x : x,
                         y: y
                     };
-                    this.r =  Math.random()*3 + .5;
+                    this.r =  Math.random()*3 + 1;
                     this.vx = (Math.random()-0.5)*20;
                     this.vy = (Math.random()-0.5)*20;
                     this.accX = 0;
@@ -92,7 +100,7 @@ export default function Particles() {
                     if (ctx) {
                         ctx.clearRect(0, 0, canvas.width, canvas.height);
                 
-                        ctx.font = "" + wh / 8 + "px Source Sans Pro";
+                        ctx.font = "" + wh / 7 + "px Source Sans Pro";
                         ctx.textAlign = "center";
                         ctx.fillText("Hi,", ww / 4, wh / 4.5);
                         ctx.fillText("I'm Sean", ww/2, wh / 2.8);
@@ -101,8 +109,15 @@ export default function Particles() {
                         ctx.clearRect(0, 0, canvas.width, canvas.height);
                         ctx.globalCompositeOperation = "screen";
                         particles = [];
-                        for(let i=0;i<ww;i+=Math.round(ww/1000)){
-                            for(let j=0;j<wh;j+=Math.round(wh/150)){
+                        // for(let i=0;i<ww;i+=Math.round(ww/1000)){
+                        //     for(let j=0;j<wh;j+=Math.round(wh/150)){
+                        //         if(data[ ((i + j*ww)*4) + 3] > 150){
+                        //             particles.push(new (Particle as any)(i,j));
+                        //         }
+                        //     }
+                        // }
+                        for(let i=0;i<ww;i+=3){
+                            for(let j=0;j<wh;j+=5){
                                 if(data[ ((i + j*ww)*4) + 3] > 150){
                                     particles.push(new (Particle as any)(i,j));
                                 }
@@ -124,19 +139,28 @@ export default function Particles() {
                 function render() {
                     requestAnimationFrame(render);
                     ctx?.clearRect(0, 0, canvas.width, canvas.height);
-                    for (var i = 0; i < amount; i++) {
+                    for (let i = 0; i < amount; i++) {
                         particles[i].render();
                     }
                 };
         
-                window.addEventListener("resize", initScene);
-                window.addEventListener("mousemove", onMouseMove);
-                window.addEventListener("touchmove", onTouchMove);
-                window.addEventListener("click", onMouseClick);
-                window.addEventListener("touchend", onTouchEnd);
+                reSize = window.addEventListener("resize", initScene);
+                mouseMove = window.addEventListener("mousemove", onMouseMove);
+                touchMove = window.addEventListener("touchmove", onTouchMove);
+                click = window.addEventListener("click", onMouseClick);
+                touchEnd = window.addEventListener("touchend", onTouchEnd);
                 initScene();
-                requestAnimationFrame(render);
+                animation = requestAnimationFrame(render);
             }
+        }
+
+        return () => {
+            window.removeEventListener("resize", reSize);
+            window.removeEventListener("mousemove", mouseMove);
+            window.removeEventListener("touchmove", touchMove);
+            window.removeEventListener("click", click);
+            window.removeEventListener("touchend", touchEnd);
+            cancelAnimationFrame(animation);
         }
     });
 

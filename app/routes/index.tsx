@@ -1,6 +1,8 @@
 import type { MetaFunction } from "remix";
+
 import Particles from "./particles";
 import ThreeD from "./three";
+
 
 // type IndexData = {
 //   demos: Array<{ name: string; to: string }>;
