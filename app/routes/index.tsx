@@ -1,6 +1,4 @@
 import type { MetaFunction } from "remix";
-import ProfileImage from "./image";
-import Particles from "./particles";
 import ThreeD from "./three";
 
 // type IndexData = {
