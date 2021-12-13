@@ -38,7 +38,8 @@ import ThreeD from "./three";
 export let meta: MetaFunction = () => {
   return {
     title: "Sean Cotter",
-    description: "Welcome to my portfolio!"
+    description: "Welcome to my portfolio!",
+    name: "apple-mobile-web-app-capable", content: "yes"
   };
 };
 
