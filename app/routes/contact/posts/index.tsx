@@ -11,7 +11,7 @@ export default function Posts() {
   const posts = useLoaderData<Post[]>();
   
   return (
-    <div className="container">
+    <div className="">
       <h1>Posts</h1>
       <ul>
         {posts.map((post) => (

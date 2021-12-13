@@ -1,4 +1,5 @@
 import type { MetaFunction } from "remix";
+import ProfileImage from "./image";
 import Particles from "./particles";
 import ThreeD from "./three";
 
@@ -44,14 +45,15 @@ export default function Index() {
 
   return (
     <>
-      <Particles />
+      <ThreeD />
       <div className="container column" id="no_scroll">
         <aside className='container column splash_text'>
-          <h3>I'm a Web Developer from Philadelphia</h3>
+          <h1>Hi, I'm Sean</h1>
           <p>This is my personal portfolio site. Here you can find 
             my story, my projects, contact me and more. I hope you enjoy it!
           </p>
         </aside>
+        <img id='canvas2' src='/images/linkedin_pic.jpg' alt='me' />
       </div>
     </>
   );

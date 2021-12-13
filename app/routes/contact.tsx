@@ -8,27 +8,22 @@ export const loader = () => {
   return getPosts();
 };
 
-export const links = () => {
-  return [{ rel: "stylesheet", href: adminStyles }];
-};
-
-
 export default function Admin() {
   const posts = useLoaderData<Post[]>();
   return (
     <div className="admin">
-      <nav>
-        <h1>Comment</h1>
-        <CanvasFun />
-        <ul>
+      <CanvasFun />
+      <div className='container'>
+        <h2>Comments</h2>
+        <ul className='list'>
           {posts.map(post => (
             <li key={post.slug}>
               <Link to={`/posts/${post.slug}`}>{post.title}</Link>
             </li>
           ))}
         </ul>
-      </nav>
-      <main>
+      </div>
+      <main className='container'>
         <Outlet />
       </main>
     </div>
