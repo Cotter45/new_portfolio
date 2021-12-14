@@ -19,14 +19,8 @@
 
 .text > p {
     text-indent: 15px;
-    text-align: center;
+    text-align: left;
     font-size: 1.2rem;
-}
-
-.links {
-    padding: 2em;
-    gap: 2em;
-    font-size: 1.5rem;
 }
 
 .tech {
@@ -36,4 +30,30 @@
     padding: .5em;
     gap: 1em;
     overflow-x: scroll;
+    border-radius: 10px;
+}
+
+.tech > img {
+    width: 2em;
+    height: 2em;
+    margin: 0 .5em;
+}
+
+@media screen and (max-width: 980px) {
+
+    .tech > img {
+        width: 1.5em;
+        height: 1.5em;
+    }
+
+
+}
+
+@media screen and (max-width: 480px) {
+    
+    .tech > img {
+        width: 1.5em;
+        height: 1.5em;
+    }
+
 }

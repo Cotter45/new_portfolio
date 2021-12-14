@@ -383,9 +383,20 @@ pre code {
     max-width: 100% !important;
   }
 
+  .image.fit {
+    max-height: 300px;
+    object-fit: contain;
+  }
+  
 }
 
 @media screen and (max-width: 480px) {
+  
+  .image.fit {
+    height: 200px;
+    max-height: 200px;
+    object-fit: contain;
+  }
 
   .container {
     max-width: calc(100% - 3em);
@@ -873,6 +884,7 @@ ul.icons {
   color: gray;
   height: fit-content;
   margin: 0;
+  margin-top: 1em;
 }
 
 ul.icons li {

@@ -1,28 +1,36 @@
 import { Canvas, useFrame, useThree, useLoader } from "@react-three/fiber";
-import { Suspense, useMemo, useRef } from "react";
+import { Suspense, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 import { ImageLoader } from "three";
 
-function Moon() {
-  const moonTexture = useLoader(ImageLoader, "/images/linkedin_pic.jpg");
-  const moon = useRef<any>();
+function Profile() {
+  const meTexture = useLoader(ImageLoader, "/images/linkedin_pic.jpg");
+  const me = useRef<any>();
+
+  const [scale, setScale] = useState(.6);
 
   useFrame(({ clock }) => {
     const time = clock.getElapsedTime();
     const rotation = time * 0.1;
-    if (moon.current) {
-      moon.current.rotation.set(rotation - 1, 0, 1);
+    if (me.current) {
+      me.current.rotation.set(rotation - 1, 0, 1);
     }
   });
 
   return (
-    <mesh ref={moon} rotation={[0, 0, 0]} receiveShadow position={[20, 18, 0]} scale={.6}>
+    <mesh onClick={() => {
+      if (scale === 1) {
+        setScale(.6);
+      } else {
+        setScale(1);
+      }
+    }} ref={me} rotation={[0, 0, 0]} receiveShadow position={[20, 17, 0]} scale={scale}>
       <boxBufferGeometry attach="geometry" args={[5, 5, 5]} />
       <meshBasicMaterial attach="material">
         <texture
           attach="map"
-          image={moonTexture}
-          onUpdate={(self) => moonTexture && (self.needsUpdate = true)}
+          image={meTexture}
+          onUpdate={(self) => meTexture && (self.needsUpdate = true)}
         />
       </meshBasicMaterial>
     </mesh>
@@ -122,7 +130,7 @@ export default function ThreeD() {
         {/* <fog attach="fog" args={["#49bf9d", 10, 0]} /> */}
         <Suspense fallback={null}>
           {/* <Particles count={3500} /> */}
-          <Moon />
+          <Profile />
         </Suspense>
         <spotLight castShadow intensity={1} position={[25, 25, 0]} />
         <ambientLight intensity={0.5} />
