@@ -1,0 +1,39 @@
+.projects {
+    padding-bottom: 5vh;
+    gap: 2vh;
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+}
+
+.project_header {
+    font-size: 2.5rem;
+    padding-left: 1em;
+    padding-top: 2em;
+    border-bottom: 10px solid rgba(73, 191, 157, 0.2);
+}
+
+.text > h2 {
+    font-size: 2.5rem;
+}
+
+.text > p {
+    text-indent: 15px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.links {
+    padding: 2em;
+    gap: 2em;
+    font-size: 1.5rem;
+}
+
+.tech {
+    background-color: rgba(73, 191, 157, 0.2);
+    display: flex;
+    justify-content: center;
+    padding: .5em;
+    gap: 1em;
+    overflow-x: scroll;
+}

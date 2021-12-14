@@ -51,4 +51,21 @@ export const full_stack_projects = [
         github: "https://github.com/Cotter45/Anarchy",
         live: "https://anarchy-app.herokuapp.com/about"
     },
+    {
+        id: 4,
+        name: 'Pot Overflow',
+        description: "This project was a major challenge of communication, git workflow and a clash of newly learned technologies! In one week of work we managed to put together a significant project, collaborate flawlessly and walk away with something we were proud to call our first team project! This app allows users to ask / answer questions about cooking and cooking related topics. As well as search for similar questions and  vote on answers to increase the popularity of the thread.",
+        image: '/images/fulls/pot-overflow.gif',
+        tech: [
+            '/images/thumbs/pug.png',
+            './images/thumbs/js.png',
+            './images/thumbs/express.png',
+            './images/thumbs/node.png',
+            './images/thumbs/postgres.png',
+            './images/thumbs/sequelize.png',
+            './images/thumbs/css.png'
+        ],
+        github: "https://github.com/Cotter45/Anarchy",
+        live: "https://anarchy-app.herokuapp.com/about"
+    },
 ]
