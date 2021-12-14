@@ -24,6 +24,33 @@ export function Modal({ onClose, children }: any) {
   const modalNode = useContext(ModalContext);
   const [showModal, setShowModal] = useState(true);
 
+  useEffect(() => {
+    const root = document.getElementById("root");
+    const html = document.querySelector("html");
+    const body = document.querySelector("body");
+    if (root) {
+      root.style.overflow = "hidden";
+    }
+    if (html) {
+    html.style.overflow = "hidden";
+    }
+    if (body) {
+    body.style.overflow = "hidden";
+    }
+
+    return () => {
+      if (root) {
+      root.style.overflow = "auto";
+      }
+      if (html) {
+      html.style.overflow = "auto";
+      }
+      if (body) {
+      body.style.overflow = "auto";
+      }
+    };
+  });
+
   const transitions = useTransition(showModal, {
     from: { opacity: 0, transform: "translate3d(0, 40px, 0)" },
     enter: { opacity: 1, transform: "translate3d(0, 0px, 0)" },

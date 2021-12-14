@@ -673,7 +673,8 @@ input[type="radio"]+label:before {
   justify-content: center;
   gap: 5px;
   padding: 0;
-  transition: all 1.2s ease-in-out;
+  transition: all .5s ease-in-out;
+  cursor: pointer;
 }
 
 .icon:hover > i {
@@ -1434,7 +1435,6 @@ body {
   top: 50%;
   left: 25%;
   /* height: 25%; */
-  z-index: 10;
   border-radius: 50%;
 }
 

@@ -9,7 +9,7 @@
 .project_header {
     font-size: 2.5rem;
     padding-left: 1em;
-    padding-top: 2em;
+    padding-top: 3em;
     border-bottom: 10px solid rgba(73, 191, 157, 0.2);
 }
 
@@ -37,6 +37,24 @@
     width: 2em;
     height: 2em;
     margin: 0 .5em;
+}
+
+.slantRight {
+    transform: skewY(-11deg);
+    padding: 2rem;
+    align-items: flex-end;
+}
+
+.slantLeft {
+    transform: skewY(11deg);
+    padding: 2rem;
+    align-items: flex-start;
+}
+
+.noSlant {
+    padding: 2rem;
+    align-items: center;
+    transform: skewY(0deg);
 }
 
 @media screen and (max-width: 980px) {

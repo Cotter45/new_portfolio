@@ -313,7 +313,9 @@ export default function ThreeD() {
         style={{ position: "absolute" }}
       >
         <fog attach="fog" args={["white", 40, 190]} />
-        <Suspense fallback={null}>
+        <Suspense
+          fallback={<img id="selfie" src="/images/linkedin_pic.jpg" alt="me" />}
+        >
           {/* <Particles count={200} />
           <Moon />
           <Sun />

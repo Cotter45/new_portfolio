@@ -7,6 +7,7 @@ import modalCss from "~/styles/modal.css";
 import projectStyles from "~/styles/projects.css";
 import { full_stack_projects } from "~/projects";
 import useWindowSize from "~/window-size";
+import ProjectModal from "~/modals/project_modal";
 
 export let links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: modalCss }, { rel: "stylesheet", href: projectStyles }];
@@ -34,10 +35,11 @@ export default function Projects() {
                         <div className={size.width > 1000 ? 'container row' : 'container'} style={{flexDirection: index % 2 === 0 ? 'row-reverse' : 'row', gap: '2rem'}}>
                             <div className='container column text'>
                                 <h2>{project.name}</h2>
-                                <p>{project.description}</p>
+                                {/* <p>{project.description}</p> */}
                                 <ul className="icons">
                                     <li><a target="_blank" rel="noopener noreferrer" href={project.github} className="icon brands"><i className="fab fa-github fa-2x"></i><span className="label">Github</span></a></li>
                                     <li><a target="_blank" rel="noopener noreferrer" href={project.live} className="icon brands"><i className="fas fa-globe fa-2x"></i><span className="label">Live</span></a></li>
+                                    <ProjectModal project={project} />
                                 </ul>
                             </div>
                             <div className='container'>
