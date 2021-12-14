@@ -1,6 +1,8 @@
 import type { MetaFunction } from "remix";
+import ProfileImage from "~/canvas/image";
 
 import Particles from "../canvas/particles";
+import Text from "../canvas/text";
 import ThreeD from "../canvas/three";
 
 
@@ -48,6 +50,8 @@ export default function Index() {
   return (
     <>
       <Particles />
+      {/* <Text />   */}
+      {/* <ProfileImage /> */}
       <ThreeD />
       <div className="container column" id="no_scroll">
         <aside className='container column splash_text'>

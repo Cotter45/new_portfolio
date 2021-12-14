@@ -11,7 +11,7 @@ export default function ProfileImage() {
       image.addEventListener("load", function () {
     
         const canvas = document.getElementById("canvas2") as HTMLCanvasElement;
-        const ctx = canvas.getContext("2d");
+        const ctx = canvas?.getContext("2d");
         canvas.width = 572;
         canvas.height = 352;
     
@@ -117,6 +117,6 @@ export default function ProfileImage() {
     });
 
     return (
-        <canvas id="canvas2" />
+        <canvas id="selfie" />
     );
 }

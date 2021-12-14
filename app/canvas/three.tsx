@@ -1,19 +1,20 @@
 import { Canvas, useFrame, useThree, useLoader } from "@react-three/fiber";
-import { Suspense, useMemo, useRef, useState } from "react";
+import { Suspense, useMemo, useRef, useState, useEffect } from "react";
+import { LoaderFunction } from "remix";
 import * as THREE from "three";
 import { ImageLoader } from "three";
 
-function Profile() {
-  const meTexture = useLoader(ImageLoader, "/images/linkedin_pic.jpg");
-  const me = useRef<any>();
+function Moon() {
+  const moonTexture = useLoader(ImageLoader, "/images/weather/moon_texture.jpeg");
+  const moon = useRef<any>();
 
   const [scale, setScale] = useState(.6);
 
   useFrame(({ clock }) => {
     const time = clock.getElapsedTime();
     const rotation = time * 0.1;
-    if (me.current) {
-      me.current.rotation.set(rotation - 1, 0, 1);
+    if (moon.current) {
+      moon.current.rotation.set(rotation, 0, 0);
     }
   });
 
@@ -24,13 +25,103 @@ function Profile() {
       } else {
         setScale(1);
       }
-    }} ref={me} rotation={[0, 0, 0]} receiveShadow position={[20, 17, 0]} scale={scale}>
-      <boxBufferGeometry attach="geometry" args={[5, 5, 5]} />
+    }} ref={moon} rotation={[0, 0, 0]} receiveShadow position={[-5, -5, -10]} scale={scale}>
+      <sphereBufferGeometry attach="geometry" args={[.5]} />
       <meshBasicMaterial attach="material">
         <texture
           attach="map"
-          image={meTexture}
-          onUpdate={(self) => meTexture && (self.needsUpdate = true)}
+          image={moonTexture}
+          onUpdate={(self) => moonTexture && (self.needsUpdate = true)}
+        />
+      </meshBasicMaterial>
+    </mesh>
+  );
+}
+
+function Sun() {
+  const sunTexture = useLoader(ImageLoader, "/images/weather/sun_texture.webp");
+  const sun = useRef<any>();
+
+  const [scale, setScale] = useState(.6);
+
+  useFrame(({ clock }) => {
+    const time = clock.getElapsedTime();
+    const rotation = time * 0.1;
+    if (sun.current) {
+      sun.current.rotation.set(rotation - 1, 0, 1);
+    }
+  });
+
+  return (
+    <mesh onClick={() => {
+      if (scale === 1) {
+        setScale(.6);
+      } else {
+        setScale(1);
+      }
+    }} ref={sun} rotation={[0, 0, 0]} receiveShadow position={[0, -2, -10]} scale={scale}>
+      <sphereBufferGeometry attach="geometry" args={[2]} />
+      <meshBasicMaterial attach="material">
+        <texture
+          attach="map"
+          image={sunTexture}
+          onUpdate={(self) => sunTexture && (self.needsUpdate = true)}
+        />
+      </meshBasicMaterial>
+    </mesh>
+  );
+}
+
+function Earth() {
+  const earthTexture = useLoader(ImageLoader, "/images/weather/earth_texture.jpeg");
+  const earth = useRef<any>();
+
+  const [posX, setPosX] = useState(-2);
+  const [posY, setPosY] = useState(-2);
+  const [posZ, setPosZ] = useState(-10);
+
+  const earthDistance = 2;
+  let earthRadians = 0;
+  const earthSpeed = 0.01;
+
+  const [scale, setScale] = useState(.6);
+  
+
+  useFrame(({ clock }) => {
+    const time = clock.getElapsedTime();
+    const rotation = time * 0.1;
+    if (earth.current) {
+      earth.current.rotation.set(0, rotation, 0);
+      
+      if (earthRadians < Math.PI * 2) earthRadians += earthSpeed;
+      else earthRadians = 0;
+
+      function setEarthPosition() {
+        const x = 0 + Math.cos(earthRadians) * earthDistance;
+        const y = -10 + Math.sin(earthRadians) * earthDistance;
+
+        earth.current.position.x = x;
+        earth.current.position.z = y;
+      }
+
+      setEarthPosition();
+    }
+  });
+
+  return (
+    <mesh onClick={() => {
+      if (scale === 1) {
+        setScale(.6);
+      } else {
+        setScale(1);
+      }
+    }} ref={earth} rotation={[0, 0, 0]} receiveShadow position={[-2, -2.5, -10]} scale={scale}>
+      <sphereBufferGeometry attach="geometry" args={[1]} />
+      <meshBasicMaterial attach="material">
+        <texture
+          attach="map"
+          image={earthTexture}
+          onUpdate={(self) => earthTexture && (self.needsUpdate = true)}
         />
       </meshBasicMaterial>
     </mesh>
@@ -108,6 +199,100 @@ function Particles({ count }: Props) {
   );
 }
 
+const parameters = {
+  size: 0.01,
+  count: 100000,
+  radius: 5,
+  branches: 2,
+  spin: 1.25,
+  randomness: 0.3,
+  randomnessPower: 3,
+  colorIn: "gray",
+  colorOut: "darkgreen",
+};
+
+const Galaxy = () => {
+  const particles = useRef<any>();
+  const clock = new THREE.Clock();
+
+  useEffect(() => {
+    generateGalaxy();
+  });
+
+  useFrame(() => {
+    const elapsedTime = clock.getElapsedTime();
+
+    if (particles.current) {
+      particles.current.rotation.y = elapsedTime * 0.02;
+    }
+  });
+
+  const generateGalaxy = () => {
+    const positions = new Float32Array(parameters.count * 3);
+    const colors = new Float32Array(parameters.count * 3);
+    const colorInside = new THREE.Color(parameters.colorIn);
+    const colorOutside = new THREE.Color(parameters.colorOut);
+
+    for (let i = 0; i < parameters.count; i++) {
+      const i3 = i * 3;
+
+      const radius = Math.random() * parameters.radius;
+      const spinAngle = radius * parameters.spin;
+      const branchAngle =
+        ((i % parameters.branches) / parameters.branches) * Math.PI * 2;
+
+      const randomX =
+        Math.pow(Math.random(), parameters.randomnessPower) *
+        (Math.random() < 0.5 ? 1 : -1) *
+        parameters.randomness *
+        radius;
+      const randomY =
+        Math.pow(Math.random(), parameters.randomnessPower) *
+        (Math.random() < 0.5 ? 1 : -1) *
+        parameters.randomness *
+        radius;
+      const randomZ =
+        Math.pow(Math.random(), parameters.randomnessPower) *
+        (Math.random() < 0.5 ? 1 : -1) *
+        parameters.randomness *
+        radius;
+
+      positions[i3] = Math.cos(branchAngle + spinAngle) * radius + randomX;
+      positions[i3 + 1] = randomY;
+      positions[i3 + 2] = Math.sin(branchAngle + spinAngle) * radius + randomZ;
+
+      const mixedColor = colorInside.clone();
+      mixedColor.lerp(colorOutside, radius / parameters.radius);
+
+      colors[i3] = mixedColor.r;
+      colors[i3 + 1] = mixedColor.g;
+      colors[i3 + 2] = mixedColor.b;
+    }
+
+    particles.current.geometry.setAttribute(
+      "position",
+      new THREE.BufferAttribute(positions, 3)
+    );
+    particles.current.geometry.setAttribute(
+      "color",
+      new THREE.BufferAttribute(colors, 3)
+    );
+  };
+
+  return (
+    <points ref={particles}>
+      <bufferGeometry />
+      <pointsMaterial
+        size={parameters.size}
+        sizeAttenuation={true}
+        depthWrite={false}
+        vertexColors={true}
+        blending={THREE.AdditiveBlending}
+      />
+    </points>
+  );
+};
+
 export default function ThreeD() {
 
     return (
@@ -120,20 +305,23 @@ export default function ThreeD() {
           preserveDrawingBuffer: true,
           powerPreference: "high-performance",
         }}
-        camera={{ position: [25, 25, 0] }}
+        camera={{ position: [0, 2, 5] }}
         onCreated={({ gl }) => {
           gl.toneMapping = THREE.ACESFilmicToneMapping;
           gl.outputEncoding = THREE.sRGBEncoding;
         }}
         style={{ position: "absolute" }}
       >
-        {/* <fog attach="fog" args={["#49bf9d", 10, 0]} /> */}
+        <fog attach="fog" args={["white", 40, 190]} />
         <Suspense fallback={null}>
-          {/* <Particles count={3500} /> */}
-          <Profile />
+          {/* <Particles count={200} />
+          <Moon />
+          <Sun />
+          <Earth /> */}
+          <Galaxy />
         </Suspense>
-        <spotLight castShadow intensity={1} position={[25, 25, 0]} />
-        <ambientLight intensity={0.5} />
+        {/* <ambientLight intensity={0.1} /> */}
+        {/* <pointLight castShadow intensity={.1} position={[0, 0, -2]} /> */}
       </Canvas>
     );
 }

@@ -24,20 +24,21 @@ export default function Particles() {
                 let mouse: any = {x:0,y:0}
                 let radius: number = .5;
         
-                let colors = ["#468966", "#FFB03B","#B64926", "#8E2800"];
-                // let colors = ["#EA00FF", "#39FF14"];
+                // let colors = ["#468966", "#FFB03B","#B64926", "#8E2800"];
+                let colors = ["#468966"];
             
                 let ww = canvas.width = document.documentElement.clientWidth;
                 let wh = canvas.height = document.documentElement.clientHeight;
         
                 function Particle(this: any, x: any,y: any){
-                    this.x =  ww / 2;
-                    this.y =  wh / 4;
+                    this.x =  x;
+                    this.y =  y;
                     this.dest = {
                         x : x,
                         y: y
                     };
-                    this.r =  Math.random()*3 + 1;
+                    // this.r =  Math.random()*3 + 2;
+                    this.r = 8;
                     this.vx = (Math.random()-0.5)*10;
                     this.vy = (Math.random()-0.5)*10;
                     this.accX = 0;
@@ -62,6 +63,7 @@ export default function Particles() {
                     ctx.fillStyle = this.color;
                     ctx.beginPath();
                     ctx.arc(this.x, this.y, this.r, 0, Math.PI*2, false);
+                    ctx.closePath();
                     ctx.fill();
         
                     let a = this.x - mouse.x;
@@ -101,26 +103,38 @@ export default function Particles() {
                     if (ctx) {
                         ctx.clearRect(0, 0, canvas.width, canvas.height);
                 
-                        ctx.font = "" + wh / 7 + "px Source Sans Pro";
-                        ctx.textAlign = "center";
-                        ctx.fillText("Hi,", ww / 4, wh / 4.5);
-                        ctx.fillText("I'm Sean", ww/2, wh / 2.8);
+                        ctx.font = "" + ww / 8 + "px Source Sans Pro";
+                        ctx.textAlign = "left";
+                        ctx.fillText("Hi, I'm Sean", 25, wh > 800 ? 300 : wh > 2000 ? 500 : 100, 1200);
+                        // ctx.fillText("Hi, I'm Sean", 25, 300);
             
-                        let data  = ctx.getImageData(0, 0, ww, wh).data;
+                        let data  = ctx.getImageData(0, 0, ww, wh);
                         ctx.clearRect(0, 0, canvas.width, canvas.height);
                         ctx.globalCompositeOperation = "screen";
                         particles = [];
                         // for(let i=0;i<ww;i+=Math.round(ww/1000)){
                         //     for(let j=0;j<wh;j+=Math.round(wh/150)){
-                        //         if(data[ ((i + j*ww)*4) + 3] > 150){
+                        //         if(data.data[ ((i + j*ww)*4) + 3] > 150){
                         //             particles.push(new (Particle as any)(i,j));
                         //         }
                         //     }
                         // }
-                        for(let i=0;i<ww;i+=3){
-                            for(let j=0;j<wh;j+=5){
-                                if(data[ ((i + j*ww)*4) + 3] > 150){
-                                    particles.push(new (Particle as any)(i,j));
+                        console.log(ww)
+                        if (ww > 800) {
+                            for(let i=0;i<data.width;i+=5){
+                                for(let j=0;j<data.height;j+=6){
+                                    if(data.data[(j * 4 * data.width) + (i * 4) + 3] > 128){
+                                        particles.push(new (Particle as any)(i,j));
+                                    }
+                                }
+                            }
+                        }
+                        else if (ww < 800){
+                            for(let i=0;i<data.width;i+=3){
+                                for(let j=0;j<data.height;j+=3){
+                                    if(data.data[(j * 4 * data.width) + (i * 4) + 3] > 128){
+                                        particles.push(new (Particle as any)(i,j));
+                                    }
                                 }
                             }
                         }
@@ -139,12 +153,58 @@ export default function Particles() {
         
                 function render() {
                     if (pause) return;
-                    requestAnimationFrame(render);
                     ctx?.clearRect(0, 0, canvas.width, canvas.height);
                     for (let i = 0; i < amount; i++) {
                         particles[i].render();
                     }
+                    connect();
+                    requestAnimationFrame(render);
                 };
+
+                function connect() {
+                  let opacityValue = 1;
+                  let connectors = particles.length;
+                  for (let a = 0; a < connectors; a++) {
+                    for (let b = a; b < connectors; b++) {
+                      let distance =
+                        (particles[a].dest.x - particles[b].dest.x) *
+                          (particles[a].dest.x - particles[b].dest.x) +
+                        (particles[a].dest.y - particles[b].dest.y) *
+                          (particles[a].dest.y - particles[b].dest.y);
+
+                      if (distance < 50) {
+                        opacityValue = 1 - distance / 400;
+                        let dx = mouse.x - particles[a].x;
+                        let dy = mouse.y - particles[a].y;
+                        let mouseDistance = Math.sqrt(dx * dx + dy * dy);
+                        if (ctx) {
+                          if (mouseDistance < radius - 50) {
+                            particles[a].r = 15;
+                            ctx.strokeStyle =
+                              "rgba(255,255,150," + opacityValue + ")";
+                          } else if (mouseDistance < radius) {
+                            particles[a].r = 8;
+                            ctx.strokeStyle =
+                              "rgba(255,255,180," + opacityValue + ")";
+                          } else if (mouseDistance < radius + 50) {
+                            particles[a].r = 6;
+                            ctx.strokeStyle =
+                              "rgba(255,255,210," + opacityValue + ")";
+                          } else {
+                            particles[a].r = particles.r;
+                            ctx.strokeStyle =
+                              "rgba(255,255,255," + opacityValue + ")";
+                          }
+                          ctx.lineWidth = 1;
+                          ctx.beginPath();
+                          ctx.moveTo(particles[a].x, particles[a].y);
+                          ctx.lineTo(particles[b].x, particles[b].y);
+                          ctx.stroke();
+                        }
+                      }
+                    }
+                  }
+                }
         
                 reSize = window.addEventListener("resize", initScene);
                 mouseMove = window.addEventListener("mousemove", onMouseMove);
