@@ -121,7 +121,7 @@ export default function ThreeD() {
       >
         {/* <fog attach="fog" args={["#49bf9d", 10, 0]} /> */}
         <Suspense fallback={null}>
-          <Particles count={3500} />
+          {/* <Particles count={3500} /> */}
           <Moon />
         </Suspense>
         <spotLight castShadow intensity={1} position={[25, 25, 0]} />
