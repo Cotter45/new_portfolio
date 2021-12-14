@@ -48,8 +48,8 @@ export const full_stack_projects = [
             './images/thumbs/sequelize.png',
             './images/thumbs/css.png'
         ],
-        github: "https://github.com/Cotter45/Anarchy",
-        live: "https://anarchy-app.herokuapp.com/about"
+        github: "https://github.com/Cotter45/Vicariously",
+        live: "https://vicariously.herokuapp.com/"
     },
     {
         id: 4,
@@ -65,7 +65,7 @@ export const full_stack_projects = [
             './images/thumbs/sequelize.png',
             './images/thumbs/css.png'
         ],
-        github: "https://github.com/Cotter45/Anarchy",
-        live: "https://anarchy-app.herokuapp.com/about"
+        github: "https://github.com/Cotter45/Pot-Overflow",
+        live: "https://aa-pot-overflow.herokuapp.com/"
     },
 ]

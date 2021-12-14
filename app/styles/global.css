@@ -662,16 +662,15 @@ input[type="radio"]+label:before {
   justify-content: center;
   gap: 5px;
   padding: 0;
-  transition: all .8s ease-in-out;
+  transition: all 1.2s ease-in-out;
 }
 
 .icon:hover > i {
   color: #49bf9d;
-  font-size: 3em;
+  transform: scale(1.5);
 }
 
-.icon:hover>.label,
-i {
+.icon:hover>.label {
   color: gray;
   visibility: visible;
 }
@@ -799,7 +798,7 @@ i {
   display: block;
   margin: 0 0 2em 0;
   width: 100%;
-  height: 500px;
+  height: 400px;
   object-fit: cover;
 }
 

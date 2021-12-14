@@ -1,4 +1,7 @@
 import { LinksFunction, MetaFunction } from "remix";
+import { useRef, useState } from 'react';
+import { useTransition, animated, useSpring, config } from "@react-spring/web";
+
 
 import modalCss from "~/styles/modal.css";
 import projectStyles from "~/styles/projects.css";
@@ -18,11 +21,8 @@ export let meta: MetaFunction = () => {
   };
 };
 
-
 export default function Projects() {
     const size = useWindowSize();
-
-    console.log(size);
 
     return (
         <div className='container column'>

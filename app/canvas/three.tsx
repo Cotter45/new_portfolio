@@ -1,6 +1,29 @@
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { Canvas, useFrame, useThree, useLoader } from "@react-three/fiber";
 import { Suspense, useMemo, useRef } from "react";
 import * as THREE from "three";
+import { ImageLoader } from "three";
+import { useDrag } from "react-use-gesture";
+import { useSpring, a } from "react-spring/three";
+
+function Moon() {
+  const moonTexture = useLoader(ImageLoader, "/images/linkedin_pic.jpg");
+  const { size, viewport } = useThree();
+  const aspect = size.width / viewport.width;
+  const [spring, set] = useSpring(() => ({ position: [0, 0, 0], config: { mass: 3, friction: 40, tension: 800 } }))
+  return (
+    <mesh rotation={[0, 0, 1]} receiveShadow position={[20, 18, 0]} scale={.6}>
+      <boxBufferGeometry attach="geometry" args={[5, 5, 5]} />
+      <meshBasicMaterial attach="material">
+        <texture
+          attach="map"
+          image={moonTexture}
+          onUpdate={(self) => moonTexture && (self.needsUpdate = true)}
+        />
+      </meshBasicMaterial>
+    </mesh>
+  );
+}
+
 
 type Props = {
     count: number;
@@ -72,7 +95,6 @@ function Particles({ count }: Props) {
   );
 }
 
-
 export default function ThreeD() {
 
     return (
@@ -90,13 +112,15 @@ export default function ThreeD() {
           gl.toneMapping = THREE.ACESFilmicToneMapping;
           gl.outputEncoding = THREE.sRGBEncoding;
         }}
-        style={{ position: 'absolute'}}
+        style={{ position: "absolute" }}
       >
+        {/* <fog attach="fog" args={["#49bf9d", 10, 0]} /> */}
         <Suspense fallback={null}>
           <Particles count={3500} />
+          <Moon />
         </Suspense>
-        <ambientLight intensity={0.1} />
         <spotLight castShadow intensity={1} position={[25, 25, 0]} />
+        <ambientLight intensity={0.5} />
       </Canvas>
     );
 }

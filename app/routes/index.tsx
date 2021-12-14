@@ -56,7 +56,7 @@ export default function Index() {
             my story, my projects, contact me and more. I hope you enjoy it!
           </p> */}
         </aside>
-        <img id='selfie' src='/images/linkedin_pic.jpg' alt='me' />
+        {/* <img id='selfie' src='/images/linkedin_pic.jpg' alt='me' /> */}
       </div>
     </>
   );
