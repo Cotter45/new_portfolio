@@ -2,16 +2,21 @@ import { Canvas, useFrame, useThree, useLoader } from "@react-three/fiber";
 import { Suspense, useMemo, useRef } from "react";
 import * as THREE from "three";
 import { ImageLoader } from "three";
-import { useDrag } from "react-use-gesture";
-import { useSpring, a } from "react-spring/three";
 
 function Moon() {
   const moonTexture = useLoader(ImageLoader, "/images/linkedin_pic.jpg");
-  const { size, viewport } = useThree();
-  const aspect = size.width / viewport.width;
-  const [spring, set] = useSpring(() => ({ position: [0, 0, 0], config: { mass: 3, friction: 40, tension: 800 } }))
+  const moon = useRef<any>();
+
+  useFrame(({ clock }) => {
+    const time = clock.getElapsedTime();
+    const rotation = time * 0.1;
+    if (moon.current) {
+      moon.current.rotation.set(rotation - 1, 0, 1);
+    }
+  });
+
   return (
-    <mesh rotation={[0, 0, 1]} receiveShadow position={[20, 18, 0]} scale={.6}>
+    <mesh ref={moon} rotation={[0, 0, 0]} receiveShadow position={[20, 18, 0]} scale={.6}>
       <boxBufferGeometry attach="geometry" args={[5, 5, 5]} />
       <meshBasicMaterial attach="material">
         <texture

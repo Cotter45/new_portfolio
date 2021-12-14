@@ -326,7 +326,7 @@ pre code {
 
 .main_container {
   height: fit-content;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   width: 100%;
   max-width: 1600px;
 } 
@@ -1238,7 +1238,7 @@ input[type="button"]:disabled,
   padding-top: 1rem;
   padding-bottom: 1rem;
   /* border-bottom: 1px solid white; */
-  position: sticky;
+  position: absolute;
   top: 0;
   width: 100%;
   z-index: 1;
@@ -1271,13 +1271,8 @@ input[type="button"]:disabled,
   margin: 0;
   display: flex;
   align-items: center;
-  gap: .5em;
+  gap: .2em;
 }
-
-.remix-app__header-nav li {
-  font-weight: bold;
-}
-
 .remix-app__footer {
   padding-top: 1rem;
   padding-bottom: 1rem;
