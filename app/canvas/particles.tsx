@@ -120,7 +120,6 @@ export default function Particles() {
                         //         }
                         //     }
                         // }
-                        console.log(ww)
                         if (ww > 800) {
                             for(let i=0;i<data.width;i+=5){
                                 for(let j=0;j<data.height;j+=6){

@@ -150,3 +150,19 @@ export const full_stack_projects = [
         ]
     },
 ]
+
+export const frontend_projects = [
+    {
+        id: 1,
+        name: "",
+        description: "",
+        image: "",
+        tech: [],
+        github: "",
+        live: "",
+        learned: [],
+        takeaways: [],
+        images: [],
+        video: []
+    }
+]

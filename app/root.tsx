@@ -51,9 +51,9 @@ export function ErrorBoundary({ error }: { error: Error }) {
           <p>{error.message}</p>
           <hr />
           <p>
-            Hey, developer, you should replace this with what you want your
-            users to see.
+            Someone done goofed.
           </p>
+          <Link to="/">Go Home</Link>
         </div>
       </Layout>
     </Document>
@@ -129,6 +129,7 @@ function Document({
 }
 
 function Layout({ children }: { children: React.ReactNode }) {
+
   return (
     <div id="root">
       <header className="header">

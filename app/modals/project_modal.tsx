@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { useTransition, animated, useSpringRef } from '@react-spring/web'
 
 import { Modal } from "./modal";
@@ -29,7 +29,7 @@ function ProjectModal({ project }: any) {
 
   return (
     <>
-        <li onClick={() => setShowModal(!showModal)} className="icon brands" style={{ display: 'flex', flexDirection: 'column' }}><i className="fas fa-info fa-2x"></i><span className="label">Info</span></li>
+        <li onClick={() => setShowModal(!showModal)} className="icon brands" style={{ display: 'flex', flexDirection: 'column' }}><i className="fas fa-info fa-3x"></i><span className="label">Info</span></li>
         {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <div className='container column'>
@@ -65,9 +65,9 @@ function ProjectModal({ project }: any) {
           </div>
           <div className='container'>
             <label>Links</label>
-            <ul className="icons">
-                <li><a target="_blank" rel="noopener noreferrer" href={project.github} className="icon brands"><i className="fab fa-github fa-2x"></i><span className="label">Github</span></a></li>
-                <li><a target="_blank" rel="noopener noreferrer" href={project.live} className="icon brands"><i className="fas fa-globe fa-2x"></i><span className="label">Live</span></a></li>
+            <ul className="icons" style={{ justifyContent: 'center', gap: '4vw' }}>
+                <li><a target="_blank" rel="noopener noreferrer" href={project.github} className="icon brands"><i className="fab fa-github fa-4x"></i><span className="label">Github</span></a></li>
+                <li><a target="_blank" rel="noopener noreferrer" href={project.live} className="icon brands"><i className="fas fa-globe fa-4x"></i><span className="label">Live</span></a></li>
             </ul>
           </div>
           {project.video && (
