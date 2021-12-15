@@ -28,6 +28,7 @@ export const full_stack_projects = [
             "The biggest thing I had learned while working on this project is to start with the basics. Everyone wants a flashy app that does a bunch of cool things, but without a proper backbone - it's useless."
         ],
         images: [
+            '/images/fulls/workday.png',
             '/images/workday/feed.png',
             '/images/workday/jobs.png',
             '/images/workday/task_manager.gif',
@@ -52,7 +53,28 @@ export const full_stack_projects = [
             './images/thumbs/css.png'
         ],
         github: "https://github.com/Cotter45/Anarchy",
-        live: "https://anarchy-app.herokuapp.com/about"
+        live: "https://anarchy-app.herokuapp.com/about",
+        learned: [
+            "Web Sockets",
+            "WebRTC",
+            "AWS S3 for photos in python environment",
+            "Docker containers and Heroku deployment",
+            "React protected routes",
+        ],
+        takeaways: [
+            "This project took a lot of research, and research takes a lot of time. I definitely learned how to manage my time well and work efficiently in a group.",
+            "Flask is a great environment, very easy to set up and use almost right out of the box. I'm glad we used it for this project, however the biggest issue that we had was getting Flask-SocketIO to work in production. There are not a lot of resources online on how to do this, but after a ton of research and experimentation, we figured it out. It's a great way to manage the backend of a project.",
+            "This is a true one page application. Everything we thought we were going to be able to do going in, very quickly changed. Almost everything is a modal or a conditional render based on a user action controlled by state variables. This was an excellent usecase for Redux, we sure learned a lot throughout this project.",
+        ],
+        images: [
+            '/images/fulls/anarchy.png',
+            '/images/anarchy/Database.png',
+            '/images/anarchy/intro.png',
+            '/images/anarchy/settings.png'
+        ],
+        video: [
+            '/images/anarchy/chat.mov'
+        ]
     },
     {
         id: 3,
@@ -69,7 +91,9 @@ export const full_stack_projects = [
             './images/thumbs/css.png'
         ],
         github: "https://github.com/Cotter45/Vicariously",
-        live: "https://vicariously.herokuapp.com/"
+        live: "https://vicariously.herokuapp.com/",
+        learned: [
+            ""
     },
     {
         id: 4,
