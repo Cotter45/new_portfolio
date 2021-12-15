@@ -448,9 +448,9 @@ form {
 }
 
 label {
-  color: #787878;
+  color: #3eb08f;
   display: block;
-  font-size: 0.9em;
+  font-size: 1.4em;
   font-weight: 400;
   margin: 0 0 1em 0;
 }
@@ -1432,9 +1432,9 @@ body {
 
 #selfie {
   position: absolute;
-  top: 50%;
-  left: 25%;
-  /* height: 25%; */
+  top: 15%;
+  right: 1%;
+  height: 10%;
   border-radius: 50%;
 }
 
@@ -1466,6 +1466,6 @@ em {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  filter: url("#goo");
+  /* filter: url("#goo"); */
   border: 1px solid white;
 }

@@ -26,7 +26,7 @@ export default function Particles() {
                 let radius: number = .5;
         
                 // let colors = ["#468966", "#FFB03B","#B64926", "#8E2800"];
-                let colors = ["#468966"];
+                let colors = ["#468966", 'gray'];
             
                 let ww = canvas.width = document.documentElement.clientWidth;
                 let wh = canvas.height = document.documentElement.clientHeight;
@@ -46,7 +46,7 @@ export default function Particles() {
                     this.accY = 0;
                     this.friction = Math.random()*0.02 + 0.94;
             
-                    this.color = colors[Math.floor(Math.random()*2)];
+                    this.color = colors[Math.floor(Math.random()*3)];
                 }
         
                 Particle.prototype.render = function() {
@@ -174,7 +174,7 @@ export default function Particles() {
                           (particles[a].dest.y - particles[b].dest.y);
 
                       if (distance < 50) {
-                        opacityValue = 1 - distance / 400;
+                        opacityValue = 1 - distance / 50;
                         let dx = mouse.x - particles[a].x;
                         let dy = mouse.y - particles[a].y;
                         let mouseDistance = Math.sqrt(dx * dx + dy * dy);
@@ -192,7 +192,7 @@ export default function Particles() {
                             ctx.strokeStyle =
                               "rgba(255,255,210," + opacityValue + ")";
                           } else {
-                            particles[a].r = particles.r;
+                            particles[a].r = 3;
                             ctx.strokeStyle =
                               "rgba(255,255,255," + opacityValue + ")";
                           }

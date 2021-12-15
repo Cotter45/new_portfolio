@@ -57,6 +57,34 @@
     transform: skewY(0deg);
 }
 
+.images {
+    text-align: left;
+    width: 100%;
+    /* margin: 3em; */
+    /* height: 500px; */
+    margin-bottom: 550px;
+}
+
+.images > div {
+    cursor: pointer;
+    position: absolute;
+    left: 5%;
+    width: 90%;
+    will-change: transform,
+    opacity;
+    text-shadow: 0px 2px 40px #00000020,
+    0px 2px 5px #00000030;
+    -webkit-user-select: none;
+    user-select: none;
+    max-width: 1400px;
+}
+
+.images > div > img {
+    object-fit: cover;
+    height: 500px;
+    border-radius: 10px;
+}
+
 @media screen and (max-width: 980px) {
 
     .tech > img {

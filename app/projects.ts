@@ -15,7 +15,27 @@ export const full_stack_projects = [
             './images/thumbs/css.png'
         ],
         github: "https://github.com/Cotter45/WorkDay-",
-        live: "https://workday-app.herokuapp.com/"
+        live: "https://workday-app.herokuapp.com/",
+        learned: [
+            "Set up AWS S3 for photos in Node environment",
+            "React Drag-n-Drop",
+            "Custom React Hooks for window sizing, loading bar and auto scroll on route change",
+        ],
+        takeaways: [
+            "I really learned how to set a pace during this project. There weren't many days I didn't finish a full crud operation from back to front. Of course the rest of the day was spent hunting new bugs... However I really managed to find my groove implementing features.",
+            "I'm a person with great ambitions! I've always known this, however it can really interfere at times when I take on way too much. There are hundreds of lines of commented out code in this project for things I just didn't have the time to polish. I can't wait to slowly implement these as time goes on!",
+            "During this project week I found a few people coming to me to ask questions, this was a first! I wasn't always able to help, but I found that taking the time away from my project and helping others for a few minutes with theirs was a major boost to my productivity as well as theirs. WIN WIN. It was a lot of fun to be working solo yet staying in touch with the whole team and working together to debug.",
+            "The biggest thing I had learned while working on this project is to start with the basics. Everyone wants a flashy app that does a bunch of cool things, but without a proper backbone - it's useless."
+        ],
+        images: [
+            '/images/workday/feed.png',
+            '/images/workday/jobs.png',
+            '/images/workday/task_manager.gif',
+            '/images/workday/workday-schema.png'
+        ],
+        video: [
+            '/images/workday/video.mov'
+        ]
     },
     {
         id: 2,
