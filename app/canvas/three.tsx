@@ -203,7 +203,7 @@ const parameters = {
   size: 0.01,
   count: 100000,
   radius: 5,
-  branches: 2,
+  branches: 3,
   spin: 1.25,
   randomness: 0.3,
   randomnessPower: 3,
