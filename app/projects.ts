@@ -93,7 +93,24 @@ export const full_stack_projects = [
         github: "https://github.com/Cotter45/Vicariously",
         live: "https://vicariously.herokuapp.com/",
         learned: [
-            ""
+            "React / Redux combination",
+            "How to use a Google Maps API",
+            "How to use a React Calendar",
+            "How to not overload a server with a search bar",
+        ],
+        takeaways: [
+            "This was the first project I had used React / Redux for. I learned a lot about the state management of this project and how to use it effectively.",
+            "I learned how to use the Google Maps API to create a map with markers and a modal to display the information of the marker. I also learned how to use the Google Calendar API to create a calendar with events and a modal to display the information of the event.",
+            "I learned a lot about layout, using flexbox and modals to create a clean and intuitive user experience.",
+        ],
+        images: [
+            '/images/fulls/vicariously.png',
+            '/images/vicariously/Database.png',
+            '/images/vicariously/ExplorePage.png',
+            '/images/vicariously/PostPage.png',
+            '/images/vicariously/ProfilePage.png',
+            '/images/vicariously/ModalExample.png'
+        ]
     },
     {
         id: 4,
@@ -110,6 +127,26 @@ export const full_stack_projects = [
             './images/thumbs/css.png'
         ],
         github: "https://github.com/Cotter45/Pot-Overflow",
-        live: "https://aa-pot-overflow.herokuapp.com/"
+        live: "https://aa-pot-overflow.herokuapp.com/",
+        learned: [
+            "PugJS for HTML templating",
+            "Server Side Rendering",
+            "How much of a drawn out process Vanilla JS is",
+        ],
+        takeaways: [
+            "This project presented it's fair share of challenges!",
+            "The major highlights would be: implimenting our first search bar, adding answers to our page with DOM manipulation, authentication including a demo user, dynamic voting on both questions and answers",
+            "We were very fortunate to have an excellent team to tackle this project! Communication was always first priority and allowed us to be very efficient. We had completed, except for a few bugs, our entire feature list in less than 24 hours. Any member of this team is worth their weight in GOLD, I can't wait to see what we can accomplish in the future.",
+        ],
+        images: [
+            '/images/fulls/pot-overflow.gif',
+            '/images/pot-overflow/database.png',
+            '/images/pot-overflow/questions.png',
+            '/images/pot-overflow/question.png',
+            '/images/pot-overflow/login.jpeg',
+            '/images/pot-overflow/register.jpeg',
+            '/images/pot-overflow/code.png',
+            '/images/pot-overflow/search.png',
+        ]
     },
 ]

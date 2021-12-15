@@ -59,7 +59,7 @@ function ProjectModal({ project }: any) {
             <label>Images - ( Click/Tap )</label>
             {transitions((style, i): any => (
               <animated.div className='images' style={{ ...style }}>
-                <img height='500px' width='100%' src={project.images[i]} alt={project.name} />
+                <img loading='lazy' height='500px' width='100%' src={project.images[i]} alt={project.name} />
               </animated.div>
             ))}
           </div>

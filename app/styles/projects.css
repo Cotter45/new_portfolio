@@ -86,6 +86,7 @@
     object-fit: contain;
     height: 500px;
     border-radius: 10px;
+    box-sizing: content-box;
 }
 
 @media screen and (max-width: 980px) {
