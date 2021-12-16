@@ -12,7 +12,8 @@ export const full_stack_projects = [
             './images/thumbs/node.png',
             './images/thumbs/postgres.png',
             './images/thumbs/sequelize.png',
-            './images/thumbs/css.png'
+            './images/thumbs/css.png',
+            './images/thumbs/git.png'
         ],
         github: "https://github.com/Cotter45/WorkDay-",
         live: "https://workday-app.herokuapp.com/",
@@ -50,7 +51,9 @@ export const full_stack_projects = [
             './images/thumbs/flask.png',
             './images/thumbs/postgres.png',
             './images/thumbs/sqlalchemy.png',
-            './images/thumbs/css.png'
+            './images/thumbs/css.png',
+            './images/thumbs/docker.png',
+            './images/thumbs/git.png'
         ],
         github: "https://github.com/Cotter45/Anarchy",
         live: "https://anarchy-app.herokuapp.com/about",
@@ -88,7 +91,8 @@ export const full_stack_projects = [
             './images/thumbs/node.png',
             './images/thumbs/postgres.png',
             './images/thumbs/sequelize.png',
-            './images/thumbs/css.png'
+            './images/thumbs/css.png',
+            './images/thumbs/git.png'
         ],
         github: "https://github.com/Cotter45/Vicariously",
         live: "https://vicariously.herokuapp.com/",
@@ -124,7 +128,8 @@ export const full_stack_projects = [
             './images/thumbs/node.png',
             './images/thumbs/postgres.png',
             './images/thumbs/sequelize.png',
-            './images/thumbs/css.png'
+            './images/thumbs/css.png',
+            './images/thumbs/git.png'
         ],
         github: "https://github.com/Cotter45/Pot-Overflow",
         live: "https://aa-pot-overflow.herokuapp.com/",
@@ -161,6 +166,7 @@ export const frontend_projects = [
             './images/thumbs/js.png',
             './images/thumbs/react.png',
             './images/thumbs/css.png',
+            './images/thumbs/git.png'
         ],
         github: "https://github.com/Cotter45/Black_Stag",
         live: "https://laughing-yalow-d8f449.netlify.app/",
@@ -194,6 +200,7 @@ export const frontend_projects = [
             './images/thumbs/js.png',
             './images/thumbs/css.png',
             './images/thumbs/html.png',
+            './images/thumbs/git.png'
         ],
         github: "https://github.com/Cotter45/DOM-Tic-Tac-Toe",
         live: "https://tic-tac-toe-for-1.netlify.app/",
@@ -219,6 +226,7 @@ export const frontend_projects = [
             './images/thumbs/redux.png',
             './images/thumbs/styled_components.png',
             './images/thumbs/js.png',
+            './images/thumbs/git.png'
         ],
         github: "https://github.com/Cotter45/Eulerity_Pets",
         learned: [
