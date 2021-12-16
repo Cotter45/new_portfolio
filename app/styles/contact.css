@@ -1,0 +1,23 @@
+.contact {
+  display: flex;
+  height: 100%;
+  width: 80%;
+}
+
+.contact>main {
+  border-left: solid 1px #ccc;
+  padding-left: 2rem;
+  height: 60%;
+}
+
+em {
+  color: red;
+}
+
+/* .no_scroll {
+  overflow: hidden;
+}
+
+.scroller {
+  overflow: scroll;
+} */

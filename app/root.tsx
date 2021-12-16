@@ -133,34 +133,6 @@ function Document({
   );
 }
 
-const data = () => {
-
-  return (
-    <ul>
-      <li>
-        <Link className="header-home-link" to="/">
-          Home
-        </Link>
-      </li>
-      <li>
-        <Link className="header-home-link" to="/contact">
-          Contact
-        </Link>
-      </li>
-      <li>
-        <Link className="header-home-link" to="/about">
-          About
-        </Link>
-      </li>
-      <li>
-        <Link className="header-home-link" to="/projects">
-          Projects
-        </Link>
-      </li>
-    </ul>
-  );
-}
-
 function Layout({ children }: { children: React.ReactNode }) {
   const [open, set] = useState(false);
   const screen = useWindowSize();
@@ -172,17 +144,6 @@ function Layout({ children }: { children: React.ReactNode }) {
     enter: { opacity: 1, transform: "translate3d(0, 0px, 0)", display: 'flex' },
     leave: { opacity: 0, transform: "translate3d(0, 40px, 0)", display: "none" }
   });
-
-  // useEffect(() => {
-  //   if (!open) return;
-
-  //   const menuToggle = document.addEventListener("click", (e) => {
-  //     if (!e?.target.closest('header-nav-mobile')) return;
-  //     set(false);
-  //   })
-
-  //   return () => document.removeEventListener("click", menuToggle);
-  // })
 
   return (
     <div id="root">
@@ -208,7 +169,7 @@ function Layout({ children }: { children: React.ReactNode }) {
                 </li>
               </ul>
             ) || (
-              <button className="header-home-link" onClick={() => set(!open)}><i style={{ color: 'black' }} className="fas fa-bars fa-3x"></i></button>
+              <button className="header-home-link" onClick={() => set(!open)}><i style={{ color: 'black' }} className="fas fa-bars fa-2x"></i></button>
             )}
           </nav>
           {screen.width < 1000 && (
@@ -217,11 +178,10 @@ function Layout({ children }: { children: React.ReactNode }) {
               <animated.div style={{ ...style, position: 'absolute', right: '35%', top: '95%' }}>
                 {open && (
                   <div className='header-nav-mobile'>
-                <Link onClick={closeMenu} className='header-home-link' to="/">Home</Link>
-                <Link onClick={closeMenu} className='header-home-link' to="/contact">Contact</Link>
-                <Link onClick={closeMenu} className='header-home-link' to="/about">About</Link>
-                <Link onClick={closeMenu} className='header-home-link' to="/projects">Projects</Link>
-                  
+                    <Link onClick={closeMenu} className='header-home-link' to="/">Home</Link>
+                    <Link onClick={closeMenu} className='header-home-link' to="/contact">Contact</Link>
+                    <Link onClick={closeMenu} className='header-home-link' to="/about">About</Link>
+                    <Link onClick={closeMenu} className='header-home-link' to="/projects">Projects</Link>
                   </div>
                 )}
               </animated.div>

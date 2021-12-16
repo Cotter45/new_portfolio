@@ -1001,14 +1001,6 @@ body {
   z-index: -1;
 }
 
-.no_scroll {
-  overflow: hidden;
-}
-
-.scroller {
-  overflow: scroll;
-}
-
 .splash_text {
   position: absolute;
   top: 15%;
@@ -1036,22 +1028,6 @@ body {
   right: 1%;
   height: 10%;
   border-radius: 50%;
-}
-
-.contact {
-  display: flex;
-  height: 100vh;
-  width: 80%;
-}
-
-.contact>main {
-  border-left: solid 1px #ccc;
-  padding-left: 2rem;
-  height: 60%;
-}
-
-em {
-  color: red;
 }
 
 .list {

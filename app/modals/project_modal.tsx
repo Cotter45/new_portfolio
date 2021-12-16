@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useTransition, animated, useSpringRef } from '@react-spring/web'
 
 import { Modal } from "./modal";
@@ -32,7 +32,7 @@ function ProjectModal({ project }: any) {
         <li onClick={() => setShowModal(!showModal)} className="icon brands" style={{ display: 'flex', flexDirection: 'column' }}><i className="fas fa-info fa-3x"></i><span className="label">Info</span></li>
         {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <button onClick={() => setShowModal(false)} style={{ alignSelf: 'flex-end' }} className="header-home-link"><i className='fa fa-times fa-3x'></i></button>
+          <button onClick={() => setShowModal(false)} style={{ alignSelf: 'flex-end', position: 'sticky', top: 0, zIndex: 1 }} className="header-home-link"><i className='fa fa-times fa-3x'></i></button>
           <div className='container column'>
             <h1 style={{ color: '#3eb08f'}}>{project.name}</h1>
             <div className='container'>
