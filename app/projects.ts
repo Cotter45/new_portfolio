@@ -154,29 +154,44 @@ export const full_stack_projects = [
 export const frontend_projects = [
     {
         id: 1,
-        name: "Black Stag General Contracting",
+        name: "Black Stag",
         description: "This was a project I had done for a friend of mine. He is going to be starting a general contracting business and this will be the template for his website. I built it over the course of a few days and took advantage of the time to learn react-spring for light animations and transitions. I will be returning to it to optimize it as much as possible. I will probably convert it to a Remix.run / server side rendered project in the future.",
-        image: "/images/black_stag/animated.gif",
+        image: "/images/black_stag/stag.gif",
         tech: [
             './images/thumbs/js.png',
             './images/thumbs/react.png',
             './images/thumbs/css.png',
         ],
         github: "https://github.com/Cotter45/Black_Stag",
-        live: "https://laughing-yalow-d8f449.netlify.app/services",
-        learned: [],
-        takeaways: [],
-        images: [],
-        video: []
+        live: "https://laughing-yalow-d8f449.netlify.app/",
+        learned: [
+            "React Spring for animations",
+            "How to build to someone elses design",
+            "How to build a contact form in React",
+        ],
+        takeaways: [
+            "This project has a lot of images... Images from iPhones... The file sizes are MASSIVE. They take a long time to load. I've learned how to use the <picture> element and webP format to speed it up a little bit. I still have a ways to go with learning optimizations.",
+            "I learned to work with someone else who had no idea what they wanted and how to build off of that.",
+        ],
+        images: [
+            '/images/black_stag/animated.gif',
+            '/images/black_stag/stag.gif',
+            '/images/black_stag/services.png',
+            '/images/black_stag/contact.png',
+            '/images/black_stag/footer.png',
+        ],
+        video: [
+            '/images/black_stag/stag.mov'
+        ]
     },
     {
         id: 2,
-        name: "Eulerity Pets",
+        name: "",
         description: "",
         image: "",
         tech: [],
-        github: "https://github.com/Cotter45/Eulerity_Pets",
-        live: "https://github.com/Cotter45/Eulerity_Pets",
+        github: "",
+        live: "",
         learned: [],
         takeaways: [],
         images: [],
@@ -184,12 +199,12 @@ export const frontend_projects = [
     },
     {
         id: 3,
-        name: "",
+        name: "Eulerity Pets",
         description: "",
         image: "",
         tech: [],
-        github: "",
-        live: "",
+        github: "https://github.com/Cotter45/Eulerity_Pets",
+        live: "https://github.com/Cotter45/Eulerity_Pets",
         learned: [],
         takeaways: [],
         images: [],

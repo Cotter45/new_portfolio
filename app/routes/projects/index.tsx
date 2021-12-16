@@ -1,11 +1,9 @@
 import { LinksFunction, MetaFunction } from "remix";
-import { useRef, useState } from 'react';
-import { useTransition, animated, useSpring, config } from "@react-spring/web";
 
 
 import modalCss from "~/styles/modal.css";
 import projectStyles from "~/styles/projects.css";
-import { full_stack_projects } from "~/projects";
+import { full_stack_projects, frontend_projects } from "~/projects";
 import useWindowSize from "~/window-size";
 import ProjectModal from "~/modals/project_modal";
 
@@ -42,7 +40,33 @@ export default function Projects() {
                                 <div className='container medium tech'>
                                     {project.tech?.map((tech, index) => (
                                         <div className='tech' key={index}>
-                                            <img src={tech} alt={'Tech'} />
+                                            <img loading='lazy' src={tech} alt={'Tech'} />
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                            <div className='container'>
+                                <img className='image fit' src={project.image} alt={project.name} />
+                            </div>
+                        </div>
+                        
+                    </div>
+                ))}
+                <h2 className='project_header'>Front End</h2>
+                {frontend_projects.map((project, index) => (
+                    <div className='container column project' key={index} style={{ padding: '2rem', alignItems: index % 2 === 0 ? 'flex-end' : 'flex-start' }}>
+                        <div className={size.width > 1000 ? 'container row' : 'container'} style={{flexDirection: index % 2 === 0 ? 'row-reverse' : 'row', gap: '2rem'}}>
+                            <div className={index % 2 === 0 ? 'container column text slantRight' : 'container column text slantLeft'}>
+                                <h2>{project.name}</h2>
+                                <ul className="icons" style={{ gap: '2vw' }}>
+                                    <li><a target="_blank" rel="noopener noreferrer" href={project.github} className="icon brands"><i className="fab fa-github fa-3x"></i><span className="label">Github</span></a></li>
+                                    <li><a target="_blank" rel="noopener noreferrer" href={project.live} className="icon brands"><i className="fas fa-globe fa-3x"></i><span className="label">Live</span></a></li>
+                                    <ProjectModal project={project} />
+                                </ul>
+                                <div className='container medium tech'>
+                                    {project.tech?.map((tech, index) => (
+                                        <div className='tech' key={index}>
+                                            <img loading='lazy' src={tech} alt={'Tech'} />
                                         </div>
                                     ))}
                                 </div>
