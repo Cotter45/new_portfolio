@@ -32,7 +32,7 @@ function ProjectModal({ project }: any) {
         <li onClick={() => setShowModal(!showModal)} className="icon brands" style={{ display: 'flex', flexDirection: 'column' }}><i className="fas fa-info fa-3x"></i><span className="label">Info</span></li>
         {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <button onClick={() => setShowModal(false)} style={{ alignSelf: 'flex-end', position: 'sticky' }} className="header-home-link"><i className='fa fa-times fa-3x'></i></button>
+          <button onClick={() => setShowModal(false)} style={{ alignSelf: 'flex-end' }} className="header-home-link"><i className='fa fa-times fa-3x'></i></button>
           <div className='container column'>
             <h1 style={{ color: '#3eb08f'}}>{project.name}</h1>
             <div className='container'>
@@ -62,7 +62,7 @@ function ProjectModal({ project }: any) {
               <>
                 {transitions((style, i): any => (
                   <animated.div className='images' style={{ ...style }}>
-                    <img loading='lazy' height='500px' width='100%' src={project.images[i]} alt={project.name} />
+                    <img className='slide' loading='lazy' height='500px' width='100%' src={project.images[i]} alt={project.name} />
                   </animated.div>
                 ))}
               </>
