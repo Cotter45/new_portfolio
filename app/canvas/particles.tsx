@@ -104,7 +104,12 @@ export default function Particles() {
                     if (ctx) {
                         ctx.clearRect(0, 0, canvas.width, canvas.height);
                 
-                        ctx.font = "" + ww / 7 + "px Source Sans Pro";
+                        // ctx.font = "" + ww / 7 + "px Source Sans Pro";
+                        if (ww > 800) {
+                            ctx.font = "" + ww / 10 + "px Source Sans Pro";
+                        } else {
+                            ctx.font = "" + ww / 7 + "px Source Sans Pro";
+                        }
                         ctx.textAlign = "left";
                         ctx.fillText("Hi, I'm Sean", 25, wh > 2000 ? 500 : wh > 800 ? 300 : 200, 1200);
                         // ctx.fillText("Hi, I'm Sean", 25, 300);
@@ -130,7 +135,7 @@ export default function Particles() {
                             }
                         }
                         else if (ww < 800){
-                            for(let i=0;i<data.width;i+=2){
+                            for(let i=0;i<data.width;i+=4){
                                 for(let j=0;j<data.height;j+=3){
                                     if(data.data[(j * 4 * data.width) + (i * 4) + 3] > 128){
                                         particles.push(new (Particle as any)(i,j));

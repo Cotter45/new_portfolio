@@ -140,16 +140,16 @@ function Layout({ children }: { children: React.ReactNode }) {
           <nav aria-label="Main navigation" className="header-nav">
             <ul>
               <li>
-                <Link to="/">Home</Link>
+                <Link className='header-home-link' to="/">Home</Link>
               </li>
               <li>
-                <Link to="/contact">Contact</Link>
+                <Link className='header-home-link' to="/contact">Contact</Link>
               </li>
               <li>
-                <Link to="/about">About</Link>
+                <Link className='header-home-link' to="/about">About</Link>
               </li>
               <li>
-                <Link to="/projects">My Work</Link>
+                <Link className='header-home-link' to="/projects">My Work</Link>
               </li>
             </ul>
           </nav>

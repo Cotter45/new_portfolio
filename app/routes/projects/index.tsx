@@ -41,7 +41,9 @@ export default function Projects() {
                                 </ul>
                                 <div className='container medium tech'>
                                     {project.tech?.map((tech, index) => (
-                                        <img src={tech} alt={tech} key={index} />
+                                        <div className='tech' key={index}>
+                                            <img src={tech} alt={'Tech'} />
+                                        </div>
                                     ))}
                                 </div>
                             </div>

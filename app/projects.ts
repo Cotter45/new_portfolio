@@ -154,6 +154,36 @@ export const full_stack_projects = [
 export const frontend_projects = [
     {
         id: 1,
+        name: "Black Stag General Contracting",
+        description: "This was a project I had done for a friend of mine. He is going to be starting a general contracting business and this will be the template for his website. I built it over the course of a few days and took advantage of the time to learn react-spring for light animations and transitions. I will be returning to it to optimize it as much as possible. I will probably convert it to a Remix.run / server side rendered project in the future.",
+        image: "/images/black_stag/animated.gif",
+        tech: [
+            './images/thumbs/js.png',
+            './images/thumbs/react.png',
+            './images/thumbs/css.png',
+        ],
+        github: "https://github.com/Cotter45/Black_Stag",
+        live: "https://laughing-yalow-d8f449.netlify.app/services",
+        learned: [],
+        takeaways: [],
+        images: [],
+        video: []
+    },
+    {
+        id: 2,
+        name: "Eulerity Pets",
+        description: "",
+        image: "",
+        tech: [],
+        github: "https://github.com/Cotter45/Eulerity_Pets",
+        live: "https://github.com/Cotter45/Eulerity_Pets",
+        learned: [],
+        takeaways: [],
+        images: [],
+        video: []
+    },
+    {
+        id: 3,
         name: "",
         description: "",
         image: "",
@@ -164,5 +194,5 @@ export const frontend_projects = [
         takeaways: [],
         images: [],
         video: []
-    }
+    },
 ]
