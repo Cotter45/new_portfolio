@@ -12,8 +12,8 @@
 
 .project_header {
     font-size: 4.5rem;
-    padding-left: 1em;
-    padding-top: 2em;
+    padding-left: 1rem;
+    padding-top: 2rem;
     border-bottom: 10px solid rgba(73, 191, 157, 0.2);
     color: #49bf9d;
 }
@@ -47,7 +47,7 @@
     background-color: white;
     display: flex;
     justify-content: center;
-    padding: .5em;
+    padding: .5em 0;
     gap: 1em;
     overflow-x: scroll;
     border-radius: 10px;
@@ -81,7 +81,7 @@
     width: 100%;
     /* margin: 3em; */
     /* height: 500px; */
-    margin-bottom: 550px;
+    /* margin-bottom: 600px; */
 }
 
 .images > div {

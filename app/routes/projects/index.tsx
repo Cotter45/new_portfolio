@@ -28,7 +28,7 @@ export default function Projects() {
             <div className='container projects'>
                 <h2 className='project_header'>Full Stack</h2>
                 {full_stack_projects.map((project, index) => (
-                    <div className='container column project' key={index} style={{ padding: '2rem', alignItems: index % 2 === 0 ? 'flex-end' : 'flex-start' }}>
+                    <div className='container column project' key={index} style={{ alignItems: index % 2 === 0 ? 'flex-end' : 'flex-start' }}>
                         <div className={size.width > 1000 ? 'container row' : 'container'} style={{flexDirection: index % 2 === 0 ? 'row-reverse' : 'row', gap: '2rem'}}>
                             <div className={index % 2 === 0 ? 'container column text slantRight' : 'container column text slantLeft'}>
                                 <h2>{project.name}</h2>
@@ -54,13 +54,15 @@ export default function Projects() {
                 ))}
                 <h2 className='project_header'>Front End</h2>
                 {frontend_projects.map((project, index) => (
-                    <div className='container column project' key={index} style={{ padding: '2rem', alignItems: index % 2 === 0 ? 'flex-end' : 'flex-start' }}>
+                    <div className='container column project' key={index} style={{ alignItems: index % 2 === 0 ? 'flex-end' : 'flex-start' }}>
                         <div className={size.width > 1000 ? 'container row' : 'container'} style={{flexDirection: index % 2 === 0 ? 'row-reverse' : 'row', gap: '2rem'}}>
                             <div className={index % 2 === 0 ? 'container column text slantRight' : 'container column text slantLeft'}>
                                 <h2>{project.name}</h2>
                                 <ul className="icons" style={{ gap: '2vw' }}>
                                     <li><a target="_blank" rel="noopener noreferrer" href={project.github} className="icon brands"><i className="fab fa-github fa-3x"></i><span className="label">Github</span></a></li>
-                                    <li><a target="_blank" rel="noopener noreferrer" href={project.live} className="icon brands"><i className="fas fa-globe fa-3x"></i><span className="label">Live</span></a></li>
+                                    {project.live && (
+                                        <li><a target="_blank" rel="noopener noreferrer" href={project.live} className="icon brands"><i className="fas fa-globe fa-3x"></i><span className="label">Live</span></a></li>
+                                    )}
                                     <ProjectModal project={project} />
                                 </ul>
                                 <div className='container medium tech'>
@@ -72,7 +74,12 @@ export default function Projects() {
                                 </div>
                             </div>
                             <div className='container'>
-                                <img className='image fit' src={project.image} alt={project.name} />
+                                {!project.frame && (
+                                    <img className='image fit' src={project.image} alt={project.name} />
+                                )}
+                                {project.frame && (
+                                    <iframe scrolling='no' className='image fit' src={project.live} title={project.name} />
+                                )}
                             </div>
                         </div>
                         

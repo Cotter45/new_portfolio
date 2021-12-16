@@ -54,12 +54,12 @@ export default function Index() {
       {/* <ProfileImage /> */}
       <ThreeD />
       <div className="container column" id="no_scroll">
-        <aside className='container column splash_text'>
-          {/* <h1>Sean Cotter</h1> */}
-          {/* <p>This is my personal portfolio site. Here you can find 
+        {/* <aside className='container column splash_text'>
+          <h1>Sean Cotter</h1>
+          <p>This is my personal portfolio site. Here you can find 
             my story, my projects, contact me and more. I hope you enjoy it!
-          </p> */}
-        </aside>
+          </p>
+        </aside> */}
         {/* <img id='selfie' src='/images/linkedin_pic.jpg' alt='me' /> */}
       </div>
     </>

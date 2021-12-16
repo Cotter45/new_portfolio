@@ -186,28 +186,53 @@ export const frontend_projects = [
     },
     {
         id: 2,
-        name: "",
-        description: "",
+        frame: true,
+        name: "Tic Tac Toe",
+        description: "This was the first project I had deployed. It's a simple tic-tac-toe game that has a 'computer' player. It was built in regular HTML, CSS and JavaScript. The game itself is an example of OOP (object oriented programming) using classes for the gaame logic. While there are certainly improvements that can be made, I kinda like it just the way it is.",
         image: "",
-        tech: [],
-        github: "",
-        live: "",
-        learned: [],
-        takeaways: [],
+        tech: [
+            './images/thumbs/js.png',
+            './images/thumbs/css.png',
+            './images/thumbs/html.png',
+        ],
+        github: "https://github.com/Cotter45/DOM-Tic-Tac-Toe",
+        live: "https://tic-tac-toe-for-1.netlify.app/",
+        learned: [
+            "How to use OOP in JavaScript",
+            "How to use classes in JavaScript",
+            "Dom manipulation",
+            "Hosting a website",
+        ],
+        takeaways: [
+            "OOP can definitely be something that's difficult to wrap your head around. The first time I encountered a program built this way it spun my head round quite a few times. However after a few tries, it really comes together so cleanly. I'm glad I did this project because I learned a lot about OOP and how to use it in JavaScript.",
+            "Trying to write a computer player with a bunch of if / else statements can really make code hard to read and follow."
+        ],
         images: [],
-        video: []
     },
     {
         id: 3,
         name: "Eulerity Pets",
-        description: "",
-        image: "",
-        tech: [],
+        description: "This project was a hackathon challenge for a company called Eulerity. Based out of New York they are a digital marketing company powered by AI to deliver automated marketing and strategies to their customers. I was given 48 hours to complete a mini website. The requirements were - Create React App / Redux, Fetch some data from their API, Search by name or description, Utilize Styled Components, Utilize React Router and allow users to download the images.",
+        image: "/images/eulerity/DragDrop.png",
+        tech: [
+            './images/thumbs/react.png',
+            './images/thumbs/redux.png',
+            './images/thumbs/styled_components.png',
+            './images/thumbs/js.png',
+        ],
         github: "https://github.com/Cotter45/Eulerity_Pets",
-        live: "https://github.com/Cotter45/Eulerity_Pets",
-        learned: [],
-        takeaways: [],
-        images: [],
-        video: []
+        learned: [
+            'React Drag and Drop',
+            'Syled Components',
+            'Downloading images',
+        ],
+        takeaways: [
+            "This project was a great learning experience. I learned how to use React Drag and Drop and Styled Components to create a drag and drop interface. I also learned how to download images on the click of a button.",
+            "I like to take any opportunity I can to learn new things and improve my skills, this was a great learning experience."
+        ],
+        images: [
+            '/images/eulerity/DragDrop.png',
+            '/images/eulerity/Fireworks.png',
+        ],
     },
 ]

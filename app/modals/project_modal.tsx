@@ -32,6 +32,7 @@ function ProjectModal({ project }: any) {
         <li onClick={() => setShowModal(!showModal)} className="icon brands" style={{ display: 'flex', flexDirection: 'column' }}><i className="fas fa-info fa-3x"></i><span className="label">Info</span></li>
         {showModal && (
         <Modal onClose={() => setShowModal(false)}>
+          <button onClick={() => setShowModal(false)} style={{ alignSelf: 'flex-end', position: 'sticky' }} className="header-home-link"><i className='fa fa-times fa-3x'></i></button>
           <div className='container column'>
             <h1 style={{ color: '#3eb08f'}}>{project.name}</h1>
             <div className='container'>
@@ -55,19 +56,27 @@ function ProjectModal({ project }: any) {
               ))}
             </ul>
           </div>
-          <div className='images' onClick={onClick}>
+          <div className='images' style={{ marginBottom: project.images.length > 0 ? '600px' : '50px'}} onClick={onClick}>
             <label>Images - ( Click/Tap )</label>
-            {transitions((style, i): any => (
-              <animated.div className='images' style={{ ...style }}>
-                <img loading='lazy' height='500px' width='100%' src={project.images[i]} alt={project.name} />
-              </animated.div>
-            ))}
+            {project.images.length > 0 && (
+              <>
+                {transitions((style, i): any => (
+                  <animated.div className='images' style={{ ...style }}>
+                    <img loading='lazy' height='500px' width='100%' src={project.images[i]} alt={project.name} />
+                  </animated.div>
+                ))}
+              </>
+            ) || (
+              <iframe scrolling='no' className='image fit' src={project.live} title={project.name} />
+            )}
           </div>
           <div className='container'>
             <label>Links</label>
             <ul className="icons" style={{ justifyContent: 'center', gap: '4vw' }}>
                 <li><a target="_blank" rel="noopener noreferrer" href={project.github} className="icon brands"><i className="fab fa-github fa-4x"></i><span className="label">Github</span></a></li>
-                <li><a target="_blank" rel="noopener noreferrer" href={project.live} className="icon brands"><i className="fas fa-globe fa-4x"></i><span className="label">Live</span></a></li>
+                {project.live && (
+                  <li><a target="_blank" rel="noopener noreferrer" href={project.live} className="icon brands"><i className="fas fa-globe fa-4x"></i><span className="label">Live</span></a></li>
+                )}
             </ul>
           </div>
           {project.video && (
