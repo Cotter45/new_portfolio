@@ -9,10 +9,15 @@ import {
   useCatch
 } from "remix";
 import type { LinksFunction } from "remix";
+import { useState, useEffect } from "react";
+import { useTransition, animated } from "@react-spring/web";
+
+
 
 import globalStylesUrl from "~/styles/global.css";
 import darkStylesUrl from "~/styles/dark.css";
 import { ModalProvider } from "./modals/modal";
+import useWindowSize from "./window-size";
 
 // https://remix.run/api/app#links
 export let links: LinksFunction = () => {
@@ -128,7 +133,56 @@ function Document({
   );
 }
 
+const data = () => {
+
+  return (
+    <ul>
+      <li>
+        <Link className="header-home-link" to="/">
+          Home
+        </Link>
+      </li>
+      <li>
+        <Link className="header-home-link" to="/contact">
+          Contact
+        </Link>
+      </li>
+      <li>
+        <Link className="header-home-link" to="/about">
+          About
+        </Link>
+      </li>
+      <li>
+        <Link className="header-home-link" to="/projects">
+          Projects
+        </Link>
+      </li>
+    </ul>
+  );
+}
+
 function Layout({ children }: { children: React.ReactNode }) {
+  const [open, set] = useState(false);
+  const screen = useWindowSize();
+
+  const closeMenu = () => set(!open);
+
+  const transitions = useTransition(open, {
+    from: { opacity: 0, transform: "translate3d(0, 40px, 0)", display: "none" },
+    enter: { opacity: 1, transform: "translate3d(0, 0px, 0)", display: 'flex' },
+    leave: { opacity: 0, transform: "translate3d(0, 40px, 0)", display: "none" }
+  });
+
+  // useEffect(() => {
+  //   if (!open) return;
+
+  //   const menuToggle = document.addEventListener("click", (e) => {
+  //     if (!e?.target.closest('header-nav-mobile')) return;
+  //     set(false);
+  //   })
+
+  //   return () => document.removeEventListener("click", menuToggle);
+  // })
 
   return (
     <div id="root">
@@ -138,21 +192,42 @@ function Layout({ children }: { children: React.ReactNode }) {
             {` <> Sean Cotter </> `}
           </Link> */}
           <nav aria-label="Main navigation" className="header-nav">
-            <ul>
-              <li>
-                <Link className='header-home-link' to="/">Home</Link>
-              </li>
-              <li>
-                <Link className='header-home-link' to="/contact">Contact</Link>
-              </li>
-              <li>
-                <Link className='header-home-link' to="/about">About</Link>
-              </li>
-              <li>
-                <Link className='header-home-link' to="/projects">My Work</Link>
-              </li>
-            </ul>
+            {screen.width > 1000 && (
+              <ul>
+                <li>
+                  <Link className='header-home-link' to="/">Home</Link>
+                </li>
+                <li>
+                  <Link className='header-home-link' to="/contact">Contact</Link>
+                </li>
+                <li>
+                  <Link className='header-home-link' to="/about">About</Link>
+                </li>
+                <li>
+                  <Link className='header-home-link' to="/projects">Projects</Link>
+                </li>
+              </ul>
+            ) || (
+              <button className="header-home-link" onClick={() => set(!open)}><i style={{ color: 'black' }} className="fas fa-bars fa-3x"></i></button>
+            )}
           </nav>
+          {screen.width < 1000 && (
+            <>
+            {transitions((style, index) =>  (
+              <animated.div style={{ ...style, position: 'absolute', right: '35%', top: '95%' }}>
+                {open && (
+                  <div className='header-nav-mobile'>
+                <Link onClick={closeMenu} className='header-home-link' to="/">Home</Link>
+                <Link onClick={closeMenu} className='header-home-link' to="/contact">Contact</Link>
+                <Link onClick={closeMenu} className='header-home-link' to="/about">About</Link>
+                <Link onClick={closeMenu} className='header-home-link' to="/projects">Projects</Link>
+                  
+                  </div>
+                )}
+              </animated.div>
+            ))}
+            </>
+          )}
         </div>
       </header>
       <main className="main_container column">

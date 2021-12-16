@@ -24,7 +24,7 @@ export default function Projects() {
     const size = useWindowSize();
 
     return (
-        <div className='container column'>
+        <div className='container column' style={{ paddingBottom: '50px' }}>
             <div className='container projects'>
                 <h2 className='project_header'>Full Stack</h2>
                 {full_stack_projects.map((project, index) => (
@@ -78,7 +78,7 @@ export default function Projects() {
                                     <img className='image fit' src={project.image} alt={project.name} />
                                 )}
                                 {project.frame && (
-                                    <iframe scrolling='no' className='image fit' src={project.live} title={project.name} />
+                                    <iframe scrolling='no' className='' src={project.live} title={project.name} />
                                 )}
                             </div>
                         </div>

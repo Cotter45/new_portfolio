@@ -26,12 +26,13 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-around;
 }
 
 .text > h2 {
     font-size: 3.5rem;
     color: #49bf9d;
+    margin: 0;
 }
 
 .text > p {
@@ -79,9 +80,6 @@
 .images {
     text-align: left;
     width: 100%;
-    /* margin: 3em; */
-    /* height: 500px; */
-    /* margin-bottom: 600px; */
 }
 
 .images > div {
@@ -106,6 +104,13 @@
     height: 500px;
     border-radius: 10px;
     box-sizing: content-box;
+}
+
+iframe {
+    width: 100%;
+    height: 500px;
+    box-sizing: content-box;
+    border: none;
 }
 
 @media screen and (max-width: 980px) {
