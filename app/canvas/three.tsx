@@ -310,7 +310,7 @@ export default function ThreeD() {
           gl.toneMapping = THREE.ACESFilmicToneMapping;
           gl.outputEncoding = THREE.sRGBEncoding;
         }}
-        style={{ position: "absolute" }}
+        style={{ position: "absolute", top: 0 }}
       >
         <fog attach="fog" args={["white", 40, 190]} />
         <Suspense

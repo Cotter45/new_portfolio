@@ -1,24 +1,21 @@
 import {
-  useTransition,
   useActionData,
-  redirect,
   ActionFunction,
   MetaFunction,
-  Outlet, 
-  Link,
   useLoaderData,
   LinksFunction,
+  LoaderFunction
 } from "remix";
 import invariant from "tiny-invariant";
-import { v4 as uuidv4 } from "uuid";
-
-import { getPosts, getComments, createComment, createPost } from "~/comment";
-import type { Post, Comment } from "~/comment";
 import CanvasFun from "../../canvas/canvas";
 import NewComment from "../../modals/new_comment";
+import type { Comment } from "@prisma/client";
+import { db } from "~/utils/db.server";
 
 import contactStyles from "~/styles/contact.css";
 import modalStyles from "~/styles/modal.css";
+import Email from "./email";
+import Comments from "./comment";
 
 export let links: LinksFunction = () => {
   return [
@@ -34,36 +31,13 @@ export let meta: MetaFunction = () => {
   };
 };
 
-// type PostError = {
-//   title?: boolean;
-//   slug?: boolean;
-//   markdown?: boolean;
-// };
-
-
-// export const action: ActionFunction = async ({ request }) => {
-//   await new Promise((res) => setTimeout(res, 1000));
-//   const formData = await request.formData();
-//   const title = formData.get("title");
-//   const slug = formData.get("slug");
-//   const markdown = formData.get("markdown");
-
-//   const errors: PostError = {};
-//   if (!title) errors.title = true;
-//   if (!slug) errors.slug = true;
-//   if (!markdown) errors.markdown = true;
-
-//   if (Object.keys(errors).length) {
-//     return errors;
-//   }
-
-//   invariant(typeof title === "string");
-//   invariant(typeof slug === "string");
-//   invariant(typeof markdown === "string");
-//   await createPost({ title, slug, markdown });
-
-//   return getPosts();
-// };
+type LoaderData = { comments: Array<Comment> };
+export let loader: LoaderFunction = async () => {
+  const data: LoaderData = {
+    comments: await db.comment.findMany()
+  }
+  return data;
+}
 
 type CommentError = {
   name?: boolean;
@@ -95,53 +69,35 @@ export const action: ActionFunction = async ({ request }) => {
   invariant(typeof rating === "string");
   invariant(typeof comment === "string");
 
-  const newComment = {
-    id: uuidv4(),
-    name,
-    title,
-    rating,
-    comment,
-    date: new Date().toDateString(),
-  }
-  await createComment(newComment);
+  const newComment = await db.comment.create({
+    data: {
+      name,
+      title,
+      rating: +rating,
+      comment,
+    }
+  })
 
-  return getComments();
-};
-
-
-export const loader = () => {
-  return getComments();
+  return newComment;
 };
 
 
 export default function Contact() {
   const errors = useActionData();
-  const comments = useLoaderData<Comment[]>();
+  const comments = useLoaderData<any>().comments;
   
-
   return (
     <div className="contact">
-      <div className="container">
-        <div className="container row" style={{ justifyContent: 'space-around'}}>
+      <div className="container email">
+        <Email />
+      </div>
+      <div className="container comments">
+        <div className="container row" style={{ justifyContent: 'space-between', position: 'sticky', top: 0, backgroundColor: 'black' }}>
           <h1>Comments</h1>
           <NewComment props={errors} />
         </div>
-        <div className="container column">
-          {comments.map((comment) => (
-            <div className="container column comment" key={comment.id}>
-              <div className='container row' style={{ borderBottom: '2px solid black', justifyContent: 'space-around' }}>
-                <h3 style={{ color: 'gold', margin: 0 }}>{comment.name} - {new Date(comment.date).toLocaleDateString()}</h3>
-                <p>{comment.rating === '5' ? '⭐️⭐️⭐️⭐️⭐️' : comment.rating === '4' ? '⭐️⭐️⭐️⭐️' : comment.rating === '3' ? '⭐️⭐️⭐️' : comment.rating === '2' ? '⭐️⭐️' : '⭐️'}</p>
-              </div>
-              {/* <h4 style={{ borderBottom: '1px solid black'}}>{comment.title} </h4> */}
-              <p>{comment.comment}</p>
-            </div>
-          ))}
-        </div>
+        <Comments comments={comments} />
       </div>
-      <main className="container scroller">
-        <Outlet />
-      </main>
       {/* <CanvasFun /> */}
     </div>
   );

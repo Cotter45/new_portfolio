@@ -220,7 +220,7 @@ form {
 
 label {
   /* color: #3eb08f; */
-  color: rgb(182, 219, 16);
+  color: white;
   display: block;
   font-size: 1.4em;
   font-weight: 400;
@@ -236,15 +236,16 @@ textarea {
   -webkit-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  background: #f7f7f7;
+  /* background: black; */
+  background-image: linear-gradient(135deg, #7db183 0%, #4b4c50 100%);
   border-radius: 0.35em;
   border: solid 2px transparent;
-  color: inherit;
+  color: white;
   display: block;
   outline: 0;
   padding: 0 0.75em;
   text-decoration: none;
-  width: 100%;
+  width: 90%;
 }
 
 input[type="text"]:invalid,
@@ -261,6 +262,7 @@ input[type="email"]:focus,
 select:focus,
 textarea:focus {
   border-color: #49bf9d;
+  text-align: center;
 }
 
 select {
@@ -271,6 +273,8 @@ select {
   height: 2.75em;
   padding-right: 2.75em;
   text-overflow: ellipsis;
+  background-color: #234d41;
+  cursor: pointer;
 }
 
 select option {
@@ -889,7 +893,8 @@ input[type="button"]:disabled,
 .header-nav-mobile > .header-home-link {
   width: 80%;
   text-align: center;
-  padding: 0;
+  padding: .3rem;
+  font-size: 1.4rem;
 }
 
 .remix-app__footer {
@@ -983,10 +988,10 @@ body {
 }
 
 #canvas1 {
-  position: absolute;
+  position: fixed;
   height: 25%;
   width: 100%;
-  z-index: 1;
+  z-index: -1;
   color: black;
   bottom: 0;
   left: 0;

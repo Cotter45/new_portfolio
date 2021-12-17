@@ -1,8 +1,10 @@
 {
   "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx"],
   "compilerOptions": {
-    "lib": ["DOM", "DOM.Iterable", "ES2019"],
+    "sourceMap": true,
+    "outDir": "dist",
     "esModuleInterop": true,
+    "lib": ["esnext", "DOM", "DOM.Iterable", "ES2019"],
     "jsx": "react-jsx",
     "moduleResolution": "node",
     "resolveJsonModule": true,
