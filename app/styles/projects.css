@@ -1,9 +1,9 @@
 .projects {
     padding-bottom: 5vh;
-    gap: 2vh;
     display: flex;
     flex-direction: column;
     gap: 3vh;
+    width: 95%;
 }
 
 .project {

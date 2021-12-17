@@ -8,8 +8,8 @@ export let meta: MetaFunction = () => {
   };
 };
 
-import { getPosts } from "~/post";
-import type { Post } from "~/post";
+import { getPosts } from "~/comment";
+import type { Post } from "~/comment";
 
 
 export const loader = () => {

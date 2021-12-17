@@ -1,37 +1,21 @@
-// import { Link } from "remix";
-// import type { MetaFunction } from "remix";
-
-// export let meta: MetaFunction = () => {
-//   return {
-//     title: "Contact",
-//     description: "Leave a message after the beep.",
-//   };
-// };
-
-// export default function AdminIndex() {
-//   return (
-//     <p>
-//       <Link to="new">Create a New Comment</Link>
-//     </p>
-//   );
-// }
-
-import { createPost } from "~/post";
 import {
   useTransition,
   useActionData,
   redirect,
   ActionFunction,
+  MetaFunction,
+  Outlet, 
+  Link,
+  useLoaderData,
+  LinksFunction,
 } from "remix";
 import invariant from "tiny-invariant";
+import { v4 as uuidv4 } from "uuid";
 
-import { Outlet, Link, useLoaderData, LinksFunction } from "remix";
-import { useState } from "react";
-
-import { getPosts } from "~/post";
-import type { Post } from "~/post";
+import { getPosts, getComments, createComment, createPost } from "~/comment";
+import type { Post, Comment } from "~/comment";
 import CanvasFun from "../../canvas/canvas";
-import NewPost from "../../modals/new_comment";
+import NewComment from "../../modals/new_comment";
 
 import contactStyles from "~/styles/contact.css";
 import modalStyles from "~/styles/modal.css";
@@ -43,59 +27,117 @@ export let links: LinksFunction = () => {
   ];
 };
 
-type PostError = {
-  title?: boolean;
-  slug?: boolean;
-  markdown?: boolean;
+export let meta: MetaFunction = () => {
+  return {
+    title: "Contact",
+    description: "Leave a message after the beep.",
+  };
 };
 
+// type PostError = {
+//   title?: boolean;
+//   slug?: boolean;
+//   markdown?: boolean;
+// };
+
+
+// export const action: ActionFunction = async ({ request }) => {
+//   await new Promise((res) => setTimeout(res, 1000));
+//   const formData = await request.formData();
+//   const title = formData.get("title");
+//   const slug = formData.get("slug");
+//   const markdown = formData.get("markdown");
+
+//   const errors: PostError = {};
+//   if (!title) errors.title = true;
+//   if (!slug) errors.slug = true;
+//   if (!markdown) errors.markdown = true;
+
+//   if (Object.keys(errors).length) {
+//     return errors;
+//   }
+
+//   invariant(typeof title === "string");
+//   invariant(typeof slug === "string");
+//   invariant(typeof markdown === "string");
+//   await createPost({ title, slug, markdown });
+
+//   return getPosts();
+// };
+
+type CommentError = {
+  name?: boolean;
+  title?: boolean;
+  rating?: boolean;
+  comment?: boolean;
+}
 
 export const action: ActionFunction = async ({ request }) => {
   await new Promise((res) => setTimeout(res, 1000));
   const formData = await request.formData();
+  const name = formData.get("name");
   const title = formData.get("title");
-  const slug = formData.get("slug");
-  const markdown = formData.get("markdown");
+  const rating = formData.get("rating");
+  const comment = formData.get("comment");
 
-  const errors: PostError = {};
+  const errors: CommentError = {};
+  if (!name) errors.name = true;
   if (!title) errors.title = true;
-  if (!slug) errors.slug = true;
-  if (!markdown) errors.markdown = true;
+  if (!rating) errors.rating = true;
+  if (!comment) errors.comment = true;
 
   if (Object.keys(errors).length) {
     return errors;
   }
 
+  invariant(typeof name === "string");
   invariant(typeof title === "string");
-  invariant(typeof slug === "string");
-  invariant(typeof markdown === "string");
-  await createPost({ title, slug, markdown });
+  invariant(typeof rating === "string");
+  invariant(typeof comment === "string");
 
-  return getPosts();
+  const newComment = {
+    id: uuidv4(),
+    name,
+    title,
+    rating,
+    comment,
+    date: new Date().toDateString(),
+  }
+  await createComment(newComment);
+
+  return getComments();
 };
 
 
 export const loader = () => {
-  return getPosts();
+  return getComments();
 };
 
-export default function Admin() {
+
+export default function Contact() {
   const errors = useActionData();
-  const posts = useLoaderData<Post[]>();
-  const [newPost, setNewPost] = useState<boolean>(false);
+  const comments = useLoaderData<Comment[]>();
+  
 
   return (
-    <div className="contact no_scroll">
+    <div className="contact">
       <div className="container">
-        <h2>Comments</h2>
-        <NewPost props={errors} />
-        <ul className="list">
-          {posts.map((post) => (
-            <li key={post.slug}>
-              <Link to={`/posts/${post.slug}`}>{post.title}</Link>
-            </li>
+        <div className="container row" style={{ justifyContent: 'space-around'}}>
+          <h1>Comments</h1>
+          <NewComment props={errors} />
+        </div>
+        <div className="container column">
+          {comments.map((comment) => (
+            <div className="container column comment" key={comment.id}>
+              <div className='container row' style={{ borderBottom: '2px solid black', justifyContent: 'space-around' }}>
+                <h3 style={{ color: 'gold', margin: 0 }}>{comment.name} - {new Date(comment.date).toLocaleDateString()}</h3>
+                <p>{comment.rating === '5' ? '⭐️⭐️⭐️⭐️⭐️' : comment.rating === '4' ? '⭐️⭐️⭐️⭐️' : comment.rating === '3' ? '⭐️⭐️⭐️' : comment.rating === '2' ? '⭐️⭐️' : '⭐️'}</p>
+              </div>
+              {/* <h4 style={{ borderBottom: '1px solid black'}}>{comment.title} </h4> */}
+              <p>{comment.comment}</p>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
       <main className="container scroller">
         <Outlet />

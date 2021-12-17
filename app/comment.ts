@@ -5,10 +5,47 @@ import invariant from "tiny-invariant";
 import { marked } from "marked";
 
 
+
 export type Post = {
   slug: string;
   title: string;
 };
+
+export type Comment = {
+  id: string;
+  title: string;
+  name: string;
+  comment: string;
+  rating: string;
+  date: string;
+}
+
+export type CommentMarkdownAttributes = {
+  title: string;
+  name: string;
+  comment: string;
+  date: string;
+  rating: string;
+}
+
+const commentsPath = path.join(__dirname, "../../comments", "comments.json");
+
+function isValidCommentAttributes(
+  attributes: any
+): attributes is CommentMarkdownAttributes {
+  return attributes?.title;
+}
+
+export async function getComments() {
+  const comments = await fs.readFile(commentsPath, "utf-8");
+  return JSON.parse(comments);
+}
+
+export async function createComment(comment: Comment) {
+  const comments = await getComments();
+  comments.push(comment);
+  await fs.writeFile(commentsPath, JSON.stringify(comments), "utf-8");
+}
 
 export type PostMarkdownAttributes = {
   title: string;

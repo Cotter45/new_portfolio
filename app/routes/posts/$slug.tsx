@@ -9,7 +9,7 @@ export let meta: MetaFunction = () => {
   };
 };
 
-import { getPost } from "~/post";
+import { getPost } from "~/comment";
 import invariant from "tiny-invariant";
 
 export const loader: LoaderFunction = async ({
