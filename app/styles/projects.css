@@ -118,12 +118,16 @@ iframe {
 
 @media screen and (max-width: 980px) {
 
+    .projects {
+        width: 90% !important;
+    }
+
     .tech > img {
         width: 1.5em;
         height: 1.5em;
     }
-
-
+    
+    
 }
 
 @media screen and (max-width: 480px) {

@@ -10,14 +10,14 @@ export default function ProfileImage() {
     
       image.addEventListener("load", function () {
     
-        const canvas = document.getElementById("canvas2") as HTMLCanvasElement;
+        const canvas = document.getElementById("selfie") as HTMLCanvasElement;
         const ctx = canvas?.getContext("2d");
         canvas.width = 572;
         canvas.height = 352;
     
         let particlesArray: any = [];
-        const numberOfParticles = 12000;
-        const detail = 1;
+        const numberOfParticles = 5000;
+        const detail = 5;
     
         ctx?.drawImage(image, 0, 0, canvas.width, canvas.height);
     
@@ -56,7 +56,7 @@ export default function ProfileImage() {
             //this.prevX = this.x;
             this.speed = 0;
             this.velocity = Math.random() * 0.7;
-            this.size = Math.random() * .8 + 0.1;
+            this.size = Math.random() * .8 + 1;
           }
           update() {
             this.speed =
