@@ -153,49 +153,125 @@ function Layout({ children }: { children: React.ReactNode }) {
             {` <> Sean Cotter </> `}
           </Link> */}
           <nav aria-label="Main navigation" className="header-nav">
-            {screen.width > 1000 && (
+            {(screen.width > 1000 && (
               <ul>
                 <li>
-                  <Link className='header-home-link' to="/">Home</Link>
+                  <Link className="header-home-link" to="/">
+                    Home
+                  </Link>
                 </li>
                 <li>
-                  <Link className='header-home-link' to="/contact">Contact</Link>
+                  <Link className="header-home-link" to="/contact">
+                    Contact
+                  </Link>
                 </li>
                 <li>
-                  <Link className='header-home-link' to="/about">About</Link>
+                  <Link className="header-home-link" to="/about">
+                    About
+                  </Link>
                 </li>
                 <li>
-                  <Link className='header-home-link' to="/projects">Projects</Link>
+                  <Link className="header-home-link" to="/projects">
+                    Projects
+                  </Link>
                 </li>
               </ul>
-            ) || (
-              <button className="header-home-link" onClick={() => set(!open)}><i style={{ color: 'black' }} className="fas fa-bars fa-2x"></i></button>
+            )) || (
+              <button className="header-home-link" onClick={() => set(!open)}>
+                <i style={{ color: "black" }} className="fas fa-bars fa-2x"></i>
+              </button>
             )}
           </nav>
           {screen.width < 1000 && (
             <>
-            {transitions((style, index) =>  (
-              <animated.div style={{ ...style, position: 'absolute', right: '35%', top: '95%' }}>
-                {open && (
-                  <div className='header-nav-mobile'>
-                    <Link onClick={closeMenu} className='header-home-link' to="/">Home</Link>
-                    <Link onClick={closeMenu} className='header-home-link' to="/contact">Contact</Link>
-                    <Link onClick={closeMenu} className='header-home-link' to="/about">About</Link>
-                    <Link onClick={closeMenu} className='header-home-link' to="/projects">Projects</Link>
-                  </div>
-                )}
-              </animated.div>
-            ))}
+              {transitions((style, index) => (
+                <animated.div
+                  style={{
+                    ...style,
+                    position: "absolute",
+                    right: "35%",
+                    top: "95%",
+                  }}
+                >
+                  {open && (
+                    <div className="header-nav-mobile">
+                      <Link
+                        onClick={closeMenu}
+                        className="header-home-link"
+                        to="/"
+                      >
+                        Home
+                      </Link>
+                      <Link
+                        onClick={closeMenu}
+                        className="header-home-link"
+                        to="/contact"
+                      >
+                        Contact
+                      </Link>
+                      <Link
+                        onClick={closeMenu}
+                        className="header-home-link"
+                        to="/about"
+                      >
+                        About
+                      </Link>
+                      <Link
+                        onClick={closeMenu}
+                        className="header-home-link"
+                        to="/projects"
+                      >
+                        Projects
+                      </Link>
+                    </div>
+                  )}
+                </animated.div>
+              ))}
             </>
           )}
         </div>
       </header>
-      <main className="main_container column">
-        {children}
-      </main>
+      <main className="main_container column">{children}</main>
       <footer className="remix-app__footer">
         <div className="container remix-app__footer-content">
-          <p>&copy; Sean Cotter, Full Stack Web Developer</p>
+          <div className="inner">
+            <ul className="icons">
+              <li>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://github.com/Cotter45"
+                  className="icon brands"
+                >
+                  <i className="fab fa-github fa-2x"></i>
+                  <span className="label">Github</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://www.linkedin.com/in/sean-cotter-43572417/"
+                  className="icon solid"
+                >
+                  <i className="fab fa-linkedin-in fa-2x"></i>
+                  <span className="label">LinkedIn</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://angel.co/u/sean-cotter-6"
+                  className="icon solid"
+                >
+                  <i className="fab fa-angellist fa-2x"></i>
+                  <span className="label">AngelList</span>
+                </a>
+              </li>
+              {/* <p>&copy; Sean Cotter</p> */}
+            </ul>
+          </div>
         </div>
       </footer>
     </div>

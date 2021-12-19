@@ -906,8 +906,10 @@ input[type="button"]:disabled,
 
 .remix-app__footer-content {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 html,
@@ -1048,4 +1050,14 @@ body {
   transform: translate(-50%, -50%);
   /* filter: url("#goo"); */
   border: 1px solid white;
+}
+
+::selection {
+  color: none;
+  background: none;
+}
+
+::-mox-selection {
+  color: none;
+  background: none;
 }
