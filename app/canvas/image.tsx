@@ -4,7 +4,7 @@ export default function ProfileImage() {
 
   useEffect(() => {
       const image = new (Image as any)();
-      image.src = '/images/linkedin_pic.jpg';
+      image.src = '/images/parallax/min/computer.png';
 
       let animation: any;
     
@@ -12,8 +12,8 @@ export default function ProfileImage() {
     
         const canvas = document.getElementById("selfie") as HTMLCanvasElement;
         const ctx = canvas?.getContext("2d");
-        canvas.width = 572;
-        canvas.height = 352;
+        canvas.width = 1000;
+        canvas.height =500;
     
         let particlesArray: any = [];
         const numberOfParticles = 5000;
@@ -72,7 +72,7 @@ export default function ProfileImage() {
           draw() {
               if (ctx) {
                   ctx.beginPath();
-                  ctx.fillStyle = "white";
+                  ctx.fillStyle = "gray";
                   ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
                   ctx.fill();
               }

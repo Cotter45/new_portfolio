@@ -92,7 +92,7 @@ export default function Contact() {
         <Email />
       </div>
       <div className="container comments">
-        <div className="container row" style={{ justifyContent: 'space-between', position: 'sticky', top: 0, backgroundColor: 'black' }}>
+        <div className="container row" style={{ justifyContent: 'space-between'}}>
           <h1>Comments</h1>
           <NewComment props={errors} />
         </div>

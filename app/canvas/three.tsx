@@ -3,6 +3,8 @@ import { Suspense, useMemo, useRef, useState, useEffect } from "react";
 import { LoaderFunction } from "remix";
 import * as THREE from "three";
 import { ImageLoader } from "three";
+import { EffectComposer, Bloom } from "@react-three/postprocessing";
+
 
 function Moon() {
   const moonTexture = useLoader(ImageLoader, "/images/weather/moon_texture.jpeg");
@@ -27,7 +29,7 @@ function Moon() {
       }
     }} ref={moon} rotation={[0, 0, 0]} receiveShadow position={[-5, -5, -10]} scale={scale}>
       <sphereBufferGeometry attach="geometry" args={[.5]} />
-      <meshBasicMaterial attach="material">
+      <meshBasicMaterial attach="material" toneMapped={false} >
         <texture
           attach="map"
           image={moonTexture}
@@ -53,21 +55,36 @@ function Sun() {
   });
 
   return (
-    <mesh onClick={() => {
-      if (scale === 1) {
-        setScale(.6);
-      } else {
-        setScale(1);
-      }
-    }} ref={sun} rotation={[0, 0, 0]} receiveShadow position={[0, -2, -10]} scale={scale}>
-      <sphereBufferGeometry attach="geometry" args={[2]} />
-      <meshBasicMaterial attach="material">
+    <mesh
+      onClick={() => {
+        if (scale === 1) {
+          setScale(0.6);
+        } else {
+          setScale(1);
+        }
+      }}
+      ref={sun}
+      rotation={[0, 0, 0]}
+      receiveShadow
+      position={[0, -4, -10]}
+      scale={scale}
+    >
+      <sphereBufferGeometry attach="geometry" args={[3]} />
+      <meshBasicMaterial attach="material" toneMapped={false}> 
         <texture
           attach="map"
           image={sunTexture}
           onUpdate={(self) => sunTexture && (self.needsUpdate = true)}
         />
       </meshBasicMaterial>
+      <rectAreaLight
+        width={10}
+        height={10}
+        color={'white'}
+        intensity={10}
+        position={[-2, 0, 5]}
+        castShadow
+      />
     </mesh>
   );
 }
@@ -80,7 +97,7 @@ function Earth() {
   const [posY, setPosY] = useState(-2);
   const [posZ, setPosZ] = useState(-10);
 
-  const earthDistance = 2;
+  const earthDistance = 3;
   let earthRadians = 0;
   const earthSpeed = 0.01;
 
@@ -109,15 +126,22 @@ function Earth() {
   });
 
   return (
-    <mesh onClick={() => {
-      if (scale === 1) {
-        setScale(.6);
-      } else {
-        setScale(1);
-      }
-    }} ref={earth} rotation={[0, 0, 0]} receiveShadow position={[-2, -2.5, -10]} scale={scale}>
+    <mesh
+      onClick={() => {
+        if (scale === 1) {
+          setScale(0.6);
+        } else {
+          setScale(1);
+        }
+      }}
+      ref={earth}
+      rotation={[0, 0, 0]}
+      receiveShadow
+      position={[-2, -2.5, -10]}
+      scale={scale}
+    >
       <sphereBufferGeometry attach="geometry" args={[1]} />
-      <meshBasicMaterial attach="material">
+      <meshBasicMaterial attach="material" toneMapped={false} >
         <texture
           attach="map"
           image={earthTexture}
@@ -200,12 +224,12 @@ function Particles({ count }: Props) {
 }
 
 const parameters = {
-  size: 0.01,
-  count: 100000,
-  radius: 5,
-  branches: 3,
-  spin: 1.25,
-  randomness: 0.3,
+  size: 0.001,
+  count: 10000,
+  radius: 8,
+  branches: 2,
+  spin: 1.5,
+  randomness: 0.1,
   randomnessPower: 3,
   colorIn: "gray",
   colorOut: "darkgreen",
@@ -312,18 +336,22 @@ export default function ThreeD() {
         }}
         style={{ position: "absolute", top: 0 }}
       >
-        <fog attach="fog" args={["white", 40, 190]} />
+        {/* <fog attach="fog" args={["white", 40, 190]} /> */}
         <Suspense
           fallback={null}
         >
-          {/* <Particles count={200} />
+          <Particles count={200} />
+          {/* <Galaxy /> */}
+          {/* <Sun />
           <Moon />
-          <Sun />
           <Earth /> */}
-          <Galaxy />
+          <EffectComposer multisampling={8}>
+            <Bloom kernelSize={3} luminanceThreshold={0} luminanceSmoothing={0.4} intensity={0.6} />
+            <Bloom kernelSize={1} luminanceThreshold={0} luminanceSmoothing={1.4} intensity={1.6} />
+          </EffectComposer>
         </Suspense>
         {/* <ambientLight intensity={0.1} /> */}
-        {/* <pointLight castShadow intensity={.1} position={[0, 0, -2]} /> */}
+        {/* <spotLight castShadow intensity={1} position={[-10, -2, -10]} /> */}
       </Canvas>
     );
 }

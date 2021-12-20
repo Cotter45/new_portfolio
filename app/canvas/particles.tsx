@@ -25,8 +25,10 @@ export default function Particles() {
                 let mouse: any = {x:0,y:0}
                 let radius: number = .5;
         
-                // let colors = ["#468966", "#FFB03B","#B64926", "#8E2800"];
-                let colors = ["#468966", 'gray'];
+                // let colors = ["#468966", "#FFB03B","black", "white", "#B64926", "#8E2800"];
+                // let colors = ["#468966", 'orange'];
+                // let colors = ["black "];
+                let colors = [ 'orange', 'darkgreen', '#468966']
             
                 let ww = canvas.width = document.documentElement.clientWidth;
                 let wh = canvas.height = document.documentElement.clientHeight;
@@ -39,14 +41,15 @@ export default function Particles() {
                         y: y
                     };
                     // this.r =  Math.random()*3 + 2;
-                    this.r = 8;
+                    this.r = 2;
                     this.vx = (Math.random()-0.5)*10;
                     this.vy = (Math.random()-0.5)*10;
                     this.accX = 0;
                     this.accY = 0;
                     this.friction = Math.random()*0.02 + 0.94;
             
-                    this.color = colors[Math.floor(Math.random()*3)];
+                    // this.color = colors[Math.floor(Math.random()*3)];
+                    this.color = 'lightgray';
                 }
         
                 Particle.prototype.render = function() {
@@ -111,7 +114,7 @@ export default function Particles() {
                             ctx.font = "" + ww / 7 + "px Source Sans Pro";
                         }
                         ctx.textAlign = "left";
-                        ctx.fillText("Hi, I'm Sean", 25, wh > 2000 ? 500 : wh > 800 ? 300 : 200, 1200);
+                        ctx.fillText("< Cotter />", 75, wh > 2000 ? 500 : ww > 1200 ? 250 : 150, 1200);
                         // ctx.fillText("Hi, I'm Sean", 25, 300);
             
                         let data  = ctx.getImageData(0, 0, ww, wh);
@@ -125,16 +128,16 @@ export default function Particles() {
                         //         }
                         //     }
                         // }
-                        if (ww > 800) {
+                        if (ww > 1000) {
                             for(let i=0;i<data.width;i+=5){
-                                for(let j=0;j<data.height;j+=6){
+                                for(let j=0;j<data.height;j+=4){
                                     if(data.data[(j * 4 * data.width) + (i * 4) + 3] > 128){
                                         particles.push(new (Particle as any)(i,j));
                                     }
                                 }
                             }
                         }
-                        else if (ww < 800){
+                        else if (ww <= 1000){
                             for(let i=0;i<data.width;i+=4){
                                 for(let j=0;j<data.height;j+=2){
                                     if(data.data[(j * 4 * data.width) + (i * 4) + 3] > 128){
@@ -169,7 +172,7 @@ export default function Particles() {
                 function connect() {
                   let opacityValue = 1;
                   let connectors = particles.length;
-                  for (let a = 0; a < connectors; a++) {
+                  for (let a = 0; a < connectors; a+=2) {
                     for (let b = a; b < connectors; b++) {
                       let distance =
                         (particles[a].dest.x - particles[b].dest.x) *
@@ -184,23 +187,25 @@ export default function Particles() {
                         let mouseDistance = Math.sqrt(dx * dx + dy * dy);
                         if (ctx) {
                           if (mouseDistance < radius - 50) {
-                            particles[a].r = 15;
+                            particles[a].r = 4;
                             ctx.strokeStyle =
-                              "rgba(255,255,150," + opacityValue + ")";
+                              "rgba(0,0,0," + opacityValue + ")";
                           } else if (mouseDistance < radius) {
-                            particles[a].r = 8;
-                            ctx.strokeStyle =
-                              "rgba(255,255,180," + opacityValue + ")";
-                          } else if (mouseDistance < radius + 50) {
-                            particles[a].r = 6;
-                            ctx.strokeStyle =
-                              "rgba(255,255,210," + opacityValue + ")";
-                          } else {
                             particles[a].r = 3;
+                            ctx.lineWidth=8;
                             ctx.strokeStyle =
-                              "rgba(255,255,255," + opacityValue + ")";
-                          }
-                          ctx.lineWidth = 1;
+                              "rgba(0,255,0," + opacityValue + ")";
+                          } else if (mouseDistance < radius + 50) {
+                            particles[a].r = 1;
+                            ctx.lineWidth=4;
+                            ctx.strokeStyle =
+                              "rgba(0,0,0," + opacityValue + ")";
+                          } else {
+                            particles[a].r = .5;
+                            ctx.lineWidth = .5;
+                            ctx.strokeStyle =
+                            "rgba(0,0,0," + opacityValue + ")";
+                        }
                           ctx.beginPath();
                           ctx.moveTo(particles[a].x, particles[a].y);
                           ctx.lineTo(particles[b].x, particles[b].y);

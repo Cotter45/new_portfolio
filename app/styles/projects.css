@@ -15,7 +15,7 @@
     padding-left: 1rem;
     padding-top: 2rem;
     border-bottom: 10px solid rgba(73, 191, 157, 0.2);
-    color: #49bf9d;
+    color: lightgray;
 }
 
 .text {
@@ -31,7 +31,8 @@
 
 .text > h2 {
     font-size: 3.5rem;
-    color: #49bf9d;
+    /* color: #49bf9d; */
+    color: lightgray;
     margin: 0;
 }
 
@@ -42,22 +43,25 @@
 }
 
 .tech {
-    background-image: linear-gradient(135deg, #7db183 0%, #4b4c50 100%);
+    /* background-image: linear-gradient(135deg, #7db183 0%, #4b4c50 100%); */
     background-size: cover;
     background-repeat: no-repeat;
-    background-color: white;
+    background-color: gray;
     display: flex;
     justify-content: center;
-    padding: .5em 0;
+    padding: .2em 0;
     gap: 1em;
     overflow-x: scroll;
     border-radius: 10px;
 }
 
 .tech > img {
+    background-image: linear-gradient(135deg, #7db183 0%, #4b4c50 100%);
     width: 2em;
     height: 2em;
     margin: 0 .2em;
+    padding: .5em;
+    border-radius: 5px;
 }
 
 .slantRight {
@@ -94,7 +98,8 @@
     -webkit-user-select: none;
     user-select: none;
     max-width: 1800px;
-    background-image: linear-gradient(100deg, #276a8b 0%, #12b3ee 100%);
+    /* background-image: linear-gradient(100deg, #276a8b 0%, #12b3ee 100%); */
+    background-image: linear-gradient(135deg, #7db183 0%, #4b4c50 100%);
     display: flex;
     justify-content: center;
     align-items: center;
