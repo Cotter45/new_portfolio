@@ -25,6 +25,46 @@ import aboutStyles from '~/styles/about.css';
 export let links: LinksFunction = () => {
   return [
     { rel: "stylesheet", href: aboutStyles },
+    {
+      rel: "preload",
+      href: "/images/parallax/min/in_loader.png",
+      as: "image",
+    },
+    {
+      rel: "preload",
+      href: "/images/parallax/min/construction.jpeg",
+      as: "image",
+    },
+    {
+      rel: "preload",
+      href: "/images/parallax/min/construction2.jpeg",
+      as: "image",
+    },
+    {
+      rel: "preload",
+      href: "/images/parallax/min/break.png",
+      as: "image",
+    },
+    {
+      rel: "preload",
+      href: "/images/parallax/min/build.jpeg",
+      as: "image",
+    },
+    {
+      rel: "preload",
+      href: "/images/parallax/min/dawg.jpeg",
+      as: "image",
+    },
+    {
+      rel: "preload",
+      href: "/images/parallax/min/firefighter.jpeg",
+      as: "image",
+    },
+    {
+      rel: "preload",
+      href: "/images/parallax/min/family.jpeg",
+      as: "image",
+    },
   ];
 };
 
@@ -275,14 +315,15 @@ const Image = ({ offset, onClick, images, title, text }: ImageProps) => (
   </>
 );
 
-
 export default function About() {
   // const [open, set] = useState(false);
   const parallax = useRef<IParallax>(null);
   const parallax1 = useRef<IParallax>(null);
   const parallax2 = useRef<IParallax>(null);
+  const parallax3 = useRef<IParallax>(null);
   const [temp, setTemp] = useState(0);
   const [temp1, setTemp1] = useState(0);
+  const [temp2, setTemp2] = useState(0);
 
   const scroll = (to: number) => {
     if (parallax.current) {
@@ -306,6 +347,14 @@ export default function About() {
     }
   };
 
+  const sideScroll3 = (to: number) => {
+    if (parallax3.current) {
+      setTemp2(temp2 + 1)
+      parallax3.current.scrollTo(temp2);
+      if (temp2 === 2) setTemp2(0);
+    }
+  };
+
   return (
     <div
       style={{
@@ -319,22 +368,12 @@ export default function About() {
       }}
     >
       <Parallax className="lax" ref={parallax} pages={6} config={config.slow}>
+        {/* PAGE ONE */}
         <ParallaxLayer onClick={() => scroll(1)} offset={0} speed={0}>
           <div className="lax-container">
             <h1 style={{ color: "#49bf9d", margin: 0, fontSize: "4rem" }}>
               Sean Cotter
             </h1>
-            <ParallaxLayer
-              offset={.5}
-              speed={-.5}
-              factor={6}
-              style={{
-                marginLeft: '40%',
-                marginTop: '20%',
-              }}
-            >
-              <p>Click or Scroll</p>
-            </ParallaxLayer>
             <ParallaxLayer
               offset={0}
               speed={0.4}
@@ -354,6 +393,7 @@ export default function About() {
                 alt="profile"
               />
             </ParallaxLayer>
+            <p>Click or Scroll to navigate</p>
             <p className="text">
               I'm a full stack web developer based outside of Philadelphia, PA.
               During almost all of my free time I can be found at my computer
@@ -365,6 +405,7 @@ export default function About() {
             </p>
           </div>
         </ParallaxLayer>
+        {/* PAGE TWO */}
         <ParallaxLayer
           offset={1}
           speed={.6}
@@ -379,7 +420,7 @@ export default function About() {
         <ParallaxLayer
           offset={1}
           speed={0}
-          onClick={() => sideScroll(3)}
+          onClick={() => sideScroll(1)}
           className="split-page"
         >
           <div
@@ -421,7 +462,7 @@ export default function About() {
                 <div
                   className="split-picture"
                   style={{
-                    backgroundImage: "url(/images/parallax/one/family.jpeg)",
+                    backgroundImage: "url(/images/parallax/min/family.jpeg)",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                   }}
@@ -430,14 +471,14 @@ export default function About() {
               <ParallaxLayer
                 offset={1}
                 speed={0.5}
-                onClick={() => sideScroll(1)}
+                onClick={() => sideScroll(2)}
                 className="split-page"
               >
                 <div
                   className="split-picture"
                   style={{
                     backgroundImage:
-                      "url(/images/parallax/one/firefighter.jpeg)",
+                      "url(/images/parallax/min/firefighter.jpeg)",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                   }}
@@ -460,7 +501,7 @@ export default function About() {
                 <div
                   className="split-picture"
                   style={{
-                    backgroundImage: "url(/images/parallax/one/dawg.jpeg)",
+                    backgroundImage: "url(/images/parallax/min/dawg.jpeg)",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                   }}
@@ -469,6 +510,7 @@ export default function About() {
             </Parallax>
           </div>
         </ParallaxLayer>
+        {/* PAGE THREE */}
         <ParallaxLayer
           offset={2}
           speed={.6}
@@ -515,17 +557,15 @@ export default function About() {
                 className="split-page"
               >
                 <div className="split-text">
-                  <h2>This is my everything</h2>
+                  <h2>I've always loved to build things</h2>
                   <p>
-                    My family is truly one of a kind, I wouldn't be half the man
-                    I am today without them. This is me, my wife Cait and our
-                    son Liam.
+                    I've always loved to build things... A trait that I hope my son develops in time, even if - as my wife says - "You can buy that for $10 more and it'll take half the time!".
                   </p>
                 </div>
                 <div
                   className="split-picture"
                   style={{
-                    backgroundImage: "url(/images/parallax/two/build.jpeg)",
+                    backgroundImage: "url(/images/parallax/min/build.jpeg)",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                   }}
@@ -534,19 +574,24 @@ export default function About() {
               <ParallaxLayer
                 offset={1}
                 speed={0.5}
-                onClick={() => sideScroll2(1)}
+                onClick={() => sideScroll2(2)}
                 className="split-page"
               >
                 <div
                   className="split-picture"
                   style={{
                     backgroundImage:
-                      "url(/images/parallax/one/firefighter.jpeg)",
+                      "url(/images/parallax/min/break.png)",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                   }}
                 ></div>
-                <div className="split-text"></div>
+                <div className="split-text">
+                  <h2>Oooh covid projects...</h2>
+                  <p>
+                    There's just something about that moment where you can sit back and appreciate the progress you've made.
+                  </p>
+                </div>
               </ParallaxLayer>
               <ParallaxLayer
                 offset={2}
@@ -558,7 +603,106 @@ export default function About() {
                 <div
                   className="split-picture"
                   style={{
-                    backgroundImage: "url(/images/parallax/one/dawg.jpeg)",
+                    backgroundImage: "url(/images/parallax/min/dawg.jpeg)",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                ></div>
+              </ParallaxLayer>
+            </Parallax>
+          </div>
+        </ParallaxLayer>
+        {/* PAGE FOUR */}
+        <ParallaxLayer
+          offset={3}
+          speed={.6}
+          style={{
+            zIndex: 1,
+            height: '5vh',
+            width: '100%',
+          }}
+        >
+          <i className='fas fa-arrow-right fa-2x'></i>
+        </ParallaxLayer>
+        <ParallaxLayer
+          offset={3}
+          speed={0}
+          onClick={() => sideScroll3(1)}
+          className="split-page"
+        >
+          <div
+            style={{
+              background: "black",
+              width: "100vw",
+              position: "absolute",
+              top: 0,
+              height: "90vh",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <Parallax horizontal ref={parallax3} pages={3} config={config.slow}>
+              <ParallaxLayer
+                offset={0}
+                speed={0}
+                factor={6}
+                style={{
+                  background: svg("stars", true),
+                }}
+              />
+
+              <ParallaxLayer
+                offset={0}
+                speed={.5}
+                onClick={() => sideScroll3(1)}
+                className="split-page"
+              >
+                <div className="split-text">
+                  <h2>I used to work in construction</h2>
+                  <p>
+                    blob
+                  </p>
+                </div>
+                <div
+                  className="split-picture"
+                  style={{
+                    backgroundImage: "url(/images/parallax/min/construction2.jpeg)",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                ></div>
+              </ParallaxLayer>
+              <ParallaxLayer
+                offset={1}
+                speed={.5}
+                onClick={() => sideScroll3(2)}
+                className="split-page"
+              >
+                <div
+                  className="split-picture"
+                  style={{
+                    backgroundImage:
+                      "url(/images/parallax/min/construction.jpeg)",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                ></div>
+                <div className="split-text">
+                  <h2>For almost 9 years...</h2>
+                </div>
+              </ParallaxLayer>
+              <ParallaxLayer
+                offset={2}
+                speed={.5}
+                onClick={() => scroll(0)}
+                className="split-page"
+              >
+                <div className="split-text"></div>
+                <div
+                  className="split-picture"
+                  style={{
+                    backgroundImage: "url(/images/parallax/min/in_loader.png)",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                   }}
