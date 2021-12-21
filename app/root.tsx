@@ -178,7 +178,7 @@ function Layout({ children }: { children: React.ReactNode }) {
               </ul>
             )) || (
               <button className="header-home-link" onClick={() => set(!open)}>
-                <i style={{ color: "black" }} className="fas fa-bars fa-2x"></i>
+                <i style={{ color: "lightgray" }} className="fas fa-bars fa-2x"></i>
               </button>
             )}
           </nav>

@@ -34,7 +34,7 @@ function ProjectModal({ project }: any) {
         <Modal onClose={() => setShowModal(false)}>
           <button onClick={() => setShowModal(false)} style={{ alignSelf: 'flex-end', position: 'sticky', top: 0, zIndex: 1 }} className="header-home-link"><i className='fa fa-times fa-3x'></i></button>
           <div className='container column'>
-            <h1 style={{ color: '#3eb08f'}}>{project.name}</h1>
+            <h1>{project.name}</h1>
             <div className='container'>
               <label>Description</label>
               <p className='container'>{project.description}</p>

@@ -41,11 +41,11 @@ export default function Index() {
       }}
     >
       <Particles />
-      {size.width > 1200 && (
-      <img className='splashphoto-large' src='/images/fulls/computer.png' alt='computer' />
+      {size.width > 1000 && (
+      <img className='splashphoto-large' src='/images/parallax/min/splash.png' alt='computer' />
       )}
-      {size.width < 1200 && (
-        <img className="splashphoto" src="/images/fulls/headshot.png" />
+      {size.width < 1000 && (
+        <img className="splashphoto" src="/images/parallax/min/splash.png" />
       )} 
       <div className="typewriter">
         <Typewriter

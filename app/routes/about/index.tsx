@@ -358,20 +358,19 @@ export default function About() {
   return (
     <div
       style={{
-        background: "black",
         width: "100%",
         position: "absolute",
         height: "100vh",
         display: "flex",
         flexDirection: "column",
-        alignItems: "center",
+        alignItems: "flex-start",
       }}
     >
       <Parallax className="lax" ref={parallax} pages={6} config={config.slow}>
         {/* PAGE ONE */}
         <ParallaxLayer onClick={() => scroll(1)} offset={0} speed={0}>
           <div className="lax-container">
-            <h1 style={{ color: "#49bf9d", margin: 0, fontSize: "4rem" }}>
+            <h1 style={{ color: "lightgray", margin: 0, fontSize: "4rem" }}>
               Sean Cotter
             </h1>
             <ParallaxLayer
@@ -408,14 +407,14 @@ export default function About() {
         {/* PAGE TWO */}
         <ParallaxLayer
           offset={1}
-          speed={.6}
+          speed={0.6}
           style={{
             zIndex: 1,
-            height: '5vh',
-            width: '100%',
+            height: "5vh",
+            width: "100%",
           }}
         >
-          <i className='fas fa-arrow-right fa-2x'></i>
+          <i className="fas fa-arrow-right fa-2x"></i>
         </ParallaxLayer>
         <ParallaxLayer
           offset={1}
@@ -454,9 +453,9 @@ export default function About() {
                 <div className="split-text">
                   <h2>This is my family</h2>
                   <p>
-                    They are truly one of a kind, I wouldn't be half the man
-                    I am today without them. This is me, my wife Cait and our
-                    son Liam.
+                    They are truly one of a kind, I wouldn't be half the man I
+                    am today without them. This is me, my wife Cait and our son
+                    Liam.
                   </p>
                 </div>
                 <div
@@ -485,7 +484,11 @@ export default function About() {
                 ></div>
                 <div className="split-text">
                   <h2>My little hero</h2>
-                  <p>Liam is obsessed with fire engines, fire fighters, police, ambulances... It's really anything that makes loud noises, I think.</p>
+                  <p>
+                    Liam is obsessed with fire engines, fire fighters, police,
+                    ambulances... It's really anything that makes loud noises, I
+                    think.
+                  </p>
                 </div>
               </ParallaxLayer>
               <ParallaxLayer
@@ -496,7 +499,12 @@ export default function About() {
               >
                 <div className="split-text">
                   <h2>And Spud</h2>
-                  <p>The best dog in the world. He was the discount puppy at the discount puppy store that my wife and I bought when we didn't have 2 pennies to rub together. He may derp but he good boi.</p>
+                  <p>
+                    The best dog in the world. He was the discount puppy at the
+                    discount puppy store that my wife and I bought when we
+                    didn't have 2 pennies to rub together. He may derp but he
+                    good boi.
+                  </p>
                 </div>
                 <div
                   className="split-picture"
@@ -513,14 +521,14 @@ export default function About() {
         {/* PAGE THREE */}
         <ParallaxLayer
           offset={2}
-          speed={.6}
+          speed={0.6}
           style={{
             zIndex: 1,
-            height: '5vh',
-            width: '100%',
+            height: "5vh",
+            width: "100%",
           }}
         >
-          <i className='fas fa-arrow-right fa-2x'></i>
+          <i className="fas fa-arrow-right fa-2x"></i>
         </ParallaxLayer>
         <ParallaxLayer
           offset={2}
@@ -559,7 +567,9 @@ export default function About() {
                 <div className="split-text">
                   <h2>I've always loved to build things</h2>
                   <p>
-                    I've always loved to build things... A trait that I hope my son develops in time, even if - as my wife says - "You can buy that for $10 more and it'll take half the time!".
+                    I've always loved to build things... A trait that I hope my
+                    son develops in time, even if - as my wife says - "You can
+                    buy that for $10 more and it'll take half the time!".
                   </p>
                 </div>
                 <div
@@ -580,8 +590,7 @@ export default function About() {
                 <div
                   className="split-picture"
                   style={{
-                    backgroundImage:
-                      "url(/images/parallax/min/break.png)",
+                    backgroundImage: "url(/images/parallax/min/break.png)",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                   }}
@@ -589,7 +598,8 @@ export default function About() {
                 <div className="split-text">
                   <h2>Oooh covid projects...</h2>
                   <p>
-                    There's just something about that moment where you can sit back and appreciate the progress you've made.
+                    There's just something about that moment where you can sit
+                    back and appreciate the progress you've made.
                   </p>
                 </div>
               </ParallaxLayer>
@@ -615,14 +625,14 @@ export default function About() {
         {/* PAGE FOUR */}
         <ParallaxLayer
           offset={3}
-          speed={.6}
+          speed={0.6}
           style={{
             zIndex: 1,
-            height: '5vh',
-            width: '100%',
+            height: "5vh",
+            width: "100%",
           }}
         >
-          <i className='fas fa-arrow-right fa-2x'></i>
+          <i className="fas fa-arrow-right fa-2x"></i>
         </ParallaxLayer>
         <ParallaxLayer
           offset={3}
@@ -654,20 +664,19 @@ export default function About() {
 
               <ParallaxLayer
                 offset={0}
-                speed={.5}
+                speed={0.5}
                 onClick={() => sideScroll3(1)}
                 className="split-page"
               >
                 <div className="split-text">
                   <h2>I used to work in construction</h2>
-                  <p>
-                    blob
-                  </p>
+                  <p>blob</p>
                 </div>
                 <div
                   className="split-picture"
                   style={{
-                    backgroundImage: "url(/images/parallax/min/construction2.jpeg)",
+                    backgroundImage:
+                      "url(/images/parallax/min/construction2.jpeg)",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                   }}
@@ -675,7 +684,7 @@ export default function About() {
               </ParallaxLayer>
               <ParallaxLayer
                 offset={1}
-                speed={.5}
+                speed={0.5}
                 onClick={() => sideScroll3(2)}
                 className="split-page"
               >
@@ -694,7 +703,7 @@ export default function About() {
               </ParallaxLayer>
               <ParallaxLayer
                 offset={2}
-                speed={.5}
+                speed={0.5}
                 onClick={() => scroll(0)}
                 className="split-page"
               >
