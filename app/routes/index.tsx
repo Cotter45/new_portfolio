@@ -6,11 +6,13 @@ import useWindowSize from "~/utils/window-size";
 import Particles from "../canvas/particles";
 
 export const links: LinksFunction = () => {
-  return [{
-    rel: "preload",
-    href: '/images/parallax/min/splash.png',
-    as: "image",
-  },]
+  return [
+    {
+      rel: "preload",
+      href: "images/parallax/min/splash.PNG",
+      as: "splash",
+    },
+  ];
 };
 
 // Little helpers ...
@@ -37,16 +39,23 @@ export default function Index() {
     <div
       className="splash-container"
       style={{
-        background: svg("stars", true), 
+        background: svg("stars", true),
       }}
     >
       <Particles />
       {size.width > 1000 && (
-      <img className='splashphoto-large' src='/images/parallax/min/splash.png' alt='computer' />
+        <img
+          className="splashphoto-large"
+          src="images/parallax/min/splash.PNG"
+          alt="computer"
+        />
       )}
       {size.width < 1000 && (
-        <img className="splashphoto" src="/images/parallax/min/splash.png" />
-      )} 
+        <img
+          className="splashphoto"
+          src="images/parallax/min/splash.PNG"
+        />
+      )}
       <div className="typewriter">
         <Typewriter
           onInit={(typewriter) => {
@@ -56,11 +65,13 @@ export default function Index() {
               .typeString("<br />% <b>{</b>")
               .typeString("<br />% name: <em>Sean Cotter</em>,")
               .typeString("<br />% occupation: <em>Web Developer</em>,")
-              .typeString("<br />% loves: <em>[ Video Games, Coding, PIZZA ]</em>,")
+              .typeString(
+                "<br />% loves: <em>[ Video Games, Coding, PIZZA ]</em>,"
+              )
               .typeString("<br />% status: <em>Looking for work!</em>")
               .typeString("<br />% <b>}</b>")
               .pauseFor(500)
-              .changeDelay('natural')
+              .changeDelay("natural")
               .typeString("<br />% // Let's connect !")
               .pauseFor(2500)
               .start();
