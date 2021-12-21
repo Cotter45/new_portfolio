@@ -1,4 +1,5 @@
 import { LinksFunction, MetaFunction } from "remix";
+import { useEffect } from 'react';
 
 
 import modalCss from "~/styles/modal.css";
@@ -22,6 +23,15 @@ export let meta: MetaFunction = () => {
 
 export default function Projects() {
     const size = useWindowSize();
+
+    useEffect(() => {
+      const timeout = setTimeout(function () {
+        // Hide the address bar!
+        window.scrollTo(0, 1);
+      }, 0);
+
+      return () => clearTimeout(timeout);
+    });
 
     return (
         <div className='container column' style={{ paddingBottom: '50px' }}>

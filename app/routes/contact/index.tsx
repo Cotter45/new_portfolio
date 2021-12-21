@@ -11,6 +11,7 @@ import CanvasFun from "../../canvas/canvas";
 import NewComment from "../../modals/new_comment";
 import type { Comment } from "@prisma/client";
 import { db } from "~/utils/db.server";
+import { useEffect } from "react";
 
 import contactStyles from "~/styles/contact.css";
 import modalStyles from "~/styles/modal.css";
@@ -85,6 +86,15 @@ export const action: ActionFunction = async ({ request }) => {
 export default function Contact() {
   const errors = useActionData();
   const comments = useLoaderData<any>().comments;
+
+  useEffect(() => {
+    const timeout = setTimeout(function () {
+      // Hide the address bar!
+      window.scrollTo(0, 1);
+    }, 0);
+
+    return () => clearTimeout(timeout);
+  });
   
   return (
     <div className="contact">

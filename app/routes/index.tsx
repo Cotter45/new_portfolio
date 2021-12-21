@@ -1,6 +1,7 @@
 import { url } from "inspector";
 import type { MetaFunction, LinksFunction } from "remix";
 import Typewriter from 'typewriter-effect';
+import { useEffect } from 'react';
 
 import useWindowSize from "~/utils/window-size";
 
@@ -27,6 +28,15 @@ export let meta: MetaFunction = () => {
 
 export default function Index() {
   const size = useWindowSize();
+
+  useEffect(() => {
+    const timeout = setTimeout(function () {
+      // Hide the address bar!
+      window.scrollTo(0, 1);
+    }, 0);
+
+    return () => clearTimeout(timeout);
+  });
 
   return (
     <div
