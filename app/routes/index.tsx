@@ -1,3 +1,4 @@
+import { url } from "inspector";
 import type { MetaFunction, LinksFunction } from "remix";
 import Typewriter from 'typewriter-effect';
 
@@ -15,14 +16,6 @@ export const links: LinksFunction = () => {
   ];
 };
 
-// Little helpers ...
-const svg = (name: string, wrap = false) =>
-  `${
-    wrap ? "url(" : ""
-  }https://awv3node-homepage.surge.sh/build/assets/${name}.svg${
-    wrap ? ")" : ""
-  }`;
-
 // https://remix.run/api/conventions#meta
 export let meta: MetaFunction = () => {
   return {
@@ -38,9 +31,6 @@ export default function Index() {
   return (
     <div
       className="splash-container"
-      style={{
-        background: svg("stars", true),
-      }}
     >
       <Particles />
       {size.width > 1000 && (

@@ -34,12 +34,13 @@ textarea {
 
 body {
   background: rgba(0, 0, 0, .8);
+  background-image: url('/images/fulls/stars.png');
   /* background-color: black; */
-  /* -webkit-background-size: cover;
-  -moz-background-size: cover;
+  /* -webkit-background-size: cover; */
+  /* -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
-  background: linear-gradient(135deg, #7db183 0%, #4b4c50 100%) no-repeat center center fixed; */
+  background-size: cover; */
+  /* background: linear-gradient(300deg, #7db183 0%, #4b4c50 100%) no-repeat center center fixed; */
 }
 
 body,
@@ -1078,7 +1079,7 @@ body {
   font-size: 1.2rem;
   /* gap: 2%; */
   height: 80vh;
-  width: 100%;
+  width: 100vw;
   line-height: 1.2;
   text-align: justify;
   overflow-x: hidden;
@@ -1123,7 +1124,7 @@ body {
   z-index: -1;
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   .splashphoto-large {
     object-position: 100% 100%;
     /* border-radius: 10px; */
@@ -1133,6 +1134,10 @@ body {
     top: 0;
     width: 50vw;
     height: 100%;
+  }
+
+  .typewriter {
+    font-size: 1.7rem;
   }
 }
 

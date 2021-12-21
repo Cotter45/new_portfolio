@@ -129,7 +129,7 @@ export default function Particles() {
                         //     }
                         // }
                         if (ww > 1000) {
-                            for(let i=0;i<data.width;i+=5){
+                            for(let i=0;i<data.width;i+=6){
                                 for(let j=0;j<data.height;j+=4){
                                     if(data.data[(j * 4 * data.width) + (i * 4) + 3] > 128){
                                         particles.push(new (Particle as any)(i,j));

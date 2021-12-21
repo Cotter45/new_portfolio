@@ -21,6 +21,7 @@ const svg = (name: string, wrap = false) =>
 import data from "../../data";
 import { pages } from "../../about";
 import aboutStyles from '~/styles/about.css';
+import useWindowSize from "~/utils/window-size";
 
 export let links: LinksFunction = () => {
   return [
@@ -316,6 +317,7 @@ const Image = ({ offset, onClick, images, title, text }: ImageProps) => (
 );
 
 export default function About() {
+  const screen = useWindowSize();
   // const [open, set] = useState(false);
   const parallax = useRef<IParallax>(null);
   const parallax1 = useRef<IParallax>(null);
@@ -366,43 +368,53 @@ export default function About() {
         alignItems: "flex-start",
       }}
     >
-      <Parallax className="lax" ref={parallax} pages={6} config={config.slow}>
+      <Parallax className="lax" ref={parallax} pages={10} config={config.slow}>
         {/* PAGE ONE */}
-        <ParallaxLayer onClick={() => scroll(1)} offset={0} speed={0}>
-          <div className="lax-container">
-            <h1 style={{ color: "lightgray", margin: 0, fontSize: "4rem" }}>
-              Sean Cotter
-            </h1>
+        <ParallaxLayer
+          offset={0}
+          speed={0}
+          factor={8}
+          style={{
+            background: svg("stars", true),
+          }}
+        />
+        <ParallaxLayer onClick={() => scroll(1)} offset={0} speed={0} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <ParallaxLayer
               offset={0}
-              speed={0.4}
+              speed={-0.4}
               // factor={2}
               style={{
                 position: "relative",
                 height: "fit-content",
                 display: "flex",
                 justifyContent: "center",
+                alignItems: "center",
                 zIndex: 2,
               }}
             >
+              <div className="lax-container">
+                <h1 style={{ color: "lightgray", margin: 0, fontSize: "4rem" }}>
+                  Sean Cotter
+                </h1>
               <img
                 className="scrollimage"
                 width="50%"
                 src="/images/linkedin_pic.jpg"
                 alt="profile"
-              />
+                />
+                <p>Click or Scroll to navigate</p>
+                {/* <p className="text">
+                  I'm a full stack web developer based outside of Philadelphia, PA.
+                  During almost all of my free time I can be found at my computer
+                  with a scratch.js file just exploring new API's and what they have
+                  to offer or getting really sweaty playing some games with my
+                  friends. If I'm not at my desk I'm exploring the nearest farmers
+                  market with my family or playing fire trucks with my 2 year old
+                  son... who just might love those trucks more than me!
+                </p> */}
+                <h2 style={{ fontSize:'2rem'}}>Full Stack Web Developer</h2>
+              </div>
             </ParallaxLayer>
-            <p>Click or Scroll to navigate</p>
-            <p className="text">
-              I'm a full stack web developer based outside of Philadelphia, PA.
-              During almost all of my free time I can be found at my computer
-              with a scratch.js file just exploring new API's and what they have
-              to offer or getting really sweaty playing some games with my
-              friends. If I'm not at my desk I'm exploring the nearest farmers
-              market with my family or playing fire trucks with my 2 year old
-              son... who just might love those trucks more than me!
-            </p>
-          </div>
         </ParallaxLayer>
         {/* PAGE TWO */}
         <ParallaxLayer
@@ -428,7 +440,7 @@ export default function About() {
               width: "100vw",
               position: "absolute",
               top: 0,
-              height: "90vh",
+              height: "100vh",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -542,7 +554,7 @@ export default function About() {
               width: "100vw",
               position: "absolute",
               top: 0,
-              height: "90vh",
+              height: "100vh",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -564,14 +576,6 @@ export default function About() {
                 onClick={() => sideScroll2(1)}
                 className="split-page"
               >
-                <div className="split-text">
-                  <h2>I've always loved to build things</h2>
-                  <p>
-                    I've always loved to build things... A trait that I hope my
-                    son develops in time, even if - as my wife says - "You can
-                    buy that for $10 more and it'll take half the time!".
-                  </p>
-                </div>
                 <div
                   className="split-picture"
                   style={{
@@ -580,6 +584,14 @@ export default function About() {
                     backgroundPosition: "center",
                   }}
                 ></div>
+                <div className="split-text">
+                  <h2>I've always loved to build things</h2>
+                  <p>
+                    I've always loved to build things... A trait that I hope my
+                    son develops in time, even if - as my wife says - "You can
+                    buy that for $10 more and it'll take half the time!".
+                  </p>
+                </div>
               </ParallaxLayer>
               <ParallaxLayer
                 offset={1}
@@ -646,7 +658,7 @@ export default function About() {
               width: "100vw",
               position: "absolute",
               top: 0,
-              height: "90vh",
+              height: "100vh",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -704,7 +716,7 @@ export default function About() {
               <ParallaxLayer
                 offset={2}
                 speed={0.5}
-                onClick={() => scroll(0)}
+                onClick={() => scroll(4)}
                 className="split-page"
               >
                 <div className="split-text"></div>
@@ -719,6 +731,63 @@ export default function About() {
               </ParallaxLayer>
             </Parallax>
           </div>
+        </ParallaxLayer>
+        {/* PAGE FIVE */}
+        <ParallaxLayer sticky={{ start: 4, end: 7 }}>
+          <img
+            src="/images/fulls/computer.png"
+            alt="slpash"
+            className="sticky-left"
+          />
+        </ParallaxLayer>
+        <ParallaxLayer offset={4}>
+          {/* <img src='/images/fulls/computer.png' alt='slpash' className='sticky-right' /> */}
+          <div className="sticky-right-text">
+            <h2>About Me</h2>
+            <p>
+              Overall I'm just a guy who's not afraid to roll up his sleeves and get his
+              hands dirty, looking to take his passion and experience in
+              building incredible things from the ground up and leverage it in
+              the world of software engineering. Self-taught programmer
+              who recently graduated App Academy's 24 week Full Stack Software Engineering 
+              program covering Javascript, Python and popular frameworks.
+            </p>
+            <p>
+              During almost all of my free time I can be found at my computer
+              with a scratch.js file just exploring new API's and what they have
+              to offer or getting really sweaty playing some games with my
+              friends. If I'm not at my desk I'm exploring the nearest farmers
+              market with my family or playing fire trucks with my 2 year old
+              son, who just might love those trucks more than me!
+            </p>
+            <p>
+              I'd say I'm just a happy go lucky guy with a fantastic
+              family/support system and maybe too many hobbies. I can't wait to
+              see what we can do with tomorrow, let alone the rest of our time
+              here.
+            </p>
+          </div>
+        </ParallaxLayer>
+        <ParallaxLayer offset={5}>
+          <img
+            src="/images/fulls/computer.png"
+            alt="slpash"
+            className="sticky-right"
+          />
+        </ParallaxLayer>
+        <ParallaxLayer offset={6}>
+          <img
+            src="/images/fulls/computer.png"
+            alt="slpash"
+            className="sticky-right"
+          />
+        </ParallaxLayer>
+        <ParallaxLayer offset={7}>
+          <img
+            src="/images/fulls/computer.png"
+            alt="slpash"
+            className="sticky-right"
+          />
         </ParallaxLayer>
         {/* <Image
           title="My name is Sean Cotter"
