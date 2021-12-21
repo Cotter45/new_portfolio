@@ -8,7 +8,7 @@ import Particles from "../canvas/particles";
 export const links: LinksFunction = () => {
   return [{
     rel: "preload",
-    href: '/images/fulls/computer.png',
+    href: '/images/parallax/min/splash.png',
     as: "image",
   },]
 };
