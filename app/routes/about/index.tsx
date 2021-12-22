@@ -387,7 +387,7 @@ export default function About() {
             background: svg("stars", true),
           }}
         />
-        <ParallaxLayer onClick={() => scroll(1)} offset={0} speed={0} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <ParallaxLayer onClick={() => scroll(1)} offset={0} speed={0} style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'center' }}>
             <ParallaxLayer
               offset={0}
               speed={-0.4}

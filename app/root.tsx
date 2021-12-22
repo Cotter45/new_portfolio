@@ -9,7 +9,7 @@ import {
   useCatch
 } from "remix";
 import type { LinksFunction } from "remix";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useTransition, animated } from "@react-spring/web";
 
 
@@ -108,6 +108,7 @@ function Document({
   children: React.ReactNode;
   title?: string;
 }) {
+
   return (
     <html lang="en">
       <head>
@@ -119,6 +120,8 @@ function Document({
           integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
           crossOrigin="anonymous"
         />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
         {title ? <title>{title}</title> : null}
         <Meta />
         <Links />

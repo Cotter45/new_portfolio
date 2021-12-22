@@ -38,6 +38,7 @@ export default function Index() {
     return () => clearTimeout(timeout);
   });
 
+
   return (
     <div
       className="splash-container"
