@@ -834,7 +834,8 @@ input[type="button"]:disabled,
   display: flex;
   align-items: center;
   justify-content: center;
-  /* background-color: rgba(0, 0, 0, .6); */
+  height: fit-content;
+  background-color: rgba(0, 0, 0, .1);
 
 }
 
@@ -912,6 +913,7 @@ input[type="button"]:disabled,
   bottom: 0;
   z-index: 1;
   width: 100%;
+  height: fit-content;
 }
 
 .remix-app__footer-content {

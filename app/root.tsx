@@ -156,7 +156,7 @@ function Layout({ children }: { children: React.ReactNode }) {
             {` <> Sean Cotter </> `}
           </Link> */}
           <nav aria-label="Main navigation" className="header-nav">
-            {(screen.width > 1000 && (
+            {(screen.width > 800 && (
               <ul>
                 <li>
                   <Link className="header-home-link" to="/">
@@ -185,7 +185,7 @@ function Layout({ children }: { children: React.ReactNode }) {
               </button>
             )}
           </nav>
-          {screen.width < 1000 && (
+          {screen.width < 800 && (
             <>
               {transitions((style, index) => (
                 <animated.div

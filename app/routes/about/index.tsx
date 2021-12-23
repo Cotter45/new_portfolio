@@ -390,8 +390,7 @@ export default function About() {
         <ParallaxLayer onClick={() => scroll(1)} offset={0} speed={0} style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'center' }}>
             <ParallaxLayer
               offset={0}
-              speed={-0.4}
-              // factor={2}
+              speed={-0.2}
               style={{
                 position: "relative",
                 height: "fit-content",
@@ -412,16 +411,8 @@ export default function About() {
                 alt="profile"
                 />
                 <p>Click or Scroll to navigate</p>
-                {/* <p className="text">
-                  I'm a full stack web developer based outside of Philadelphia, PA.
-                  During almost all of my free time I can be found at my computer
-                  with a scratch.js file just exploring new API's and what they have
-                  to offer or getting really sweaty playing some games with my
-                  friends. If I'm not at my desk I'm exploring the nearest farmers
-                  market with my family or playing fire trucks with my 2 year old
-                  son... who just might love those trucks more than me!
-                </p> */}
                 <h2 style={{ fontSize:'2rem'}}>Full Stack Web Developer</h2>
+                <h2>Philadelphia, PA</h2>
               </div>
             </ParallaxLayer>
         </ParallaxLayer>
