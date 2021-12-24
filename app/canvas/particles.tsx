@@ -114,7 +114,7 @@ export default function Particles() {
                             ctx.font = "" + ww / 7 + "px Source Sans Pro";
                         }
                         ctx.textAlign = "left";
-                        ctx.fillText("< Cotter />", 75, wh > 2000 ? 500 : ww > 1200 ? 250 : 150, 1200);
+                        ctx.fillText("< Cotter />", 75, wh > 2000 ? 500 : ww > 1200 ? 250 : 200, 1200);
                         // ctx.fillText("Hi, I'm Sean", 25, 300);
             
                         let data  = ctx.getImageData(0, 0, ww, wh);

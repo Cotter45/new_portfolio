@@ -240,7 +240,7 @@ textarea {
   appearance: none;
   /* background: black; */
   /* background-color: #4b4c50; */
-  background-image: linear-gradient(135deg, #7db183 0%, #4b4c50 100%);
+  background-image: linear-gradient(135deg, #000000 0%, #4b4c50 100%);
   border-radius: 0.35em;
   border: solid 2px transparent;
   color: white;
@@ -579,7 +579,7 @@ input[type="radio"]+label:before {
   width: 100%;
   height: 400px;
   max-height: 400px;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .image.fit img {
@@ -835,7 +835,7 @@ input[type="button"]:disabled,
   align-items: center;
   justify-content: center;
   height: fit-content;
-  background-color: rgba(0, 0, 0, .1);
+  /* background-color: rgba(0, 0, 0, .1); */
 
 }
 
@@ -868,11 +868,11 @@ input[type="button"]:disabled,
   cursor: pointer;
   color: #ffffff !important;
   /* background: rgba(73, 191, 157, 0.6); */
-  background-image: linear-gradient(135deg, #7db183 0%, #4b4c50 100%);
+  background-image: linear-gradient(135deg, #4b4c50 0%, #000000 100%);
   background-size: cover;
   background-repeat: no-repeat;
   /* border-color: #3eb08f !important; */
-  /* border-color: white !important; */
+  border-color: white !important;
   border-radius: 0px;
   transition: all 0.4s ease 0s;
 }
@@ -888,7 +888,7 @@ input[type="button"]:disabled,
 .header-nav-mobile {
   position: absolute;
   top: 95%;
-  background-image: linear-gradient(135deg, #7db183 0%, #4b4c50 100%);
+  background-image: linear-gradient(135deg, #000000 0%, #4b4c50 100%);
   padding: 1em;
   border-radius: 10px;
   display: flex;

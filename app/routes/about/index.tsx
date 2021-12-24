@@ -371,7 +371,7 @@ export default function About() {
       style={{
         width: "100%",
         position: "absolute",
-        height: "100vh",
+        height: "90vh",
         display: "flex",
         flexDirection: "column",
         alignItems: "flex-start",
@@ -387,34 +387,41 @@ export default function About() {
             background: svg("stars", true),
           }}
         />
-        <ParallaxLayer onClick={() => scroll(1)} offset={0} speed={0} style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'center' }}>
-            <ParallaxLayer
-              offset={0}
-              speed={-0.2}
-              style={{
-                position: "relative",
-                height: "fit-content",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                zIndex: 2,
-              }}
-            >
-              <div className="lax-container">
-                <h1 style={{ color: "lightgray", margin: 0, fontSize: "4rem" }}>
-                  Sean Cotter
-                </h1>
+        <ParallaxLayer
+          onClick={() => scroll(1)}
+          offset={0}
+          speed={0}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <ParallaxLayer
+            offset={0}
+            speed={-0.2}
+            style={{
+              position: "relative",
+              height: "fit-content",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              zIndex: 2,
+            }}
+          >
+            <div className="lax-container">
               <img
                 className="scrollimage"
                 width="50%"
                 src="/images/linkedin_pic.jpg"
                 alt="profile"
-                />
-                <p>Click or Scroll to navigate</p>
-                <h2 style={{ fontSize:'2rem'}}>Full Stack Web Developer</h2>
-                <h2>Philadelphia, PA</h2>
-              </div>
-            </ParallaxLayer>
+              />
+              <h1 style={{ color: "lightgray", margin: 0, fontSize: "4rem" }}>
+                Sean Cotter
+              </h1>
+              <p>Click or Scroll to navigate</p>
+            </div>
+          </ParallaxLayer>
         </ParallaxLayer>
         {/* PAGE TWO */}
         <ParallaxLayer
@@ -436,14 +443,11 @@ export default function About() {
         >
           <div
             style={{
-              background: "black",
+              // background: "black",
               width: "100vw",
-              position: "absolute",
+              // position: "absolute",
               top: 0,
-              height: "100vh",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
+              height: "90vh",
             }}
           >
             <Parallax horizontal ref={parallax1} pages={3} config={config.slow}>
@@ -458,22 +462,22 @@ export default function About() {
 
               <ParallaxLayer
                 offset={0}
-                speed={0.5}
+                speed={0}
                 onClick={() => sideScroll(1)}
                 className="split-page"
               >
                 <div className="split-text">
-                  <h2>This is my family</h2>
+                  <h2>I'm a full stack web developer</h2>
                   <p>
-                    They are truly one of a kind, I wouldn't be half the man I
-                    am today without them. This is me, my wife Cait and our son
-                    Liam.
+                    I utilize a variety of different languages, frameworks and
+                    technologies to create fully customizable websites and
+                    applications. My current favorites to work with are PostgreSQL, Express JS, React and NodeJS.
                   </p>
                 </div>
                 <div
                   className="split-picture"
                   style={{
-                    backgroundImage: "url(/images/parallax/min/family.jpeg)",
+                    backgroundImage: "url(/images/fulls/cool_code.jpeg)",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                   }}
@@ -485,47 +489,47 @@ export default function About() {
                 onClick={() => sideScroll(2)}
                 className="split-page"
               >
+                <div className="split-text">
+                  <h2>Comprehensive Development</h2>
+                  <p>
+                    As a full stack developer I have the advantage of being able
+                    to work with both the client and vendor sides of the
+                    application. This understanding of both sides allows me to
+                    be able to create robust features that are both user
+                    friendly and efficient.
+                  </p>
+                </div>
                 <div
                   className="split-picture"
                   style={{
-                    backgroundImage:
-                      "url(/images/parallax/min/firefighter.jpeg)",
+                    backgroundImage: "url(/images/fulls/responsibilities.png)",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                   }}
                 ></div>
-                <div className="split-text">
-                  <h2>My little hero</h2>
-                  <p>
-                    Liam is obsessed with fire engines, fire fighters, police,
-                    ambulances... It's really anything that makes loud noises, I
-                    think.
-                  </p>
-                </div>
               </ParallaxLayer>
               <ParallaxLayer
                 offset={2}
-                speed={0.5}
+                speed={0}
                 onClick={() => scroll(2)}
                 className="split-page"
               >
-                <div className="split-text">
-                  <h2>And Spud</h2>
-                  <p>
-                    The best dog in the world. He was the discount puppy at the
-                    discount puppy store that my wife and I bought when we
-                    didn't have 2 pennies to rub together. He may derp but he
-                    good boi.
-                  </p>
-                </div>
                 <div
                   className="split-picture"
                   style={{
-                    backgroundImage: "url(/images/parallax/min/dawg.jpeg)",
+                    backgroundImage: "url(/images/fulls/code.jpeg)",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                   }}
                 ></div>
+                <div className="split-text">
+                  <h2>My preferred languages:</h2>
+                  <div className="container row">
+                    <img src="/images/thumbs/js.jpeg" alt="javascript" />
+                    <img src="/images/thumbs/python.png" alt="python" />
+                    <img src="/images/thumbs/typescript.png" alt="typescript" />
+                  </div>
+                </div>
               </ParallaxLayer>
             </Parallax>
           </div>
@@ -554,7 +558,7 @@ export default function About() {
               width: "100vw",
               position: "absolute",
               top: 0,
-              height: "100vh",
+              height: "90vh",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -658,7 +662,7 @@ export default function About() {
               width: "100vw",
               position: "absolute",
               top: 0,
-              height: "100vh",
+              height: "90vh",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -745,12 +749,13 @@ export default function About() {
           <div className="sticky-right-text">
             <h2>About Me</h2>
             <p>
-              Overall I'm just a guy who's not afraid to roll up his sleeves and get his
-              hands dirty, looking to take his passion and experience in
+              Overall I'm just a guy who's not afraid to roll up his sleeves and
+              get his hands dirty, looking to take his passion and experience in
               building incredible things from the ground up and leverage it in
-              the world of software engineering. Self-taught programmer
-              who recently graduated App Academy's 24 week Full Stack Software Engineering 
-              program covering Javascript, Python and popular frameworks.
+              the world of software engineering. Self-taught programmer who
+              recently graduated App Academy's 24 week Full Stack Software
+              Engineering program covering Javascript, Python and popular
+              frameworks.
             </p>
             <p>
               During almost all of my free time I can be found at my computer
