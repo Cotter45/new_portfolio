@@ -58,7 +58,7 @@ em {
 
 .inputs {
   width: 80%;
-  justify-content: space-around;
+  max-width: 600px;
 }
 
 .email {

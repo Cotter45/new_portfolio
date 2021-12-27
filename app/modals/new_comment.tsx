@@ -17,6 +17,10 @@ export default function NewComment({ errors }: any) {
   const transition = useTransition();
   const [showModal, setShowModal] = useState(false);
 
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
   useEffect(() => {
     if (!transition.submission) return;
     setTimeout(() => {

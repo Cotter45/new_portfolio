@@ -53,17 +53,17 @@ export let links: LinksFunction = () => {
     },
     {
       rel: "preload",
-      href: "/images/parallax/min/dawg.jpeg",
+      href: "/images/fulls/code.jpeg",
       as: "image",
     },
     {
       rel: "preload",
-      href: "/images/parallax/min/firefighter.jpeg",
+      href: "/images/fulls/responsibilities.png",
       as: "image",
     },
     {
       rel: "preload",
-      href: "/images/parallax/min/family.jpeg",
+      href: "/images/fulls/cool_code.jpeg",
       as: "image",
     },
   ];
@@ -92,229 +92,6 @@ interface ImageProps {
   title: string;
   text: string;
 }
-
-const Page = ({ offset, onClick, title, text, customTop, customBottom }: PageProps) => (
-  <ParallaxLayer
-    offset={offset}
-    speed={0.2}
-  >
-    <ParallaxLayer speed={-0.1} style={{ cursor: 'pointer' }}>
-      <div className={`slopeBegin ${customTop}`} />
-    </ParallaxLayer>
-
-    <ParallaxLayer speed={-.1} onClick={onClick}>
-      <div className={`slopeEnd ${customBottom}`}/>
-    </ParallaxLayer>
-
-    <ParallaxLayer
-      className='text'
-      speed={1}
-      // style={{ marginLeft: '1%'}}
-    >
-      {/* <h3 className='title' >{title}</h3> */}
-      <p className='clip-p' >{title}</p>
-    </ParallaxLayer>
-  </ParallaxLayer>
-);
-
-const phillyImages = [
-  "/images/fulls/philly_tiles/1.png",
-  "/images/fulls/philly_tiles/2.png",
-  "/images/fulls/philly_tiles/3.png",
-  "/images/fulls/philly_tiles/4.png",
-  "/images/fulls/philly_tiles/5.png",
-  "/images/fulls/philly_tiles/6.png",
-  "/images/fulls/philly_tiles/7.png",
-  "/images/fulls/philly_tiles/8.png",
-  "/images/fulls/philly_tiles/9.png",
-  "/images/fulls/philly_tiles/10.png",
-  "/images/fulls/philly_tiles/11.png",
-  "/images/fulls/philly_tiles/12.png",
-  "/images/fulls/philly_tiles/13.png",
-  "/images/fulls/philly_tiles/14.png",
-  "/images/fulls/philly_tiles/15.png",
-  "/images/fulls/philly_tiles/16.png",
-  "/images/fulls/philly_tiles/17.png",
-  "/images/fulls/philly_tiles/18.png",
-];
-
-const constructionImages = [
-  "/images/fulls/construction_tiles/1.jpg",
-  "/images/fulls/construction_tiles/2.jpg",
-  "/images/fulls/construction_tiles/3.jpg",
-  "/images/fulls/construction_tiles/4.jpg",
-  "/images/fulls/construction_tiles/5.jpg",
-  "/images/fulls/construction_tiles/6.jpg",
-  "/images/fulls/construction_tiles/7.jpg",
-  "/images/fulls/construction_tiles/8.jpg",
-  "/images/fulls/construction_tiles/9.jpg",
-  "/images/fulls/construction_tiles/10.jpg",
-  "/images/fulls/construction_tiles/11.jpg",
-  "/images/fulls/construction_tiles/12.jpg",
-  "/images/fulls/construction_tiles/13.jpg",
-  "/images/fulls/construction_tiles/14.jpg",
-  "/images/fulls/construction_tiles/15.jpg",
-  "/images/fulls/construction_tiles/16.jpg",
-  "/images/fulls/construction_tiles/17.jpg",
-  "/images/fulls/construction_tiles/18.jpg",
-];
-
-const Image = ({ offset, onClick, images, title, text }: ImageProps) => (
-  <>
-    <ParallaxLayer
-      onClick={onClick}
-      offset={offset}
-      speed={-0.1}
-      style={{ marginLeft: "41%", marginTop: "15%" }}
-    >
-      <img width="16.5%" src={images[0]} alt="tile" />
-    </ParallaxLayer>
-    <ParallaxLayer
-      onClick={onClick}
-      offset={offset}
-      speed={0}
-      style={{ marginLeft: "25%", marginTop: "15%" }}
-    >
-      <img width="16.5%" src={images[1]} alt="tile" />
-    </ParallaxLayer>
-    <ParallaxLayer
-      onClick={onClick}
-      offset={offset}
-      speed={-0.1}
-      style={{ marginLeft: "8.5%", marginTop: "15%" }}
-    >
-      <img width="16.5%" src={images[2]} alt="tile" />
-    </ParallaxLayer>
-    <ParallaxLayer
-      onClick={onClick}
-      offset={offset}
-      speed={0}
-      style={{ marginLeft: "-8%", marginTop: "15%" }}
-    >
-      <img width="16.5%" src={images[3]} alt="tile" />
-    </ParallaxLayer>
-    <ParallaxLayer
-      onClick={onClick}
-      offset={offset}
-      speed={-0.1}
-      style={{ marginLeft: "-24.5%", marginTop: "15%" }}
-    >
-      <img width="16.5%" src={images[4]} alt="tile" />
-    </ParallaxLayer>
-    <ParallaxLayer
-      onClick={onClick}
-      offset={offset}
-      speed={0}
-      style={{ marginLeft: "-41%", marginTop: "15%" }}
-    >
-      <img width="16.5%" src={images[5]} alt="tile" />
-    </ParallaxLayer>
-    <ParallaxLayer
-      onClick={onClick}
-      offset={offset}
-      speed={0}
-      style={{ marginLeft: "41%", marginTop: "-1.5%" }}
-    >
-      <img width="16.5%" src={images[6]} alt="tile" />
-    </ParallaxLayer>
-    <ParallaxLayer
-      onClick={onClick}
-      offset={offset}
-      speed={-0.1}
-      style={{ marginLeft: "25%", marginTop: "-1.5%" }}
-    >
-      <img width="16.5%" src={images[7]} alt="tile" />
-    </ParallaxLayer>
-    <ParallaxLayer
-      onClick={onClick}
-      offset={offset}
-      speed={0}
-      style={{ marginLeft: "8.5%", marginTop: "-1.5%" }}
-    >
-      <img width="16.5%" src={images[8]} alt="tile" />
-    </ParallaxLayer>
-    <ParallaxLayer
-      onClick={onClick}
-      offset={offset}
-      speed={-0.1}
-      style={{ marginLeft: "-8%", marginTop: "-1.5%" }}
-    >
-      <img width="16.5%" src={images[9]} alt="tile" />
-    </ParallaxLayer>
-    <ParallaxLayer
-      onClick={onClick}
-      offset={offset}
-      speed={0}
-      style={{ marginLeft: "-24.5%", marginTop: "-1.5%" }}
-    >
-      <img width="16.5%" src={images[10]} alt="tile" />
-    </ParallaxLayer>
-    <ParallaxLayer
-      onClick={onClick}
-      offset={offset}
-      speed={-0.1}
-      style={{ marginLeft: "-41%", marginTop: "-1.5%" }}
-    >
-      <img width="16.5%" src={images[11]} alt="tile" />
-    </ParallaxLayer>
-    <ParallaxLayer
-      onClick={onClick}
-      offset={offset}
-      speed={-0.1}
-      style={{ marginLeft: "41%", marginTop: "-17.5%" }}
-    >
-      <img width="16.5%" src={images[12]} alt="tile" />
-    </ParallaxLayer>
-    <ParallaxLayer
-      onClick={onClick}
-      offset={offset}
-      speed={0}
-      style={{ marginLeft: "25%", marginTop: "-17.5%" }}
-    >
-      <img width="16.5%" src={images[13]} alt="tile" />
-    </ParallaxLayer>
-    <ParallaxLayer
-      onClick={onClick}
-      offset={offset}
-      speed={-0.1}
-      style={{ marginLeft: "8.5%", marginTop: "-17.5%" }}
-    >
-      <img width="16.5%" src={images[14]} alt="tile" />
-    </ParallaxLayer>
-    <ParallaxLayer
-      onClick={onClick}
-      offset={offset}
-      speed={0}
-      style={{ marginLeft: "-8%", marginTop: "-17.5%" }}
-    >
-      <img width="16.5%" src={images[15]} alt="tile" />
-    </ParallaxLayer>
-    <ParallaxLayer
-      onClick={onClick}
-      offset={offset}
-      speed={-0.1}
-      style={{ marginLeft: "-24.5%", marginTop: "-17.5%" }}
-    >
-      <img width="16.5%" src={images[16]} alt="tile" />
-    </ParallaxLayer>
-    <ParallaxLayer
-      onClick={onClick}
-      offset={offset}
-      speed={0}
-      style={{ marginLeft: "-41%", marginTop: "-17.5%" }}
-    >
-      <img width="16.5%" src={images[17]} alt="tile" />
-    </ParallaxLayer>
-    <ParallaxLayer
-      className="title"
-      offset={offset}
-      speed={-.2}
-    >
-      {/* <span>{title}</span> */}
-      {/* <span>{text}</span> */}
-    </ParallaxLayer>
-  </>
-);
 
 export default function About() {
   const screen = useWindowSize();
@@ -428,7 +205,7 @@ export default function About() {
           offset={1}
           speed={0.6}
           style={{
-            zIndex: 1,
+            zIndex: 1000,
             height: "5vh",
             width: "100%",
           }}
@@ -437,9 +214,13 @@ export default function About() {
         </ParallaxLayer>
         <ParallaxLayer
           offset={1}
+          // sticky={{ start: 1, end: 1.5 }}
           speed={0}
           onClick={() => sideScroll(1)}
           className="split-page"
+          style={{
+            zIndex: 1,
+          }}
         >
           <div
             style={{
@@ -490,7 +271,7 @@ export default function About() {
                 className="split-page"
               >
                 <div className="split-text">
-                  <h2>Comprehensive Development</h2>
+                  <h2>Responsible for Comprehensive Development</h2>
                   <p>
                     As a full stack developer I have the advantage of being able
                     to work with both the client and vendor sides of the
@@ -504,7 +285,7 @@ export default function About() {
                   style={{
                     backgroundImage: "url(/images/fulls/responsibilities.png)",
                     backgroundSize: "cover",
-                    backgroundPosition: "center",
+                    backgroundPosition: "right",
                   }}
                 ></div>
               </ParallaxLayer>
@@ -554,7 +335,7 @@ export default function About() {
         >
           <div
             style={{
-              background: "black",
+              // background: "black",
               width: "100vw",
               position: "absolute",
               top: 0,
@@ -576,7 +357,7 @@ export default function About() {
 
               <ParallaxLayer
                 offset={0}
-                speed={0.5}
+                speed={0}
                 onClick={() => sideScroll2(1)}
                 className="split-page"
               >
@@ -621,7 +402,7 @@ export default function About() {
               </ParallaxLayer>
               <ParallaxLayer
                 offset={2}
-                speed={0.5}
+                speed={0}
                 onClick={() => scroll(3)}
                 className="split-page"
               >
@@ -850,7 +631,7 @@ export default function About() {
   );
 }
 
-{/* <animated.div
+/* <animated.div
   style={{ ...rest, width: "80%", height: size }}
   className="test_container"
   onClick={() => set((open) => true)}
@@ -888,7 +669,7 @@ export default function About() {
       </p>
     </div>
   )}
-</animated.div>; */}
+</animated.div>;  */
 
 // const springApi = useSpringRef();
 // const { size, ...rest } = useSpring({
@@ -922,3 +703,226 @@ export default function About() {
 //   0,
 //   open ? 0.1 : 0.6,
 // ]);
+
+// const Page = ({ offset, onClick, title, text, customTop, customBottom }: PageProps) => (
+//   <ParallaxLayer
+//     offset={offset}
+//     speed={0.2}
+//   >
+//     <ParallaxLayer speed={-0.1} style={{ cursor: 'pointer' }}>
+//       <div className={`slopeBegin ${customTop}`} />
+//     </ParallaxLayer>
+
+//     <ParallaxLayer speed={-.1} onClick={onClick}>
+//       <div className={`slopeEnd ${customBottom}`}/>
+//     </ParallaxLayer>
+
+//     <ParallaxLayer
+//       className='text'
+//       speed={1}
+//       // style={{ marginLeft: '1%'}}
+//     >
+//       {/* <h3 className='title' >{title}</h3> */}
+//       <p className='clip-p' >{title}</p>
+//     </ParallaxLayer>
+//   </ParallaxLayer>
+// );
+
+// const phillyImages = [
+//   "/images/fulls/philly_tiles/1.png",
+//   "/images/fulls/philly_tiles/2.png",
+//   "/images/fulls/philly_tiles/3.png",
+//   "/images/fulls/philly_tiles/4.png",
+//   "/images/fulls/philly_tiles/5.png",
+//   "/images/fulls/philly_tiles/6.png",
+//   "/images/fulls/philly_tiles/7.png",
+//   "/images/fulls/philly_tiles/8.png",
+//   "/images/fulls/philly_tiles/9.png",
+//   "/images/fulls/philly_tiles/10.png",
+//   "/images/fulls/philly_tiles/11.png",
+//   "/images/fulls/philly_tiles/12.png",
+//   "/images/fulls/philly_tiles/13.png",
+//   "/images/fulls/philly_tiles/14.png",
+//   "/images/fulls/philly_tiles/15.png",
+//   "/images/fulls/philly_tiles/16.png",
+//   "/images/fulls/philly_tiles/17.png",
+//   "/images/fulls/philly_tiles/18.png",
+// ];
+
+// const constructionImages = [
+//   "/images/fulls/construction_tiles/1.jpg",
+//   "/images/fulls/construction_tiles/2.jpg",
+//   "/images/fulls/construction_tiles/3.jpg",
+//   "/images/fulls/construction_tiles/4.jpg",
+//   "/images/fulls/construction_tiles/5.jpg",
+//   "/images/fulls/construction_tiles/6.jpg",
+//   "/images/fulls/construction_tiles/7.jpg",
+//   "/images/fulls/construction_tiles/8.jpg",
+//   "/images/fulls/construction_tiles/9.jpg",
+//   "/images/fulls/construction_tiles/10.jpg",
+//   "/images/fulls/construction_tiles/11.jpg",
+//   "/images/fulls/construction_tiles/12.jpg",
+//   "/images/fulls/construction_tiles/13.jpg",
+//   "/images/fulls/construction_tiles/14.jpg",
+//   "/images/fulls/construction_tiles/15.jpg",
+//   "/images/fulls/construction_tiles/16.jpg",
+//   "/images/fulls/construction_tiles/17.jpg",
+//   "/images/fulls/construction_tiles/18.jpg",
+// ];
+
+// const Image = ({ offset, onClick, images, title, text }: ImageProps) => (
+//   <>
+//     <ParallaxLayer
+//       onClick={onClick}
+//       offset={offset}
+//       speed={-0.1}
+//       style={{ marginLeft: "41%", marginTop: "15%" }}
+//     >
+//       <img width="16.5%" src={images[0]} alt="tile" />
+//     </ParallaxLayer>
+//     <ParallaxLayer
+//       onClick={onClick}
+//       offset={offset}
+//       speed={0}
+//       style={{ marginLeft: "25%", marginTop: "15%" }}
+//     >
+//       <img width="16.5%" src={images[1]} alt="tile" />
+//     </ParallaxLayer>
+//     <ParallaxLayer
+//       onClick={onClick}
+//       offset={offset}
+//       speed={-0.1}
+//       style={{ marginLeft: "8.5%", marginTop: "15%" }}
+//     >
+//       <img width="16.5%" src={images[2]} alt="tile" />
+//     </ParallaxLayer>
+//     <ParallaxLayer
+//       onClick={onClick}
+//       offset={offset}
+//       speed={0}
+//       style={{ marginLeft: "-8%", marginTop: "15%" }}
+//     >
+//       <img width="16.5%" src={images[3]} alt="tile" />
+//     </ParallaxLayer>
+//     <ParallaxLayer
+//       onClick={onClick}
+//       offset={offset}
+//       speed={-0.1}
+//       style={{ marginLeft: "-24.5%", marginTop: "15%" }}
+//     >
+//       <img width="16.5%" src={images[4]} alt="tile" />
+//     </ParallaxLayer>
+//     <ParallaxLayer
+//       onClick={onClick}
+//       offset={offset}
+//       speed={0}
+//       style={{ marginLeft: "-41%", marginTop: "15%" }}
+//     >
+//       <img width="16.5%" src={images[5]} alt="tile" />
+//     </ParallaxLayer>
+//     <ParallaxLayer
+//       onClick={onClick}
+//       offset={offset}
+//       speed={0}
+//       style={{ marginLeft: "41%", marginTop: "-1.5%" }}
+//     >
+//       <img width="16.5%" src={images[6]} alt="tile" />
+//     </ParallaxLayer>
+//     <ParallaxLayer
+//       onClick={onClick}
+//       offset={offset}
+//       speed={-0.1}
+//       style={{ marginLeft: "25%", marginTop: "-1.5%" }}
+//     >
+//       <img width="16.5%" src={images[7]} alt="tile" />
+//     </ParallaxLayer>
+//     <ParallaxLayer
+//       onClick={onClick}
+//       offset={offset}
+//       speed={0}
+//       style={{ marginLeft: "8.5%", marginTop: "-1.5%" }}
+//     >
+//       <img width="16.5%" src={images[8]} alt="tile" />
+//     </ParallaxLayer>
+//     <ParallaxLayer
+//       onClick={onClick}
+//       offset={offset}
+//       speed={-0.1}
+//       style={{ marginLeft: "-8%", marginTop: "-1.5%" }}
+//     >
+//       <img width="16.5%" src={images[9]} alt="tile" />
+//     </ParallaxLayer>
+//     <ParallaxLayer
+//       onClick={onClick}
+//       offset={offset}
+//       speed={0}
+//       style={{ marginLeft: "-24.5%", marginTop: "-1.5%" }}
+//     >
+//       <img width="16.5%" src={images[10]} alt="tile" />
+//     </ParallaxLayer>
+//     <ParallaxLayer
+//       onClick={onClick}
+//       offset={offset}
+//       speed={-0.1}
+//       style={{ marginLeft: "-41%", marginTop: "-1.5%" }}
+//     >
+//       <img width="16.5%" src={images[11]} alt="tile" />
+//     </ParallaxLayer>
+//     <ParallaxLayer
+//       onClick={onClick}
+//       offset={offset}
+//       speed={-0.1}
+//       style={{ marginLeft: "41%", marginTop: "-17.5%" }}
+//     >
+//       <img width="16.5%" src={images[12]} alt="tile" />
+//     </ParallaxLayer>
+//     <ParallaxLayer
+//       onClick={onClick}
+//       offset={offset}
+//       speed={0}
+//       style={{ marginLeft: "25%", marginTop: "-17.5%" }}
+//     >
+//       <img width="16.5%" src={images[13]} alt="tile" />
+//     </ParallaxLayer>
+//     <ParallaxLayer
+//       onClick={onClick}
+//       offset={offset}
+//       speed={-0.1}
+//       style={{ marginLeft: "8.5%", marginTop: "-17.5%" }}
+//     >
+//       <img width="16.5%" src={images[14]} alt="tile" />
+//     </ParallaxLayer>
+//     <ParallaxLayer
+//       onClick={onClick}
+//       offset={offset}
+//       speed={0}
+//       style={{ marginLeft: "-8%", marginTop: "-17.5%" }}
+//     >
+//       <img width="16.5%" src={images[15]} alt="tile" />
+//     </ParallaxLayer>
+//     <ParallaxLayer
+//       onClick={onClick}
+//       offset={offset}
+//       speed={-0.1}
+//       style={{ marginLeft: "-24.5%", marginTop: "-17.5%" }}
+//     >
+//       <img width="16.5%" src={images[16]} alt="tile" />
+//     </ParallaxLayer>
+//     <ParallaxLayer
+//       onClick={onClick}
+//       offset={offset}
+//       speed={0}
+//       style={{ marginLeft: "-41%", marginTop: "-17.5%" }}
+//     >
+//       <img width="16.5%" src={images[17]} alt="tile" />
+//     </ParallaxLayer>
+//     <ParallaxLayer
+//       className="title"
+//       offset={offset}
+//       speed={-.2}
+//     >
+//       {/* <span>{title}</span> */}
+//       {/* <span>{text}</span> */}
+//     </ParallaxLayer>
+//   </>
+// );

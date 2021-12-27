@@ -277,7 +277,7 @@ select {
   padding-right: 2.75em;
   text-overflow: ellipsis;
   background-color: #949599;
-  width: 100%;
+  width: 95%;
   
   cursor: pointer;
 }
@@ -1039,14 +1039,12 @@ body {
   font-size: 1.5rem;
 }
 
-#selfie {
+/* #selfie {
   position: absolute;
   top: 25%;
-  /* right: 1%; */
   height: 20%;
-  /* border-radius: 50%; */
   z-index: 5;
-}
+} */
 
 .list {
   text-align: center;
