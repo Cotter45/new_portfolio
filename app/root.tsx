@@ -122,6 +122,10 @@ function Document({
         />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="mobile-web-app-capable" content="yes" />
+        <meta property="og:title" content="Sean Cotter" />
+        <meta property="og:description" content="The work and a few ramblings of Sean Cotter." />
+        <meta property="og:image" content="/images/parallax/min/splash.PNG" />
+        <meta property="og:url" content="https://new-cotter.herokuapp.com" />
         {title ? <title>{title}</title> : null}
         <Meta />
         <Links />
