@@ -144,7 +144,7 @@ export default function About() {
         alignItems: "flex-start",
       }}
     >
-      <Parallax className="lax" ref={parallax} pages={10} config={config.slow}>
+      <Parallax className="lax" ref={parallax} pages={6} config={config.slow}>
         {/* PAGE ONE */}
         <ParallaxLayer
           offset={0}
@@ -157,7 +157,7 @@ export default function About() {
         <ParallaxLayer
           onClick={() => scroll(1)}
           offset={0}
-          speed={0}
+          speed={-1}
           style={{
             display: "flex",
             alignItems: "center",
@@ -186,7 +186,6 @@ export default function About() {
               <h1 style={{ color: "lightgray", margin: 0, fontSize: "4rem" }}>
                 Sean Cotter
               </h1>
-              <p>Click or Scroll to navigate</p>
             </div>
           </ParallaxLayer>
         </ParallaxLayer>
@@ -200,7 +199,7 @@ export default function About() {
             width: "100%",
           }}
         >
-          <i className="fas fa-arrow-right fa-2x"> Click</i>
+          <i className="fas fa-arrow-right fa-2x"> </i>
         </ParallaxLayer>
         <ParallaxLayer
           offset={1}
@@ -242,7 +241,8 @@ export default function About() {
                   <p>
                     I utilize a variety of different languages, frameworks and
                     technologies to create fully customizable websites and
-                    applications. My current favorites to work with are PostgreSQL, Express JS, React and NodeJS.
+                    applications. My current favorites to work with are
+                    PostgreSQL, Express JS, React and NodeJS.
                   </p>
                 </div>
                 <div
@@ -261,7 +261,7 @@ export default function About() {
                 className="split-page"
               >
                 <div className="split-text">
-                  <h2>Responsible for Comprehensive Development</h2>
+                  <h2>Comprehensive Development</h2>
                   <p>
                     As a full stack developer I have the advantage of being able
                     to work with both the client and vendor sides of the
@@ -419,7 +419,7 @@ export default function About() {
             width: "100%",
           }}
         >
-          <i className="fas fa-arrow-right fa-2x"> Click</i>
+          <i className="fas fa-arrow-right fa-2x"> </i>
         </ParallaxLayer>
         <ParallaxLayer
           offset={2}
@@ -466,8 +466,10 @@ export default function About() {
                 ></div>
                 <div className="split-text">
                   <h2>I used to work in construction</h2>
-                  <p>I'm no stranger to the madness of production goals and at times, the client expectations. 
-                    I have a proven record for overperforming and producing high quality work.
+                  <p>
+                    I'm no stranger to the madness of production goals and at
+                    times, the client expectations. I have a proven record for
+                    exceeding expectations and producing high quality work.
                   </p>
                 </div>
               </ParallaxLayer>
@@ -479,10 +481,11 @@ export default function About() {
               >
                 <div className="split-text">
                   <h2>For almost 9 years...</h2>
-                  <p>I built a successful career and completed many massive projects
-                    for my clients. The transfer into web development was a
-                    natural progression after learning the skills I needed to
-                    accomplish tasks like this. 
+                  <p>
+                    I built a successful career and completed many massive
+                    projects for my clients. The transfer into web development
+                    was an easy progression with all of the skills I've obtained
+                    from years of hard work and dedication.
                   </p>
                 </div>
                 <div
@@ -502,30 +505,42 @@ export default function About() {
                 className="split-page"
               >
                 <div
-                className="split-picture"
-                style={{
-                  backgroundImage: "url(/images/parallax/min/in_loader.png)",
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-              ></div>
-                <div className="split-text"></div>
+                  className="split-picture"
+                  style={{
+                    backgroundImage: "url(/images/parallax/min/in_loader.png)",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                ></div>
+                <div className="split-text">
+                  <h2>I operated heavy equipment</h2>
+                  <p>
+                    It was a childhood dream, and I accomplished it. I ran this
+                    953c on a pipe crew for Allan Myers, as many challenges as
+                    it created, every second was worth it. I hope one day
+                    everyone gets the opportunity to do something they dreamt of
+                    as a kid.
+                  </p>
+                </div>
               </ParallaxLayer>
             </Parallax>
           </div>
         </ParallaxLayer>
         {/* PAGE FIVE */}
-        <ParallaxLayer sticky={{ start: 3, end: 6 }}>
+        <ParallaxLayer sticky={{ start: 3, end: 4 }}>
           <img
             src="/images/fulls/computer.png"
             alt="slpash"
             className="sticky-right"
           />
         </ParallaxLayer>
-        <ParallaxLayer onClick={() => scroll(4)} offset={3}>
+        <ParallaxLayer onClick={() => scroll(4)} offset={3} factor={2}>
           {/* <img src='/images/fulls/computer.png' alt='slpash' className='sticky-right' /> */}
-          <div className="sticky-left-text slopeBegin">
-            <h2>About Me</h2>
+          <div
+            onClick={() => scroll(4)}
+            className="sticky-left-text"
+          >
+            <label>About Me</label>
             <p>
               Overall I'm just a guy who's not afraid to roll up his sleeves and
               get his hands dirty, looking to take his passion and experience in
@@ -547,33 +562,113 @@ export default function About() {
               I'd say I'm just a happy go lucky guy with a fantastic
               family/support system and maybe too many hobbies.
             </p>
+            <label>Interests</label>
+            <p>
+              I have a lot of hobbies, I've always been that person that can't
+              sit still. There's always something to learn, explore or improve
+              in life.
+            </p>
+            <ul>
+              <li>Music</li>
+              <li>Video Games</li>
+              <li>Woodworking</li>
+              <li>Motorcycles</li>
+              <li>Hiking / Travelling</li>
+            </ul>
+            <label>Fun Facts</label>
+            <ul>
+              <li>I've played guitar since I was 10</li>
+              <li>
+                I learned how to roller skate before I could run and eventually
+                fell in love with street hockey
+              </li>
+              <li>I used to run ~ 15 miles a day, much less any more though</li>
+              <li>
+                I love video games, some favorites being Final Fantasy, Halo
+                Fallout, and The Witcher
+              </li>
+            </ul>
+            <label>Things I want to learn</label>
+            <ul>
+              <li>Blockchain</li>
+              <li>Game Development</li>
+              <li>Machine Learning</li>
+              <li>Video / Image Manipulation</li>
+            </ul>
+            <label>Ask me about</label>
+            <ul>
+              <li>National Parks</li>
+              <li>Music</li>
+              <li>Why I left Drexel University</li>
+            </ul>
           </div>
-          <div className='slopeEnd'></div>
         </ParallaxLayer>
-        <ParallaxLayer offset={3} speed={.2}>
+        {/* PAGE FIVE */}
+        <ParallaxLayer offset={5.1}>
+          <h2 style={{ textAlign: 'center' }}>Thanks for getting to know me</h2>
+        </ParallaxLayer>
+        <ParallaxLayer offset={5.8}>
+          <div className="inner">
+            <ul className="icons">
+              <li>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://github.com/Cotter45"
+                  className="icon brands"
+                >
+                  <i className="fab fa-github fa-2x"></i>
+                  <span className="label">Github</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://www.linkedin.com/in/sean-cotter-43572417/"
+                  className="icon solid"
+                >
+                  <i className="fab fa-linkedin-in fa-2x"></i>
+                  <span className="label">LinkedIn</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://angel.co/u/sean-cotter-6"
+                  className="icon solid"
+                >
+                  <i className="fab fa-angellist fa-2x"></i>
+                  <span className="label">AngelList</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </ParallaxLayer>
+        {/* <ParallaxLayer offset={3} speed={-0.2}>
           <div className="sticky-left slopeEnd"></div>
-        </ParallaxLayer>
-        <ParallaxLayer offset={4}>
-          <img
-            src="/images/fulls/computer.png"
-            alt="slpash"
-            className="sticky-right"
-          />
-        </ParallaxLayer>
-        <ParallaxLayer offset={5}>
-          <img
-            src="/images/fulls/computer.png"
-            alt="slpash"
-            className="sticky-right"
-          />
-        </ParallaxLayer>
-        <ParallaxLayer offset={6}>
-          <img
-            src="/images/fulls/computer.png"
-            alt="slpash"
-            className="sticky-right"
-          />
-        </ParallaxLayer>
+        </ParallaxLayer> */}
+        {/* <ParallaxLayer onClick={() => scroll(5)} offset={4}>
+          <div className="sticky-left-text">
+            <h2>Interests</h2>
+            <p>
+              I have a lot of hobbies, I've always been that person that can't
+              sit still. There's always something to learn, explore or improve
+              in life.
+            </p>
+            <label>Facts</label>
+            <ul>
+              <li>I've played guitar since I was 10</li>
+              <li>I learned how to roller skate before I could run and eventually fell in love with street hockey</li>
+              <li>I used to run ~ 15 miles a day, much less any more</li>
+              <li>I love video games, some favorites being Final Fantasy, Halo Fallout, and The Witcher</li>
+            </ul>
+          </div>
+        </ParallaxLayer> */}
+        {/* <ParallaxLayer offset={4} speed={0.2}>
+          <div className="sticky-left slopeEnd"></div>
+        </ParallaxLayer> */}
         {/* <Image
           title="My name is Sean Cotter"
           text="My name is Sean Cotter."
