@@ -43,16 +43,6 @@ export let links: LinksFunction = () => {
     },
     {
       rel: "preload",
-      href: "/images/parallax/min/break.png",
-      as: "image",
-    },
-    {
-      rel: "preload",
-      href: "/images/parallax/min/build.jpeg",
-      as: "image",
-    },
-    {
-      rel: "preload",
       href: "/images/fulls/code.jpeg",
       as: "image",
     },
@@ -148,7 +138,7 @@ export default function About() {
       style={{
         width: "100%",
         position: "absolute",
-        height: "90vh",
+        height: "100vh",
         display: "flex",
         flexDirection: "column",
         alignItems: "flex-start",
@@ -176,7 +166,7 @@ export default function About() {
         >
           <ParallaxLayer
             offset={0}
-            speed={-0.2}
+            speed={0}
             style={{
               position: "relative",
               height: "fit-content",
@@ -210,7 +200,7 @@ export default function About() {
             width: "100%",
           }}
         >
-          <i className="fas fa-arrow-right fa-2x"></i>
+          <i className="fas fa-arrow-right fa-2x"> Click</i>
         </ParallaxLayer>
         <ParallaxLayer
           offset={1}
@@ -228,7 +218,7 @@ export default function About() {
               width: "100vw",
               // position: "absolute",
               top: 0,
-              height: "90vh",
+              height: "100vh",
             }}
           >
             <Parallax horizontal ref={parallax1} pages={3} config={config.slow}>
@@ -258,7 +248,7 @@ export default function About() {
                 <div
                   className="split-picture"
                   style={{
-                    backgroundImage: "url(/images/fulls/cool_code.jpeg)",
+                    backgroundImage: "url(/images/fulls/code.jpeg)",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                   }}
@@ -298,7 +288,7 @@ export default function About() {
                 <div
                   className="split-picture"
                   style={{
-                    backgroundImage: "url(/images/fulls/code.jpeg)",
+                    backgroundImage: "url(/images/fulls/cool_code.jpeg)",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                   }}
@@ -316,7 +306,7 @@ export default function About() {
           </div>
         </ParallaxLayer>
         {/* PAGE THREE */}
-        <ParallaxLayer
+        {/* <ParallaxLayer
           offset={2}
           speed={0.6}
           style={{
@@ -339,7 +329,7 @@ export default function About() {
               width: "100vw",
               position: "absolute",
               top: 0,
-              height: "90vh",
+              height: "100vh",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -418,10 +408,10 @@ export default function About() {
               </ParallaxLayer>
             </Parallax>
           </div>
-        </ParallaxLayer>
+        </ParallaxLayer> */}
         {/* PAGE FOUR */}
         <ParallaxLayer
-          offset={3}
+          offset={2}
           speed={0.6}
           style={{
             zIndex: 1,
@@ -429,10 +419,10 @@ export default function About() {
             width: "100%",
           }}
         >
-          <i className="fas fa-arrow-right fa-2x"></i>
+          <i className="fas fa-arrow-right fa-2x"> Click</i>
         </ParallaxLayer>
         <ParallaxLayer
-          offset={3}
+          offset={2}
           speed={0}
           onClick={() => sideScroll3(1)}
           className="split-page"
@@ -443,7 +433,7 @@ export default function About() {
               width: "100vw",
               position: "absolute",
               top: 0,
-              height: "90vh",
+              height: "100vh",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -465,10 +455,6 @@ export default function About() {
                 onClick={() => sideScroll3(1)}
                 className="split-page"
               >
-                <div className="split-text">
-                  <h2>I used to work in construction</h2>
-                  <p>blob</p>
-                </div>
                 <div
                   className="split-picture"
                   style={{
@@ -478,6 +464,12 @@ export default function About() {
                     backgroundPosition: "center",
                   }}
                 ></div>
+                <div className="split-text">
+                  <h2>I used to work in construction</h2>
+                  <p>I'm no stranger to the madness of production goals and at times, the client expectations. 
+                    I have a proven record for overperforming and producing high quality work.
+                  </p>
+                </div>
               </ParallaxLayer>
               <ParallaxLayer
                 offset={1}
@@ -485,6 +477,14 @@ export default function About() {
                 onClick={() => sideScroll3(2)}
                 className="split-page"
               >
+                <div className="split-text">
+                  <h2>For almost 9 years...</h2>
+                  <p>I built a successful career and completed many massive projects
+                    for my clients. The transfer into web development was a
+                    natural progression after learning the skills I needed to
+                    accomplish tasks like this. 
+                  </p>
+                </div>
                 <div
                   className="split-picture"
                   style={{
@@ -494,40 +494,37 @@ export default function About() {
                     backgroundPosition: "center",
                   }}
                 ></div>
-                <div className="split-text">
-                  <h2>For almost 9 years...</h2>
-                </div>
               </ParallaxLayer>
               <ParallaxLayer
                 offset={2}
                 speed={0.5}
-                onClick={() => scroll(4)}
+                onClick={() => scroll(3)}
                 className="split-page"
               >
-                <div className="split-text"></div>
                 <div
-                  className="split-picture"
-                  style={{
-                    backgroundImage: "url(/images/parallax/min/in_loader.png)",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                  }}
-                ></div>
+                className="split-picture"
+                style={{
+                  backgroundImage: "url(/images/parallax/min/in_loader.png)",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              ></div>
+                <div className="split-text"></div>
               </ParallaxLayer>
             </Parallax>
           </div>
         </ParallaxLayer>
         {/* PAGE FIVE */}
-        <ParallaxLayer sticky={{ start: 4, end: 7 }}>
+        <ParallaxLayer sticky={{ start: 3, end: 6 }}>
           <img
             src="/images/fulls/computer.png"
             alt="slpash"
-            className="sticky-left"
+            className="sticky-right"
           />
         </ParallaxLayer>
-        <ParallaxLayer offset={4}>
+        <ParallaxLayer onClick={() => scroll(4)} offset={3}>
           {/* <img src='/images/fulls/computer.png' alt='slpash' className='sticky-right' /> */}
-          <div className="sticky-right-text">
+          <div className="sticky-left-text slopeBegin">
             <h2>About Me</h2>
             <p>
               Overall I'm just a guy who's not afraid to roll up his sleeves and
@@ -548,11 +545,20 @@ export default function About() {
             </p>
             <p>
               I'd say I'm just a happy go lucky guy with a fantastic
-              family/support system and maybe too many hobbies. I can't wait to
-              see what we can do with tomorrow, let alone the rest of our time
-              here.
+              family/support system and maybe too many hobbies.
             </p>
           </div>
+          <div className='slopeEnd'></div>
+        </ParallaxLayer>
+        <ParallaxLayer offset={3} speed={.2}>
+          <div className="sticky-left slopeEnd"></div>
+        </ParallaxLayer>
+        <ParallaxLayer offset={4}>
+          <img
+            src="/images/fulls/computer.png"
+            alt="slpash"
+            className="sticky-right"
+          />
         </ParallaxLayer>
         <ParallaxLayer offset={5}>
           <img
@@ -562,13 +568,6 @@ export default function About() {
           />
         </ParallaxLayer>
         <ParallaxLayer offset={6}>
-          <img
-            src="/images/fulls/computer.png"
-            alt="slpash"
-            className="sticky-right"
-          />
-        </ParallaxLayer>
-        <ParallaxLayer offset={7}>
           <img
             src="/images/fulls/computer.png"
             alt="slpash"

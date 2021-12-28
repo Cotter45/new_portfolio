@@ -872,7 +872,8 @@ input[type="button"]:disabled,
   background-size: cover;
   background-repeat: no-repeat;
   /* border-color: #3eb08f !important; */
-  border-color: white !important;
+  /* border-color: white !important; */
+  border-color: #49bf9d !important;
   border-radius: 0px;
   transition: all 0.4s ease 0s;
 }

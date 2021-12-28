@@ -203,8 +203,7 @@ export default function Particles() {
                           } else {
                             particles[a].r = .5;
                             ctx.lineWidth = .5;
-                            ctx.strokeStyle =
-                            "rgba(0,0,0," + opacityValue + ")";
+                            ctx.strokeStyle = "#49bf9d";
                         }
                           ctx.beginPath();
                           ctx.moveTo(particles[a].x, particles[a].y);
