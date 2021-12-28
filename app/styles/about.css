@@ -277,8 +277,13 @@
 
   .sticky-left-text {
     width: 96vw;
-    font-size: 1rem;
+    font-size: .8rem;
     justify-content: center;
+    /* height: fit-content !important; */
+  }
+
+  .sticky-left-text > p {
+    margin: .1rem;
   }
 }
 

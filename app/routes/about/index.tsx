@@ -137,11 +137,12 @@ export default function About() {
     <div
       style={{
         width: "100%",
-        position: "absolute",
-        height: "100vh",
+        // position: "absolute",
+        height: "100%",
         display: "flex",
         flexDirection: "column",
         alignItems: "flex-start",
+        overflowY: "hidden"
       }}
     >
       <Parallax className="lax" ref={parallax} pages={6} config={config.slow}>
@@ -431,7 +432,7 @@ export default function About() {
             style={{
               background: "black",
               width: "100vw",
-              position: "absolute",
+              // position: "absolute",
               top: 0,
               height: "100vh",
               display: "flex",
