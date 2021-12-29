@@ -1157,11 +1157,19 @@ body {
   }
 
   .splash-container {
-    height: 65vh;
+    height: 85vh;
   }
 
   .typewriter {
     font-size: 1rem;
+  }
+
+  .remix-app__footer {
+    border: none;
+  }
+
+  .remix-app__footer-content {
+    justify-content: flex-end;
   }
 
 }

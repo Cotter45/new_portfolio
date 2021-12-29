@@ -145,7 +145,7 @@ export default function About() {
         overflowY: "hidden"
       }}
     >
-      <Parallax className="lax" ref={parallax} pages={6} config={config.slow}>
+      <Parallax className="lax" ref={parallax} pages={screen.width < 768 && screen.height < 768 ? 7 : 6} config={config.slow}>
         {/* PAGE ONE */}
         <ParallaxLayer
           offset={0}
@@ -605,10 +605,10 @@ export default function About() {
           </div>
         </ParallaxLayer>
         {/* PAGE FIVE */}
-        <ParallaxLayer offset={5.1}>
+        <ParallaxLayer offset={screen.width < 768 && screen.height < 768 ? 6.1 : 5.1}>
           <h2 style={{ textAlign: 'center' }}>Thanks for getting to know me</h2>
         </ParallaxLayer>
-        <ParallaxLayer offset={5.8}>
+        <ParallaxLayer offset={screen.width < 768 && screen.height < 768 ? 6.8 : 5.8}>
           <div className="inner">
             <ul className="icons">
               <li>

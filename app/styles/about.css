@@ -297,7 +297,7 @@
 
   .sticky-left-text {
     width: 96vw;
-    font-size: .8rem;
+    font-size: 1rem;
     justify-content: center;
     /* height: fit-content !important; */
   }
@@ -305,6 +305,14 @@
   .sticky-left-text > p {
     margin: .2rem;
   }
+}
+
+@media screen and (max-width: 768px) and (max-height: 768px) {
+
+  .sticky-left-text {
+    height: fit-content !important;
+  }
+
 }
 
 
