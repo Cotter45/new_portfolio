@@ -137,7 +137,7 @@ export default function About() {
     <div
       style={{
         width: "100%",
-        // position: "absolute",
+        position: "absolute",
         height: "100%",
         display: "flex",
         flexDirection: "column",

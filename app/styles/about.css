@@ -224,16 +224,18 @@
   text-align: justify;
   text-indent: 15px;
   padding: 0 2vw;
-  width: 46vw;
+  width: 46.5vw;
   height: 100%;
   float: left;
-  font-size: 1em;
+  font-size: .8rem;
   /* background-image: linear-gradient(90deg, #000000 10%, #49bf9d 100%); */
   background-image: linear-gradient(135deg, #000000 0%, #4b4c50 100%);
 }
 
 .sticky-left-text > label {
   color: #49bf9d;
+  font-size: 2rem;
+  margin: 1rem;
 }
 
 .slopeBegin {
@@ -249,6 +251,24 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (min-width: 1000px) and (min-height: 1000px) {
+  .sticky-left-text {
+    font-size: 1.5rem;
+  }
+
+  .sticky-left-text > label {
+    font-size: 3rem;
+  }
+
+  .split-text {
+    font-size: 1.5rem;
+  }
+
+  .split-text > h2 {
+    font-size: 3rem;
+  }
 }
 
 
@@ -283,7 +303,7 @@
   }
 
   .sticky-left-text > p {
-    margin: .1rem;
+    margin: .2rem;
   }
 }
 

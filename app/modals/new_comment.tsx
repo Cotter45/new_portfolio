@@ -5,6 +5,7 @@ import {
 } from "remix";
 import { useState, useEffect } from 'react';
 
+
 import { Modal } from "./modal";
 import contactStyles from "~/styles/contact.css";
 import modalStyles from "~/styles/modal.css";
@@ -13,13 +14,42 @@ export let links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: contactStyles }, { rel: "stylesheet", href: modalStyles }];
 };
 
+// Check out my reworked portfolio! 
+
+// https://new-cotter.herokuapp.com 
+
+
+
+// While searching for a job in this crazy competitive market, I felt compelled to develop a more attractive, robust portfolio to stand out a bit and better highlight my skillset and creativity. 
+
+
+
+// I used this as an opportunity to learn how to utilize Typescript and a new full stack framework called Remix.run. I also learned a new ORM with this app, Prisma, and I highly recommend it as well as Remix. They work great almost right out of the box and left me with about 90% of my time designing instead of laying out architecture, something I'm not great at but was really nice to have more time devoted to.
+
+
+
+// I hope you enjoy what I've come up with and this may even convince you to play around with Remix.run. This is my first release so if you encounter any issue, please don't hesitate to drop me a line through the app or PM me here on Linkedin.
+
+
+
+// #react #learning #experience #share #html #opportunity #remix #typescript #portfoliowebsite #softwareengineering 
+
 export default function NewComment({ errors }: any) {
   const transition = useTransition();
   const [showModal, setShowModal] = useState(false);
 
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [title, setTitle] = useState("");
   const [message, setMessage] = useState("");
+
+  useEffect(() => {
+
+    return () => {
+      setName("");
+      setTitle("");
+      setMessage("");
+    }
+  }, [showModal])
 
   useEffect(() => {
     if (!transition.submission) return;
@@ -37,19 +67,15 @@ export default function NewComment({ errors }: any) {
           <button onClick={() => setShowModal(false)} style={{ alignSelf: 'flex-end', position: 'sticky', top: 0, zIndex: 1 }} className="header-home-link"><i className='fa fa-times fa-3x'></i></button>
           <Form autoComplete="off" className='form' method="post">
             <div className='inputs'>
-              <div className=''>
-                <p>
-                Hi, thanks for checking out my website. You can leave a comment here that will be visible to anyone else who visits. 
-                </p>
-              </div>
+              <h1>New Comment</h1>
               <div className=''>
                 <label>
                   Name: {errors?.name && <em>Name is required</em>}
-                  <input type="text" name="name" />
+                  <input onChange={(e) => setName(e.target.value)} type="text" name="name" />
                 </label>
                 <label>
                   Title: {errors?.title && <em>Title is required</em>}
-                  <input type="text" name="title" />
+                  <input onChange={(e) => setTitle(e.target.value)} type="text" name="title" />
                 </label>
               </div>
             </div>
@@ -66,10 +92,11 @@ export default function NewComment({ errors }: any) {
               </label>
               <label htmlFor="comment">Comment:
               {errors?.comment && <em>Comment is required</em>}
-              <textarea rows={5} name="comment" />
+              <textarea onChange={(e) => setMessage(e.target.value)} rows={5} name="comment" />
               </label>
             </div>
-            <button style={{ fontSize: '1.2rem' }} className='header-home-link' type="submit">
+            {!(name && title && message) && <p style={{ color: 'gold', fontSize: '2rem', position: 'absolute', bottom: 0 }}>Please fill out the form</p>}
+            <button disabled={ !(name && title && message) ? true : false} style={{ fontSize: '1.2rem', position: 'absolute', bottom: '10%', width: '200px', height: '50px' }} className='header-home-link' type="submit">
               {transition.submission ? "Creating..." : "Comment"}
             </button>
           </Form>
