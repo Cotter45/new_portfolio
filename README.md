@@ -1,59 +1,21 @@
-# Welcome to Remix!
+# This portfolio was made with [Remix.Run](https://remix.run/)
+- Check it out, it was seriously fun to work with.
 
-- [Remix Docs](https://remix.run/docs)
+# View it [Here](https://new-cotter.herokuapp.com)
 
-## Development
+## I created this to learn as well as make something a little more interesting than my initial boiler plate portfolio. 
+- While working on it I knew it would be beneficial to learn a few new technologies. So I learned :
+  - Typescript
+  - Remix.Run 
+  - Prisma
+  - React-Spring Parallax
 
-You'll need to run two terminals (or bring in a process manager like concurrently/pm2-dev if you like):
+## Some things I struggled with
+- Server side rendering: It seemed like everything had to go inside a useEffect
+- Typescript: Type declarations can be infuriating at times but by the end I've found it's really not much to do and it saves way more time than it takes to implement. 
+- Parallax: I wish I never did this, it's still there solely because I'm stubborn. It's very difficult to make it seemless and even harder to make it look ok on different screen sizes.
 
-Start the Remix development asset server
+## Things to do
+- I still have to add my admin page so that I can remove any innappropriate posts, but I'm optimistic that there won't be any
+- Touch up CSS here and there
 
-```sh
-npm run dev
-```
-
-In a new tab start your express app:
-
-```sh
-npm run start:dev
-```
-
-This starts your app in development mode, which will purge the server require cache when Remix rebuilds assets so you don't need a process manager restarting the express server.
-
-## Deployment
-
-First, build your app for production:
-
-```sh
-npm run build
-```
-
-Then run the app in production mode:
-
-```sh
-npm start
-```
-
-Now you'll need to pick a host to deploy it to.
-
-### DIY
-
-If you're familiar with deploying express applications you should be right at home just make sure to deploy the output of `remix build`
-
-- `server/build/`
-- `public/build/`
-
-### Using a Template
-
-When you ran `npx create-remix@latest` there were a few choices for hosting. You can run that again to create a new project, then copy over your `app/` folder to the new project that's pre-configured for your target server.
-
-```sh
-cd ..
-# create a new project, and pick a pre-configured host
-npx create-remix@latest
-cd my-new-remix-app
-# remove the new project's app (not the old one!)
-rm -rf app
-# copy your app over
-cp -R ../my-old-remix-app/app app
-```
