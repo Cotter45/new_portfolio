@@ -142,10 +142,15 @@ export default function About() {
         display: "flex",
         flexDirection: "column",
         alignItems: "flex-start",
-        overflowY: "hidden"
+        overflowY: "hidden",
       }}
     >
-      <Parallax className="lax" ref={parallax} pages={screen.width < 768 && screen.height < 768 ? 7 : 6} config={config.slow}>
+      <Parallax
+        className="lax"
+        ref={parallax}
+        pages={screen.width < 768 && screen.height < 768 ? 7 : 6}
+        config={config.slow}
+      >
         {/* PAGE ONE */}
         <ParallaxLayer
           offset={0}
@@ -192,15 +197,19 @@ export default function About() {
         </ParallaxLayer>
         {/* PAGE TWO */}
         <ParallaxLayer
-          offset={1}
+          offset={1.4}
           speed={0.6}
           style={{
             zIndex: 1000,
             height: "5vh",
             width: "100%",
+            marginLeft: "90%",
           }}
+          onClick={() => sideScroll(1)}
         >
-          <i className="fas fa-arrow-right fa-2x"> </i>
+          <i style={{ color: "#49bf9d" }} className="fas fa-arrow-right fa-2x">
+            {" "}
+          </i>
         </ParallaxLayer>
         <ParallaxLayer
           offset={1}
@@ -412,15 +421,19 @@ export default function About() {
         </ParallaxLayer> */}
         {/* PAGE FOUR */}
         <ParallaxLayer
-          offset={2}
+          offset={2.4}
           speed={0.6}
           style={{
             zIndex: 1,
             height: "5vh",
             width: "100%",
+            marginLeft: '90%',
           }}
+          onClick={() => sideScroll3(1)}
         >
-          <i className="fas fa-arrow-right fa-2x"> </i>
+          <i style={{ color: "#49bf9d" }} className="fas fa-arrow-right fa-2x">
+            {" "}
+          </i>
         </ParallaxLayer>
         <ParallaxLayer
           offset={2}
@@ -452,9 +465,9 @@ export default function About() {
 
               <ParallaxLayer
                 offset={0}
-                speed={0.5}
+                speed={0}
                 onClick={() => sideScroll3(1)}
-                className="split-page"
+                className="split-page reverse"
               >
                 <div
                   className="split-picture"
@@ -484,7 +497,7 @@ export default function About() {
                   <h2>For almost 9 years...</h2>
                   <p>
                     I built a successful career and completed many massive
-                    projects for my clients. The transfer into web development
+                    projects for my clients. The transition into web development
                     was an easy progression with all of the skills I've obtained
                     from years of hard work and dedication.
                   </p>
@@ -501,7 +514,7 @@ export default function About() {
               </ParallaxLayer>
               <ParallaxLayer
                 offset={2}
-                speed={0.5}
+                speed={0}
                 onClick={() => scroll(3)}
                 className="split-page"
               >
@@ -517,10 +530,9 @@ export default function About() {
                   <h2>I operated heavy equipment</h2>
                   <p>
                     It was a childhood dream, and I accomplished it. I ran this
-                    953c on a pipe crew for Allan Myers, as many challenges as
-                    it created, every second was worth it. I hope one day
-                    everyone gets the opportunity to do something they dreamt of
-                    as a kid.
+                    953c on a pipe crew for the largest Heavy Civil Construction
+                    company on the east coast. As many challenges as I faced,
+                    every second was worth it and I learned a lot.
                   </p>
                 </div>
               </ParallaxLayer>
@@ -537,10 +549,7 @@ export default function About() {
         </ParallaxLayer>
         <ParallaxLayer onClick={() => scroll(4)} offset={3} factor={2}>
           {/* <img src='/images/fulls/computer.png' alt='slpash' className='sticky-right' /> */}
-          <div
-            onClick={() => scroll(4)}
-            className="sticky-left-text"
-          >
+          <div onClick={() => scroll(4)} className="sticky-left-text">
             <label>About Me</label>
             <p>
               Overall I'm just a guy who's not afraid to roll up his sleeves and
@@ -574,7 +583,7 @@ export default function About() {
               <li>Video Games</li>
               <li>Woodworking</li>
               <li>Motorcycles</li>
-              <li>Hiking / Travelling</li>
+              <li>Hiking / Traveling</li>
             </ul>
             <label>Fun Facts</label>
             <ul>
@@ -585,7 +594,7 @@ export default function About() {
               </li>
               <li>I used to run ~ 15 miles a day, much less any more though</li>
               <li>
-                I love video games, some favorites being Final Fantasy, Halo
+                I love video games, some favorites being Final Fantasy, Halo,
                 Fallout, and The Witcher
               </li>
             </ul>
@@ -605,10 +614,14 @@ export default function About() {
           </div>
         </ParallaxLayer>
         {/* PAGE FIVE */}
-        <ParallaxLayer offset={screen.width < 768 && screen.height < 768 ? 6.1 : 5.1}>
-          <h2 style={{ textAlign: 'center' }}>Thanks for getting to know me</h2>
+        <ParallaxLayer
+          offset={screen.width < 768 && screen.height < 768 ? 6.1 : 5.1}
+        >
+          <h2 style={{ textAlign: "center" }}>Thanks for getting to know me</h2>
         </ParallaxLayer>
-        <ParallaxLayer offset={screen.width < 768 && screen.height < 768 ? 6.8 : 5.8}>
+        <ParallaxLayer
+          offset={screen.width < 768 && screen.height < 768 ? 6.8 : 5.8}
+        >
           <div className="inner">
             <ul className="icons">
               <li>

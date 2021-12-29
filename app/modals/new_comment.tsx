@@ -95,8 +95,8 @@ export default function NewComment({ errors }: any) {
               <textarea onChange={(e) => setMessage(e.target.value)} rows={5} name="comment" />
               </label>
             </div>
-            {!(name && title && message) && <p style={{ color: 'gold', fontSize: '2rem', position: 'absolute', bottom: 0 }}>Please fill out the form</p>}
-            <button disabled={ !(name && title && message) ? true : false} style={{ fontSize: '1.2rem', position: 'absolute', bottom: '10%', width: '200px', height: '50px' }} className='header-home-link' type="submit">
+            {/* {!(name && title && message) && <p style={{ color: 'gold', fontSize: '2rem', position: 'relative', bottom: '-10%' }}>Please fill out the form to submit</p>} */}
+            <button disabled={ !(name && title && message) ? true : false} style={{ fontSize: '1.2rem', width: '200px', height: '50px', color: !(name && title && message) ? 'red' : 'white' }} className='header-home-link' type="submit">
               {transition.submission ? "Creating..." : "Comment"}
             </button>
           </Form>

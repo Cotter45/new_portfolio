@@ -17,7 +17,7 @@ export default function Email() {
   }
   return (
     <div className="container">
-      <h1>Email</h1>
+      <h1>Email Me</h1>
       <form className="email" onSubmit={handleSubmit}>
         <label>
           <ValidationError prefix="Name" field="name" errors={state.errors} />
@@ -53,7 +53,7 @@ export default function Email() {
             name="message"
           />
         </label>
-        {!(name && email && message) && (
+        {/* {!(name && email && message) && (
           <p
             style={{
               color: "gold",
@@ -62,9 +62,14 @@ export default function Email() {
           >
             Please fill out the form
           </p>
-        )}
+        )} */}
         <button
-          style={{ fontSize: "1.5rem", height: "50px", width: "200px" }}
+          style={{
+            fontSize: "1.5rem",
+            height: "50px",
+            width: "200px",
+            color: !(name && email && message) ? "red" : "white",
+          }}
           className="header-home-link"
           type="submit"
           disabled={!(name && email && message) ? true : false}
