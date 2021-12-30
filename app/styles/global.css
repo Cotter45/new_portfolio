@@ -1147,6 +1147,11 @@ body {
 
 @media screen and (max-width: 768px) and (max-height: 768px) {
 
+  .icons {
+    flex-direction: column;
+    padding-right: 25px;
+  }
+
   #particles {
     position: absolute;
     top: 0;

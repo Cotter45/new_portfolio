@@ -251,7 +251,7 @@ export default function About() {
                   <p>
                     I utilize a variety of different languages, frameworks and
                     technologies to create fully customizable websites and
-                    applications. My current favorites to work with are
+                    applications. My current favorite stack to work with is
                     PostgreSQL, Express JS, React and NodeJS.
                   </p>
                 </div>
@@ -275,8 +275,7 @@ export default function About() {
                   <p>
                     As a full stack developer I have the advantage of being able
                     to work with both the client and vendor sides of the
-                    application. This understanding of both sides allows me to
-                    be able to create robust features that are both user
+                    application. This understanding of both sides allows me to create robust features that are both user
                     friendly and efficient.
                   </p>
                 </div>
@@ -481,8 +480,7 @@ export default function About() {
                 <div className="split-text">
                   <h2>I used to work in construction</h2>
                   <p>
-                    I'm no stranger to the madness of production goals and at
-                    times, the client expectations. I have a proven record for
+                    The most valuable skills I learned here are how to adapt to evolving client demands, efficient team collaboration and meeting tight deadlines. I have a proven record of
                     exceeding expectations and producing high quality work.
                   </p>
                 </div>
@@ -496,8 +494,8 @@ export default function About() {
                 <div className="split-text">
                   <h2>For almost 9 years...</h2>
                   <p>
-                    I built a successful career and completed many massive
-                    projects for my clients. The transition into web development
+                    I built a successful career and was essential to the completion of a multitude of large scale civil construction
+                    projects. The transition to web development
                     was an easy progression with all of the skills I've obtained
                     from years of hard work and dedication.
                   </p>
@@ -532,7 +530,7 @@ export default function About() {
                     It was a childhood dream, and I accomplished it. I ran this
                     953c on a pipe crew for the largest Heavy Civil Construction
                     company on the east coast. As many challenges as I faced,
-                    every second was worth it and I learned a lot.
+                    every second was worth it and I learned invaluable transferable soft skills that will serve me well in any role.
                   </p>
                 </div>
               </ParallaxLayer>
@@ -552,31 +550,26 @@ export default function About() {
           <div onClick={() => scroll(4)} className="sticky-left-text">
             <label>About Me</label>
             <p>
-              Overall I'm just a guy who's not afraid to roll up his sleeves and
-              get his hands dirty, looking to take his passion and experience in
-              building incredible things from the ground up and leverage it in
-              the world of software engineering. Self-taught programmer who
-              recently graduated App Academy's 24 week Full Stack Software
-              Engineering program covering Javascript, Python and popular
+              Overall, I'm just a guy who's not afraid to roll up his sleeves and get his hands dirty; looking to take his passion for building incredible things from the ground up and leverage it in
+              the world of software engineering. Self-taught programmer and recent graduate of App Academy's 24-week Full Stack Software
+              Engineering Program covering Javascript, Python and popular
               frameworks.
             </p>
             <p>
-              During almost all of my free time I can be found at my computer
-              with a scratch.js file just exploring new API's and what they have
-              to offer or getting really sweaty playing some games with my
-              friends. If I'm not at my desk I'm exploring the nearest farmers
-              market with my family or playing fire trucks with my 2 year old
-              son, who just might love those trucks more than me!
+              In my free time I can be found at my computer either
+              with a scratch.js file exploring new API's or getting really sweaty playing some games with my
+              friends. If I'm not at my desk, I'm enjoying the outdoors with my family or playing fire trucks with my 2 year old
+              son, who just might love those trucks more than he loves me.
             </p>
             <p>
-              I'd say I'm just a happy go lucky guy with a fantastic
-              family/support system and maybe too many hobbies.
+              In all, I'm just a positive guy, with a fantastic
+              family/support system and maybe more hobbies than I have time for.
             </p>
             <label>Interests</label>
             <p>
-              I have a lot of hobbies, I've always been that person that can't
-              sit still. There's always something to learn, explore or improve
-              in life.
+              I've always been that person that can't
+              sit still. I feel there's always something to learn, explore or improve
+              in life. Here's a few of my favorites so far.
             </p>
             <ul>
               <li>Music</li>
@@ -589,16 +582,15 @@ export default function About() {
             <ul>
               <li>I've played guitar since I was 10</li>
               <li>
-                I learned how to roller skate before I could run and eventually
-                fell in love with street hockey
+                I learned how to roller skate before I could run
               </li>
               <li>I used to run ~ 15 miles a day, much less any more though</li>
               <li>
-                I love video games, some favorites being Final Fantasy, Halo,
-                Fallout, and The Witcher
+                I love gaming, some of my favorite series - Final Fantasy, Halo,
+                Fallout and The Witcher
               </li>
             </ul>
-            <label>Things I want to learn</label>
+            <label>Tech I'm Interested In</label>
             <ul>
               <li>Blockchain</li>
               <li>Game Development</li>
