@@ -129,6 +129,10 @@ iframe {
     bottom: 0;
 }
 
+.icons {
+    flex-direction: row;
+}
+
 @media screen and (max-width: 980px) {
 
     .projects {

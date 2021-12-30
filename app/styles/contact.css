@@ -76,9 +76,18 @@ em {
   margin: 0;
 }
 
+
 @media screen and (max-width: 1000px) {
   .contact {
     flex-direction: column;
+  }
+  
+  .icons {
+    flex-direction: row;
+  }
+
+  .remix-app__footer-content {
+    justify-content: center;
   }
 
   .comments {
