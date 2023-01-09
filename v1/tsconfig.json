@@ -1,0 +1,22 @@
+{
+  "include": ["v1/remix.env.d.ts", "**/*.ts", "**/*.tsx", "../v2/app/window-size.tsx", "../v2/app/window-size.tsx"],
+  "compilerOptions": {
+    "sourceMap": true,
+    "outDir": "dist",
+    "esModuleInterop": true,
+    "lib": ["esnext", "DOM", "DOM.Iterable", "ES2019"],
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "target": "ES2019",
+    "strict": true,
+    "allowJs": true,
+    "checkJs": false,
+    "paths": {
+      "~/*": ["./app/*"]
+    },
+
+    // Remix takes care of building everything in `remix build`.
+    "noEmit": true
+  }
+}

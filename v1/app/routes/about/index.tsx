@@ -21,7 +21,7 @@ const svg = (name: string, wrap = false) =>
 import data from "../../data";
 import { pages } from "../../about";
 import aboutStyles from '~/styles/about.css';
-import useWindowSize from "~/utils/window-size";
+import useWindowSize from "../../../../v2/app/window-size";
 
 export let links: LinksFunction = () => {
   return [

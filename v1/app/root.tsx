@@ -17,7 +17,7 @@ import { useTransition, animated } from "@react-spring/web";
 import globalStylesUrl from "~/styles/global.css";
 import darkStylesUrl from "~/styles/dark.css";
 import { ModalProvider } from "./modals/modal";
-import useWindowSize from "./utils/window-size";
+import useWindowSize from "../../v2/app/window-size";
 
 // https://remix.run/api/app#links
 export let links: LinksFunction = () => {

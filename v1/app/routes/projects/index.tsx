@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import modalCss from "~/styles/modal.css";
 import projectStyles from "~/styles/projects.css";
 import { full_stack_projects, frontend_projects } from "~/projects";
-import useWindowSize from "~/utils/window-size";
+import useWindowSize from "../../../../v2/app/window-size";
 import ProjectModal from "~/modals/project_modal";
 
 export let links: LinksFunction = () => {

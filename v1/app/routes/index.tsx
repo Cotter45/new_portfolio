@@ -3,7 +3,7 @@ import type { MetaFunction, LinksFunction } from "remix";
 import Typewriter from 'typewriter-effect';
 import { useEffect } from 'react';
 
-import useWindowSize from "~/utils/window-size";
+import useWindowSize from "../../../v2/app/window-size";
 
 import Particles from "../canvas/particles";
 
